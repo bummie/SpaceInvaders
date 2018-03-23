@@ -31,9 +31,6 @@ void GameHandler::Init()
 	//Update the surface
 	SDL_UpdateWindowSurface(_window);
 
-	//Wait two seconds
-	SDL_Delay(2000);
-
 	Update();
 }
 
@@ -44,15 +41,49 @@ void GameHandler::Update()
 	{
 		Input();
 		Draw();
+		SDL_Delay(33);
 	}
 }
 
 void GameHandler::Draw()
 {
+
 }
 
 void GameHandler::Input()
 {
+	while (SDL_PollEvent(&e) != 0)
+	{
+		if (e.type == SDL_QUIT)
+		{
+			_gameState = GAME_STATE::GAMEOVER;
+		} 
+		else if (e.type == SDL_KEYDOWN)
+		{
+			//Select surfaces based on key press
+			switch (e.key.keysym.sym)
+			{
+			case SDLK_UP:
+				std::cout << "Up";
+				break;
+
+			case SDLK_DOWN:
+				std::cout << "Down";
+				break;
+
+			case SDLK_LEFT:
+				std::cout << "Left";
+				break;
+
+			case SDLK_RIGHT:
+				std::cout << "Right";
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
 }
 
 GameHandler::~GameHandler()

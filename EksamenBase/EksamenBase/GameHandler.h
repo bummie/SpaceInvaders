@@ -23,6 +23,7 @@ private:
 	SDL_Window* _window;
 	SDL_Surface* _screenSurface;
 	GAME_STATE _gameState;
+	SDL_Event e;
 
 	void Update();
 	void Draw();
