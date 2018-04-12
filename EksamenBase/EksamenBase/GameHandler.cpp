@@ -7,6 +7,9 @@ GameHandler::GameHandler()
 	_gameState = GAME_STATE::RUNNING;
 }
 
+/// <summary>
+/// Inits SDL
+/// </summary>
 void GameHandler::Init()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -34,6 +37,9 @@ void GameHandler::Init()
 	Update();
 }
 
+/// <summary>
+/// Game loop
+/// </summary>
 void GameHandler::Update()
 {
 	// Game loop
@@ -45,11 +51,17 @@ void GameHandler::Update()
 	}
 }
 
+/// <summary>
+/// Draws to the window
+/// </summary>
 void GameHandler::Draw()
 {
 
 }
 
+/// <summary>
+/// Takes input
+/// </summary>
 void GameHandler::Input()
 {
 	while (SDL_PollEvent(&e) != 0)
@@ -86,6 +98,9 @@ void GameHandler::Input()
 	}
 }
 
+/// <summary>
+/// GameHandler destructor
+/// </summary>
 GameHandler::~GameHandler()
 {
 	SDL_DestroyWindow(_window);

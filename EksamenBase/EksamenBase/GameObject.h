@@ -2,6 +2,7 @@
 #define GAMEOBJECT_H_INCLUDED
 #include "SDL.h"
 #include <string>
+#include "Vector2D.h"
 
 class GameObject
 {	
@@ -14,6 +15,8 @@ public:
 	
 	void Draw();
 	void Update();
+
+	Vector2D Position;
 };
 
 #endif 
