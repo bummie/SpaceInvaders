@@ -1,16 +1,5 @@
 #include "TextureManager.h"
 
-TextureManager::TextureManager()
-{
-	tempSurface = nullptr;
-}
-
-
-TextureManager::~TextureManager()
-{
-	// Free textures?
-}
-
 /// <summary>
 /// Takes the renderer and a path to an image
 /// Will find given texture in the GPU memory
@@ -21,14 +10,23 @@ TextureManager::~TextureManager()
 /// <returns>SDL_Texture*</returns>
 SDL_Texture* TextureManager::GetTexture(SDL_Renderer* renderer, std::string location)
 {
+	std::unordered_map<std::string, SDL_Texture*>::iterator iterator;
+	iterator = loadedTexturesMap.find(location);
 
-	tempSurface = SDL_LoadBMP(location.c_str);
-	if (tempSurface == NULL) { return nullptr; }
+	if(iterator == loadedTexturesMap.end())
+	{
+		//std::cout << "Texture not loaded, loading now.." << std::cout.
+		tempSurface = SDL_LoadBMP(location.c_str());
+		if (tempSurface == NULL) { return nullptr; }
 
-	SDL_Texture* tempTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
-	if (tempTexture == NULL) { return nullptr; }
+		SDL_Texture* tempTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+		if (tempTexture == NULL) { return nullptr; }
 
-	loadedTexturesMap.insert({ location, tempTexture });
+		SDL_FreeSurface(tempSurface);
+		tempSurface = nullptr;
+
+		loadedTexturesMap.insert({ location, tempTexture });
+	}
 
 	return loadedTexturesMap[location];
 }

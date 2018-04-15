@@ -1,5 +1,5 @@
-#ifndef GAMEOBJECT_H_INCLUDED
-#define GAMEOBJECT_H_INCLUDED
+#ifndef TEXTUREMANAGER_H_INCLUDED
+#define TEXTUREMANAGER_H_INCLUDED
 
 #include <unordered_map>
 #include "SDL.h"
@@ -7,17 +7,18 @@
 class TextureManager
 {
 private:
-	TextureManager();
-	~TextureManager();
+	TextureManager() {};
+	TextureManager(const TextureManager&) {};
+	TextureManager& operator=(const TextureManager&) {};
+	~TextureManager() {};
 
-
-	SDL_Surface* tempSurface;
+	SDL_Surface* tempSurface = nullptr;
 	std::unordered_map<std::string, SDL_Texture*> loadedTexturesMap;
 
 public:
-	static TextureManager& getInstance()
+	static TextureManager* getInstance()
 	{
-		static TextureManager INSTANCE;
+		static TextureManager* INSTANCE;
 		return INSTANCE;
 	}
 

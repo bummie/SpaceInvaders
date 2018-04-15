@@ -5,29 +5,34 @@
 #undef main
 #include <iostream>
 #include <string>
+#include "TextureManager.h"
 
 class GameHandler
 {
-public:
+private:
 	const enum GAME_STATE { RUNNING, GAMEOVER, PAUSED };
 
-	GameHandler();
-	~GameHandler();
-	void Init();
-	
-private:
 	const int SCREEN_WIDTH = 640;
 	const int SCREEN_HEIGHT = 480;
 	const char* GAME_NAME = "BaseGameEksamen";
 
-	SDL_Window* _window;
-	SDL_Surface* _screenSurface;
-	GAME_STATE _gameState;
+	SDL_Window* window;
+	SDL_Surface* screenSurface;
+	SDL_Renderer* renderer;
+	GAME_STATE gameState;
 	SDL_Event e;
+
+	TextureManager* textureManager = nullptr;
 
 	void Update();
 	void Draw();
 	void Input();
+
+public:
+	GameHandler();
+	~GameHandler();
+	void Init();
+	
 };
 
 #endif

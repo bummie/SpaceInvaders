@@ -2,9 +2,9 @@
 
 GameHandler::GameHandler()
 {
-	_window = NULL;
-	_screenSurface = NULL;
-	_gameState = GAME_STATE::RUNNING;
+	window = nullptr;
+	screenSurface = nullptr;
+	gameState = GAME_STATE::RUNNING;
 }
 
 /// <summary>
@@ -18,22 +18,25 @@ void GameHandler::Init()
 		return;
 	}
 
-	_window = SDL_CreateWindow(GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow(GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
-	if (_window == NULL)
+	if (window == NULL)
 	{
 		printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
 		return;
 	}
 
-	_screenSurface = SDL_GetWindowSurface(_window);
+	screenSurface = SDL_GetWindowSurface(window);
 
 	//Fill the surface white
-	SDL_FillRect(_screenSurface, NULL, SDL_MapRGB(_screenSurface->format, 0x00, 0x00, 0x00));
+	SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0x00, 0x00, 0x00));
 
 	//Update the surface
-	SDL_UpdateWindowSurface(_window);
+	SDL_UpdateWindowSurface(window);
 
+	renderer = SDL_CreateRenderer(window, -1, 0);
+		
+	textureManager = TextureManager::getInstance();
 	Update();
 }
 
@@ -43,7 +46,7 @@ void GameHandler::Init()
 void GameHandler::Update()
 {
 	// Game loop
-	while (_gameState != GAME_STATE::GAMEOVER)
+	while (gameState != GAME_STATE::GAMEOVER)
 	{
 		Input();
 		Draw();
@@ -56,7 +59,8 @@ void GameHandler::Update()
 /// </summary>
 void GameHandler::Draw()
 {
-
+	SDL_RenderCopy(renderer, textureManager->GetTexture(renderer, "Resources/Images/bear.bmp"), NULL, NULL);
+	SDL_RenderPresent(renderer);
 }
 
 /// <summary>
@@ -68,7 +72,7 @@ void GameHandler::Input()
 	{
 		if (e.type == SDL_QUIT)
 		{
-			_gameState = GAME_STATE::GAMEOVER;
+			gameState = GAME_STATE::GAMEOVER;
 		} 
 		else if (e.type == SDL_KEYDOWN)
 		{
@@ -103,6 +107,6 @@ void GameHandler::Input()
 /// </summary>
 GameHandler::~GameHandler()
 {
-	SDL_DestroyWindow(_window);
+	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
