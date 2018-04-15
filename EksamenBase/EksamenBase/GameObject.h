@@ -1,5 +1,6 @@
 #ifndef GAMEOBJECT_H_INCLUDED
 #define GAMEOBJECT_H_INCLUDED
+
 #include "SDL.h"
 #include <string>
 #include "Vector2D.h"
