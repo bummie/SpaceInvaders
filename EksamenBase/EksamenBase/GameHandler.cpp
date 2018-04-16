@@ -59,7 +59,18 @@ void GameHandler::Update()
 /// </summary>
 void GameHandler::Draw()
 {
-	SDL_RenderCopy(renderer, TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp"), NULL, NULL);
+	SDL_Rect dRect;
+	dRect.h = 16;
+	dRect.w = 16;
+	dRect.x = 64;
+	dRect.y = 64;
+
+	SDL_RenderCopy(renderer, TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp"), NULL, &dRect);
+	
+	dRect.x = 120;
+	dRect.y = 120;
+	SDL_RenderCopy(renderer, TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp"), NULL, &dRect);
+
 	SDL_RenderPresent(renderer);
 }
 
@@ -107,6 +118,8 @@ void GameHandler::Input()
 /// </summary>
 GameHandler::~GameHandler()
 {
+	// MORE DESTROY
+	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }

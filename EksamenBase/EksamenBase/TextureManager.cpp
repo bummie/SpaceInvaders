@@ -1,7 +1,6 @@
 #include "TextureManager.h"
 #include <iostream>
 
-
 /// <summary>
 /// Takes the renderer and a path to an image
 /// Will find given texture in the GPU memory
@@ -12,11 +11,6 @@
 /// <returns>SDL_Texture*</returns>
 SDL_Texture* TextureManager::GetTexture(SDL_Renderer* renderer, std::string location)
 {
-	if (this == nullptr)
-	{
-		std::cout << "NULL" << std::endl;
-	}
-
 	auto iterator = loadedTexturesMap.find(location);
 
 	if(iterator == loadedTexturesMap.end())
