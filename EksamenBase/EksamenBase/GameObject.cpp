@@ -31,22 +31,22 @@ void GameObject::Input()
 {
 	if (InputManager::getInstance().KeyDown(SDLK_w))
 	{
-		position.y--;
+		position.y -= 10;
 	}
 
 	if (InputManager::getInstance().KeyDown(SDLK_s))
 	{
-		position.y++;
+		position.y += 10;
 	}
 
 	if (InputManager::getInstance().KeyDown(SDLK_a))
 	{
-		position.x--;
+		position.x -= 10;
 	}
 
 	if (InputManager::getInstance().KeyDown(SDLK_d))
 	{
-		position.x++;
+		position.x += 10;
 	}
 }
 

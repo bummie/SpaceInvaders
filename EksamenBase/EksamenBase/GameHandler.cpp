@@ -7,7 +7,6 @@ GameHandler::GameHandler()
 	window = nullptr;
 	screenSurface = nullptr;
 	gameState = GAME_STATE::RUNNING;
-
 }
 
 /// <summary>
@@ -52,8 +51,13 @@ void GameHandler::Update()
 	while (gameState != GAME_STATE::GAMEOVER)
 	{
 		Input();
-		Logic();
-		Draw();
+		
+		if(gameState != GAME_STATE::PAUSED)
+		{
+			Logic();
+			Draw();
+		}
+		
 		SDL_Delay(33);
 	}
 }
@@ -72,21 +76,12 @@ void GameHandler::Logic()
 void GameHandler::Draw()
 {
 	SDL_RenderClear(renderer);
-
-	/*SDL_Rect dRect;
-	dRect.h = 16;
-	dRect.w = 16;
-	dRect.x = 64;
-	dRect.y = 64;
-
-	SDL_RenderCopy(renderer, TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp"), NULL, &dRect);
 	
-	dRect.x = 120;
-	dRect.y = 120;
-	SDL_RenderCopy(renderer, TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp"), NULL, &dRect);
-	*/
-
+	// Draw stuff start
+	
 	player->Draw();
+
+	// Draw stuff end
 
 	SDL_RenderPresent(renderer);
 }
@@ -98,12 +93,21 @@ void GameHandler::Input()
 {
 	while (SDL_PollEvent(&InputManager::getInstance().event) != 0)
 	{
+		// Exit game
 		if (InputManager::getInstance().ExitGameRequested())
 		{
 			std::cout << "Pressed Exit" << std::endl;
 			gameState = GAME_STATE::GAMEOVER;
 		}
 
+		// Pause game
+		if (InputManager::getInstance().KeyDown(SDLK_p))
+		{
+			std::cout << "PAUSING GAME" << std::endl;
+			//gameState = GAME_STATE::PAUSED;
+		}
+
+		// Handle input on player
 		player->Input();
 	}
 	
