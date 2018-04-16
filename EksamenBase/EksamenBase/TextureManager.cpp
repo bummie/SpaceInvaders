@@ -1,4 +1,6 @@
 #include "TextureManager.h"
+#include <iostream>
+
 
 /// <summary>
 /// Takes the renderer and a path to an image
@@ -10,12 +12,16 @@
 /// <returns>SDL_Texture*</returns>
 SDL_Texture* TextureManager::GetTexture(SDL_Renderer* renderer, std::string location)
 {
-	std::unordered_map<std::string, SDL_Texture*>::iterator iterator;
-	iterator = loadedTexturesMap.find(location);
+	if (this == nullptr)
+	{
+		std::cout << "NULL" << std::endl;
+	}
+
+	auto iterator = loadedTexturesMap.find(location);
 
 	if(iterator == loadedTexturesMap.end())
 	{
-		//std::cout << "Texture not loaded, loading now.." << std::cout.
+		std::cout << "Texture not loaded, loading now.." << std::endl;
 		tempSurface = SDL_LoadBMP(location.c_str());
 		if (tempSurface == NULL) { return nullptr; }
 

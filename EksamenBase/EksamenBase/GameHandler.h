@@ -5,7 +5,6 @@
 #undef main
 #include <iostream>
 #include <string>
-#include "TextureManager.h"
 
 class GameHandler
 {
@@ -21,8 +20,6 @@ private:
 	SDL_Renderer* renderer;
 	GAME_STATE gameState;
 	SDL_Event e;
-
-	TextureManager* textureManager = nullptr;
 
 	void Update();
 	void Draw();

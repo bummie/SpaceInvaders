@@ -6,25 +6,29 @@
 
 class TextureManager
 {
+
+public:
+	static TextureManager& getInstance()
+	{
+		static TextureManager instance;
+		return instance;
+	}
+
+	SDL_Texture * GetTexture(SDL_Renderer* renderer, std::string location);
+
 private:
-	TextureManager() {};
-	TextureManager(const TextureManager&) {};
-	TextureManager& operator=(const TextureManager&) {};
-	~TextureManager() {};
+	TextureManager() {}
+	TextureManager(TextureManager const&);
+	void operator=(TextureManager const&);
+
+public:
+	//TextureManager(TextureManager const&) = delete;
+	//void operator=(TextureManager const&) = delete;
+
 
 	SDL_Surface* tempSurface = nullptr;
 	std::unordered_map<std::string, SDL_Texture*> loadedTexturesMap;
 
-public:
-	static TextureManager* getInstance()
-	{
-		static TextureManager* INSTANCE;
-		return INSTANCE;
-	}
-
-	SDL_Texture * GetTexture(SDL_Renderer* renderer, std::string location);
-	
-	// Load surfaces into textures and keep the pointer to the textures in a hashmap, can look it up with imagepath w
 };
 
 #endif

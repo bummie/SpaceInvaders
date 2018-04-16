@@ -1,4 +1,5 @@
 #include "GameHandler.h"
+#include "TextureManager.h"
 
 GameHandler::GameHandler()
 {
@@ -36,7 +37,6 @@ void GameHandler::Init()
 
 	renderer = SDL_CreateRenderer(window, -1, 0);
 		
-	textureManager = TextureManager::getInstance();
 	Update();
 }
 
@@ -59,7 +59,7 @@ void GameHandler::Update()
 /// </summary>
 void GameHandler::Draw()
 {
-	SDL_RenderCopy(renderer, textureManager->GetTexture(renderer, "Resources/Images/bear.bmp"), NULL, NULL);
+	SDL_RenderCopy(renderer, TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp"), NULL, NULL);
 	SDL_RenderPresent(renderer);
 }
 
