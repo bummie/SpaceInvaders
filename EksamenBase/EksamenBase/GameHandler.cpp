@@ -6,6 +6,7 @@ GameHandler::GameHandler()
 	window = nullptr;
 	screenSurface = nullptr;
 	gameState = GAME_STATE::RUNNING;
+
 }
 
 /// <summary>
@@ -36,7 +37,8 @@ void GameHandler::Init()
 	SDL_UpdateWindowSurface(window);
 
 	renderer = SDL_CreateRenderer(window, -1, 0);
-		
+	player = new GameObject(renderer); //TODO: Remove after testing
+
 	Update();
 }
 
@@ -49,9 +51,18 @@ void GameHandler::Update()
 	while (gameState != GAME_STATE::GAMEOVER)
 	{
 		Input();
+		Logic();
 		Draw();
 		SDL_Delay(33);
 	}
+}
+
+/// <summary>
+/// Game logic
+/// </summary>
+void GameHandler::Logic()
+{
+	player->Logic();
 }
 
 /// <summary>
@@ -59,7 +70,9 @@ void GameHandler::Update()
 /// </summary>
 void GameHandler::Draw()
 {
-	SDL_Rect dRect;
+	SDL_RenderClear(renderer);
+
+	/*SDL_Rect dRect;
 	dRect.h = 16;
 	dRect.w = 16;
 	dRect.x = 64;
@@ -70,6 +83,9 @@ void GameHandler::Draw()
 	dRect.x = 120;
 	dRect.y = 120;
 	SDL_RenderCopy(renderer, TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp"), NULL, &dRect);
+	*/
+
+	player->Draw();
 
 	SDL_RenderPresent(renderer);
 }

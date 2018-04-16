@@ -3,21 +3,21 @@
 
 #include "SDL.h"
 #include <string>
-#include "Vector2D.h"
 
 class GameObject
 {	
 private:
 	std::string imagePath;
-	SDL_Rect* rect;
+	SDL_Rect position;
+	SDL_Texture* texture;
+	SDL_Renderer* renderer;
 public:
-	GameObject();
+	GameObject(SDL_Renderer* renderer);
 	~GameObject();
 	
+	void Logic();
 	void Draw();
-	void Update();
-
-	Vector2D Position;
+	
 };
 
 #endif 

@@ -5,6 +5,7 @@
 #undef main
 #include <iostream>
 #include <string>
+#include "GameObject.h"
 
 class GameHandler
 {
@@ -21,8 +22,11 @@ private:
 	GAME_STATE gameState;
 	SDL_Event e;
 
+	GameObject* player;
+
 	void Update();
 	void Draw();
+	void Logic();
 	void Input();
 
 public:
