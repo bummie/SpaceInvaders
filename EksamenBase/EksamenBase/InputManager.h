@@ -19,8 +19,13 @@ private:
 	InputManager(InputManager const&);
 	void operator=(InputManager const&);
 
+
 public:
-	
+	bool KeyDown(SDL_Keycode key);
+	bool KeyUp(SDL_Keycode key);
+	bool ExitGameRequested();
+	SDL_Event event;
+
 
 };
 

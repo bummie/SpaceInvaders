@@ -17,6 +17,7 @@ public:
 	
 	void Logic();
 	void Draw();
+	void Input();
 	
 };
 

@@ -1,5 +1,6 @@
 #include "GameHandler.h"
 #include "TextureManager.h"
+#include "InputManager.h"
 
 GameHandler::GameHandler()
 {
@@ -95,38 +96,17 @@ void GameHandler::Draw()
 /// </summary>
 void GameHandler::Input()
 {
-	while (SDL_PollEvent(&e) != 0)
+	while (SDL_PollEvent(&InputManager::getInstance().event) != 0)
 	{
-		if (e.type == SDL_QUIT)
+		if (InputManager::getInstance().ExitGameRequested())
 		{
+			std::cout << "Pressed Exit" << std::endl;
 			gameState = GAME_STATE::GAMEOVER;
-		} 
-		else if (e.type == SDL_KEYDOWN)
-		{
-			//Select surfaces based on key press
-			switch (e.key.keysym.sym)
-			{
-			case SDLK_UP:
-				std::cout << "Up";
-				break;
-
-			case SDLK_DOWN:
-				std::cout << "Down";
-				break;
-
-			case SDLK_LEFT:
-				std::cout << "Left";
-				break;
-
-			case SDLK_RIGHT:
-				std::cout << "Right";
-				break;
-
-			default:
-				break;
-			}
 		}
+
+		player->Input();
 	}
+	
 }
 
 /// <summary>
