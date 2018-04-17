@@ -58,7 +58,7 @@ void GameHandler::Update()
 			Draw();
 		}
 		
-		SDL_Delay(33);
+		SDL_Delay(GAME_DELAY);
 	}
 }
 

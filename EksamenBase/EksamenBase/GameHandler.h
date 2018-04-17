@@ -16,6 +16,8 @@ private:
 	const int SCREEN_HEIGHT = 480;
 	const char* GAME_NAME = "BaseGameEksamen";
 
+	const int GAME_DELAY = 17;
+
 	SDL_Window* window;
 	SDL_Surface* screenSurface;
 	SDL_Renderer* renderer;
