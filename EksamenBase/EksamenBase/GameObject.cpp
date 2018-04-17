@@ -29,22 +29,22 @@ void GameObject::Draw()
 
 void GameObject::Input()
 {
-	if (InputManager::getInstance().KeyDown(SDLK_w))
+	if (InputManager::getInstance().KeyHeld(SDLK_w))
 	{
 		position.y -= 10;
 	}
 
-	if (InputManager::getInstance().KeyDown(SDLK_s))
+	if (InputManager::getInstance().KeyHeld(SDLK_s))
 	{
 		position.y += 10;
 	}
 
-	if (InputManager::getInstance().KeyDown(SDLK_a))
+	if (InputManager::getInstance().KeyHeld(SDLK_a))
 	{
 		position.x -= 10;
 	}
 
-	if (InputManager::getInstance().KeyDown(SDLK_d))
+	if (InputManager::getInstance().KeyHeld(SDLK_d))
 	{
 		position.x += 10;
 	}

@@ -107,10 +107,12 @@ void GameHandler::Input()
 			//gameState = GAME_STATE::PAUSED;
 		}
 
+		//Updates keys held down
+		InputManager::getInstance().UpdateStates();
+
 		// Handle input on player
 		player->Input();
-	}
-	
+	}	
 }
 
 /// <summary>
