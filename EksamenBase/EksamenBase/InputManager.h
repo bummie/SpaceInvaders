@@ -19,6 +19,7 @@ private:
 	InputManager(InputManager const&);
 	void operator=(InputManager const&);
 
+	std::unordered_map<SDL_Keycode, bool> keyHeldMap;
 	std::unordered_map<SDL_Keycode, bool> keyPressedMap;
 
 public:

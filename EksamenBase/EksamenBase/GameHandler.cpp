@@ -2,11 +2,14 @@
 #include "TextureManager.h"
 #include "InputManager.h"
 
+double GameHandler::deltaTime = 0;
+
 GameHandler::GameHandler()
 {
 	window = nullptr;
 	screenSurface = nullptr;
 	gameState = GAME_STATE::RUNNING;
+	dtNow = dtLast = 0;
 }
 
 /// <summary>
@@ -37,7 +40,7 @@ void GameHandler::Init()
 	SDL_UpdateWindowSurface(window);
 
 	renderer = SDL_CreateRenderer(window, -1, 0);
-	player = new GameObject(renderer); //TODO: Remove after testing
+	player = new Player(renderer); //TODO: Remove after testing
 
 	Update();
 }
@@ -50,6 +53,7 @@ void GameHandler::Update()
 	// Game loop
 	while (gameState != GAME_STATE::GAMEOVER)
 	{
+		UpdateDeltaTime();
 		Input();
 		
 		if(gameState != GAME_STATE::PAUSED)
@@ -113,6 +117,26 @@ void GameHandler::Input()
 		// Handle input on player
 		player->Input();
 	}	
+}
+
+/// <summary>
+/// Updates the deltatime value
+/// </summary>
+void GameHandler::UpdateDeltaTime()
+{
+	dtLast = dtNow;
+	dtNow = SDL_GetPerformanceCounter();
+
+	GameHandler::deltaTime = (double)((dtNow - dtLast) * 1000 / SDL_GetPerformanceFrequency());
+}
+
+/// <summary>
+/// Returns the deltatime
+/// </summary>
+/// <returns></returns>
+double GameHandler::getDeltaTime()
+{
+	return deltaTime;
 }
 
 /// <summary>

@@ -5,7 +5,7 @@
 
 class GameObject
 {	
-private:
+protected:
 
 	struct Vector2D
 	{
@@ -21,15 +21,15 @@ private:
 	Vector2D acceleration;
 	float deAcceleration;
 	float accelerationValue;
-	const float MAX_SPEED = 10.0f;
+	const float MAX_SPEED = .5f;
 
 public:
 	GameObject(SDL_Renderer* renderer);
 	~GameObject();
 	
-	void Logic();
-	void Draw();
-	void Input();
+	virtual void Logic();
+	virtual void Draw();
+	virtual void Input();
 };
 
 #endif 

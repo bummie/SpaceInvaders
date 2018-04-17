@@ -5,7 +5,7 @@
 #undef main
 #include <iostream>
 #include <string>
-#include "GameObject.h"
+#include "Player.h"
 
 class GameHandler
 {
@@ -16,7 +16,7 @@ private:
 	const int SCREEN_HEIGHT = 480;
 	const char* GAME_NAME = "BaseGameEksamen";
 
-	const int GAME_DELAY = 17;
+	const int GAME_DELAY = 1000 / 60;
 
 	SDL_Window* window;
 	SDL_Surface* screenSurface;
@@ -24,17 +24,23 @@ private:
 	GAME_STATE gameState;
 	SDL_Event e;
 
-	GameObject* player;
+	Player* player;
+
+	Uint64 dtNow, dtLast;
+	static double deltaTime;
 
 	void Update();
 	void Draw();
 	void Logic();
 	void Input();
+	void UpdateDeltaTime();
 
 public:
 	GameHandler();
 	~GameHandler();
 	void Init();
+
+	static double getDeltaTime();
 	
 };
 
