@@ -1,6 +1,8 @@
 #include "GameHandler.h"
 #include "TextureManager.h"
 #include "InputManager.h"
+#include "SDL_ttf.h"
+#include <string>
 
 double GameHandler::deltaTime = 0;
 
@@ -31,6 +33,12 @@ void GameHandler::Init()
 		return;
 	}
 
+	if (TTF_Init() == -1) 
+	{
+		printf("TTF_Init: %s\n", TTF_GetError());
+		return;
+	}
+
 	screenSurface = SDL_GetWindowSurface(window);
 
 	//Fill the surface white
@@ -41,7 +49,7 @@ void GameHandler::Init()
 
 	renderer = SDL_CreateRenderer(window, -1, 0);
 	player = new Player(renderer); //TODO: Remove after testing
-
+	text = new Text(renderer, "Seb e kul", {255, 0, 255}, 24, 250, 100, 200, 200);
 	Update();
 }
 
@@ -72,6 +80,7 @@ void GameHandler::Update()
 void GameHandler::Logic()
 {
 	player->Logic();
+	text->setText("Seb: " + std::to_string(getDeltaTime()));
 }
 
 /// <summary>
@@ -80,13 +89,12 @@ void GameHandler::Logic()
 void GameHandler::Draw()
 {
 	SDL_RenderClear(renderer);
-	
 	// Draw stuff start
 	
 	player->Draw();
+	text->Draw();
 
 	// Draw stuff end
-
 	SDL_RenderPresent(renderer);
 }
 

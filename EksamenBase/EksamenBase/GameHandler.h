@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include "Player.h"
+#include "Text.h"
 
 class GameHandler
 {
@@ -25,6 +26,7 @@ private:
 	SDL_Event e;
 
 	Player* player;
+	Text* text;
 
 	Uint64 dtNow, dtLast;
 	static double deltaTime;

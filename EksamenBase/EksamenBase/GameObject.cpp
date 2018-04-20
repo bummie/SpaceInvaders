@@ -5,7 +5,7 @@
 #include <cmath>  
 #include "GameHandler.h"
 
-GameObject::GameObject(SDL_Renderer* _renderer)
+GameObject::GameObject(SDL_Renderer* renderer)
 {
 	position = SDL_Rect();
 	position.h = 64;
@@ -16,7 +16,7 @@ GameObject::GameObject(SDL_Renderer* _renderer)
 	deAcceleration = 1.0f;
 	accelerationValue = .1f;
 
-	renderer = _renderer;
+	GameObject::renderer = renderer;
 	texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp");
 }
 

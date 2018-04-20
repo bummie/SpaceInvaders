@@ -1,7 +1,5 @@
 #include "TextRenderer.h"
 
-
-
 TextRenderer::TextRenderer()
 {
 }
