@@ -148,25 +148,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EksamenBase.cpp" />
-    <ClCompile Include="GameHandler.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Text.cpp" />
-    <ClCompile Include="TextRenderer.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="Handlers\GameHandler.cpp" />
+    <ClCompile Include="GameObjects\GameObject.cpp" />
+    <ClCompile Include="Handlers\InputManager.cpp" />
+    <ClCompile Include="GameObjects\Player.cpp" />
+    <ClCompile Include="Handlers\Text.cpp" />
+    <ClCompile Include="Handlers\TextRenderer.cpp" />
+    <ClCompile Include="Handlers\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameHandler.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="InputManager.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Text.h" />
-    <ClInclude Include="TextRenderer.h" />
-    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Handlers\GameHandler.h" />
+    <ClInclude Include="GameObjects\GameObject.h" />
+    <ClInclude Include="Handlers\InputManager.h" />
+    <ClInclude Include="GameObjects\Player.h" />
+    <ClInclude Include="Handlers\Text.h" />
+    <ClInclude Include="Handlers\TextRenderer.h" />
+    <ClInclude Include="Handlers\TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

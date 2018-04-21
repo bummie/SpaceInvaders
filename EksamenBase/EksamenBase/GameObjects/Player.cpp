@@ -1,6 +1,6 @@
 #include "Player.h"
-#include "InputManager.h"
-#include "TextureManager.h"
+#include "../Handlers/InputManager.h"
+#include "../Handlers/TextureManager.h"
 #include <iostream>
 
 Player::~Player()

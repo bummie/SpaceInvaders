@@ -5,7 +5,7 @@
 #undef main
 #include <iostream>
 #include <string>
-#include "Player.h"
+#include "../GameObjects/Player.h"
 #include "Text.h"
 
 class GameHandler

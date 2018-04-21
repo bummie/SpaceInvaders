@@ -1,9 +1,9 @@
 #include "GameObject.h"
-#include "TextureManager.h"
-#include "InputManager.h"
+#include "../Handlers/TextureManager.h"
+#include "../Handlers/InputManager.h"
+#include "../Handlers/GameHandler.h"
 #include <iostream>
 #include <cmath>  
-#include "GameHandler.h"
 
 GameObject::GameObject(SDL_Renderer* renderer)
 {
