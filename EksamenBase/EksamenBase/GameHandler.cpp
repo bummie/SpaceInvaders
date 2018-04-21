@@ -1,6 +1,7 @@
 #include "GameHandler.h"
 #include "TextureManager.h"
 #include "InputManager.h"
+#include "TextRenderer.h"
 #include "SDL_ttf.h"
 #include <string>
 
@@ -49,7 +50,9 @@ void GameHandler::Init()
 
 	renderer = SDL_CreateRenderer(window, -1, 0);
 	player = new Player(renderer); //TODO: Remove after testing
-	text = new Text(renderer, "Seb e kul", {255, 0, 255}, 24, 250, 100, 200, 200);
+	TextRenderer::getInstance().addText("Seb", new Text(renderer, "Seb e kul", {255, 0, 255}, 24, 250, 100, 200, 200));
+	TextRenderer::getInstance().addText("Title", new Text(renderer, "HALLO", { 19, 40, 255 }, 12, 10, 10, 100, 100));
+
 	Update();
 }
 
@@ -80,7 +83,7 @@ void GameHandler::Update()
 void GameHandler::Logic()
 {
 	player->Logic();
-	text->setText("Seb: " + std::to_string(getDeltaTime()));
+	TextRenderer::getInstance().getText("Seb")->setText("Seb: " + std::to_string(getDeltaTime()));
 }
 
 /// <summary>
@@ -92,7 +95,7 @@ void GameHandler::Draw()
 	// Draw stuff start
 	
 	player->Draw();
-	text->Draw();
+	TextRenderer::getInstance().Draw();
 
 	// Draw stuff end
 	SDL_RenderPresent(renderer);
@@ -117,6 +120,14 @@ void GameHandler::Input()
 		{
 			std::cout << "PAUSING GAME" << std::endl;
 			//gameState = GAME_STATE::PAUSED;
+			TextRenderer::getInstance().getText("Title")->setText("TRYKKET P");
+
+		}
+
+		if (InputManager::getInstance().KeyDown(SDLK_q))
+		{
+			TextRenderer::getInstance().getText("Title")->setText("TRYKKET Q");
+			TextRenderer::getInstance().removeText("Title");
 		}
 
 		//Updates keys held down

@@ -174,8 +174,6 @@
     <Import Project="..\packages\sdl2.2.0.5\build\native\sdl2.targets" Condition="Exists('..\packages\sdl2.2.0.5\build\native\sdl2.targets')" />
     <Import Project="..\packages\freetype.redist.2.6.2.1\build\native\freetype.redist.targets" Condition="Exists('..\packages\freetype.redist.2.6.2.1\build\native\freetype.redist.targets')" />
     <Import Project="..\packages\sdl2.v140.redist.2.0.4\build\native\sdl2.v140.redist.targets" Condition="Exists('..\packages\sdl2.v140.redist.2.0.4\build\native\sdl2.v140.redist.targets')" />
-    <Import Project="..\packages\sdl2_ttf.v140.redist.2.0.14\build\native\sdl2_ttf.v140.redist.targets" Condition="Exists('..\packages\sdl2_ttf.v140.redist.2.0.14\build\native\sdl2_ttf.v140.redist.targets')" />
-    <Import Project="..\packages\sdl2_ttf.v140.2.0.14\build\native\sdl2_ttf.v140.targets" Condition="Exists('..\packages\sdl2_ttf.v140.2.0.14\build\native\sdl2_ttf.v140.targets')" />
     <Import Project="..\packages\ikkepop.sdl2_ttf.redist.2.0.14\build\native\ikkepop.sdl2_ttf.redist.targets" Condition="Exists('..\packages\ikkepop.sdl2_ttf.redist.2.0.14\build\native\ikkepop.sdl2_ttf.redist.targets')" />
     <Import Project="..\packages\ikkepop.sdl2_ttf.2.0.14\build\native\ikkepop.sdl2_ttf.targets" Condition="Exists('..\packages\ikkepop.sdl2_ttf.2.0.14\build\native\ikkepop.sdl2_ttf.targets')" />
   </ImportGroup>
@@ -187,8 +185,6 @@
     <Error Condition="!Exists('..\packages\sdl2.2.0.5\build\native\sdl2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sdl2.2.0.5\build\native\sdl2.targets'))" />
     <Error Condition="!Exists('..\packages\freetype.redist.2.6.2.1\build\native\freetype.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\freetype.redist.2.6.2.1\build\native\freetype.redist.targets'))" />
     <Error Condition="!Exists('..\packages\sdl2.v140.redist.2.0.4\build\native\sdl2.v140.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sdl2.v140.redist.2.0.4\build\native\sdl2.v140.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\sdl2_ttf.v140.redist.2.0.14\build\native\sdl2_ttf.v140.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sdl2_ttf.v140.redist.2.0.14\build\native\sdl2_ttf.v140.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\sdl2_ttf.v140.2.0.14\build\native\sdl2_ttf.v140.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sdl2_ttf.v140.2.0.14\build\native\sdl2_ttf.v140.targets'))" />
     <Error Condition="!Exists('..\packages\ikkepop.sdl2_ttf.redist.2.0.14\build\native\ikkepop.sdl2_ttf.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ikkepop.sdl2_ttf.redist.2.0.14\build\native\ikkepop.sdl2_ttf.redist.targets'))" />
     <Error Condition="!Exists('..\packages\ikkepop.sdl2_ttf.2.0.14\build\native\ikkepop.sdl2_ttf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ikkepop.sdl2_ttf.2.0.14\build\native\ikkepop.sdl2_ttf.targets'))" />
   </Target>

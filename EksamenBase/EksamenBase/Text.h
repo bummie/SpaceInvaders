@@ -1,5 +1,5 @@
-#ifndef TEXTRENDERER_H_INCLUDED
-#define TEXTRENDERER_H_INCLUDED
+#ifndef TEXT_H_INCLUDED
+#define TEXT_H_INCLUDED
 
 #include "SDL.h"
 #include <SDL_ttf.h>

@@ -26,7 +26,6 @@ private:
 	SDL_Event e;
 
 	Player* player;
-	Text* text;
 
 	Uint64 dtNow, dtLast;
 	static double deltaTime;
