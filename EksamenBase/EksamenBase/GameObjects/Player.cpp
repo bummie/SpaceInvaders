@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "../Handlers/InputManager.h"
 #include "../Handlers/TextureManager.h"
+#include "../Handlers/SoundManager.h"
+
 #include <iostream>
 
 Player::~Player()
@@ -23,6 +25,12 @@ void Player::Input()
 	{
 		std::cout << "Click" << std::endl;
 		texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/test.bmp");
+	}
+
+	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
+	{
+		std::cout << "SPACE" << std::endl;
+		SoundManager::getInstance().PlaySound();
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_w))

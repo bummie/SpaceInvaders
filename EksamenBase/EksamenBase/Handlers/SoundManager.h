@@ -21,6 +21,9 @@ private:
 
 public:
 	bool Init();
+	void PlaySound();
+	Mix_Chunk* test = NULL;
+
 
 };
 
