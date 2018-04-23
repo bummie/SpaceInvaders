@@ -3,6 +3,9 @@
 
 TextRenderer::~TextRenderer()
 {
+	//TTF_CloseFont(font);
+	//TODO:: Use same font for every object and kill font here in end yo
+	TTF_Quit();
 }
 
 /// <summary>

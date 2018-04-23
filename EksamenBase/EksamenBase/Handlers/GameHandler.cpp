@@ -2,6 +2,7 @@
 #include "TextureManager.h"
 #include "InputManager.h"
 #include "TextRenderer.h"
+#include "SoundManager.h"
 #include "SDL_ttf.h"
 #include <string>
 
@@ -40,6 +41,8 @@ void GameHandler::Init()
 		return;
 	}
 
+	if (!SoundManager::getInstance().Init()) { return; }
+
 	screenSurface = SDL_GetWindowSurface(window);
 
 	//Fill the surface white
@@ -47,8 +50,8 @@ void GameHandler::Init()
 
 	//Update the surface
 	SDL_UpdateWindowSurface(window);
-
 	renderer = SDL_CreateRenderer(window, -1, 0);
+
 	player = new Player(renderer); //TODO: Remove after testing
 	TextRenderer::getInstance().addText("Seb", new Text(renderer, "Seb e kul", {255, 0, 255}, 24, 250, 100, 200, 200));
 	TextRenderer::getInstance().addText("Title", new Text(renderer, "HALLO", { 19, 40, 255 }, 12, 10, 10, 100, 100));
