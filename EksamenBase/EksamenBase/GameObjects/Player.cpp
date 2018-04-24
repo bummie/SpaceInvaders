@@ -30,7 +30,16 @@ void Player::Input()
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 	{
 		std::cout << "SPACE" << std::endl;
-		SoundManager::getInstance().PlaySound();
+		SoundManager::getInstance().PlaySound("Laser");
+		SoundManager::getInstance().PlayMusic();
+
+	}
+
+	if (InputManager::getInstance().KeyDown(SDLK_g))
+	{
+		std::cout << "g" << std::endl;
+		SoundManager::getInstance().PlaySound("Explosion");
+		SoundManager::getInstance().StopMusic();
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_w))

@@ -3,6 +3,8 @@
 
 #include "SDL.h"
 #include "SDL_mixer.h"
+#include <unordered_map>
+
 class SoundManager
 {
 
@@ -19,11 +21,16 @@ private:
 	SoundManager(SoundManager const&);
 	void operator=(SoundManager const&);
 
+	std::unordered_map<std::string, Mix_Chunk*> soundMap;
+	Mix_Music* music;
+
+	void LoadSounds();
+
 public:
 	bool Init();
-	void PlaySound();
-	Mix_Chunk* test = NULL;
-
+	void PlaySound(std::string soundName);
+	void PlayMusic();
+	void StopMusic();
 
 };
 
