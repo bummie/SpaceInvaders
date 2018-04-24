@@ -111,6 +111,9 @@ void GameHandler::Input()
 {
 	while (SDL_PollEvent(&InputManager::getInstance().event) != 0)
 	{
+		//Updates keys held down
+		InputManager::getInstance().UpdateStates();
+
 		// Exit game
 		if (InputManager::getInstance().ExitGameRequested())
 		{
@@ -132,9 +135,6 @@ void GameHandler::Input()
 			TextRenderer::getInstance().getText("Title")->setText("TRYKKET Q");
 			TextRenderer::getInstance().removeText("Title");
 		}
-
-		//Updates keys held down
-		InputManager::getInstance().UpdateStates();
 
 		// Handle input on player
 		player->Input();
