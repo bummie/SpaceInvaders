@@ -27,6 +27,7 @@ public:
 	GameObject(SDL_Renderer* renderer);
 	~GameObject();
 	
+	std::string tag;
 	virtual void Logic();
 	virtual void Draw();
 	virtual void Input();

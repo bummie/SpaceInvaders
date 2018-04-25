@@ -5,6 +5,12 @@
 
 #include <iostream>
 
+Player::Player(SDL_Renderer * renderer) : GameObject(renderer)
+{
+	texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/test.bmp");
+	tag = "Player";
+}
+
 Player::~Player()
 {
 
@@ -17,7 +23,6 @@ void Player::Logic()
 	// Do more logic
 
 }
-
 
 void Player::Input() 
 {

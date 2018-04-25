@@ -16,6 +16,8 @@ GameObject::GameObject(SDL_Renderer* renderer)
 	deAcceleration = 1.0f;
 	accelerationValue = .1f;
 
+	tag = "GameObject";
+
 	GameObject::renderer = renderer;
 	texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp");
 }
