@@ -147,7 +147,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObjects\Enemy.cpp" />
+    <ClCompile Include="Handlers\CollisionManager.cpp" />
     <ClCompile Include="EksamenBase.cpp" />
+    <ClCompile Include="Handlers\GameObjectsManager.cpp" />
     <ClCompile Include="Handlers\GameHandler.cpp" />
     <ClCompile Include="GameObjects\GameObject.cpp" />
     <ClCompile Include="Handlers\InputManager.cpp" />
@@ -161,6 +164,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameObjects\Enemy.h" />
+    <ClInclude Include="Handlers\CollisionManager.h" />
+    <ClInclude Include="Handlers\GameObjectsManager.h" />
     <ClInclude Include="Handlers\GameHandler.h" />
     <ClInclude Include="GameObjects\GameObject.h" />
     <ClInclude Include="Handlers\InputManager.h" />

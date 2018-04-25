@@ -1,5 +1,5 @@
-#ifndef Player_H_INCLUDED
-#define Player_H_INCLUDED
+#ifndef PLAYER_H_INCLUDED
+#define PLAYER_H_INCLUDED
 
 #include "GameObject.h"
 

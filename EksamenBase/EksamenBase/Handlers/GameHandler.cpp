@@ -3,8 +3,10 @@
 #include "InputManager.h"
 #include "TextRenderer.h"
 #include "SoundManager.h"
+#include "GameObjectsManager.h"
 #include "SDL_ttf.h"
 #include <string>
+#include "../GameObjects/Enemy.h"
 
 double GameHandler::deltaTime = 0;
 
@@ -52,7 +54,9 @@ void GameHandler::Init()
 	SDL_UpdateWindowSurface(window);
 	renderer = SDL_CreateRenderer(window, -1, 0);
 
-	player = new Player(renderer); //TODO: Remove after testing
+	GameObjectsManager::getInstance().Add(new Player(renderer));
+	GameObjectsManager::getInstance().Add(new Enemy(renderer)); 
+
 	TextRenderer::getInstance().addText("Seb", new Text(renderer, "Seb e kul", {255, 0, 255}, 24, 250, 100, 200, 200));
 	TextRenderer::getInstance().addText("Title", new Text(renderer, "HALLO", { 19, 40, 255 }, 12, 10, 10, 100, 100));
 
@@ -85,7 +89,7 @@ void GameHandler::Update()
 /// </summary>
 void GameHandler::Logic()
 {
-	player->Logic();
+	GameObjectsManager::getInstance().Logic();
 	TextRenderer::getInstance().getText("Seb")->setText("Seb: " + std::to_string(getDeltaTime()));
 }
 
@@ -97,7 +101,7 @@ void GameHandler::Draw()
 	SDL_RenderClear(renderer);
 	// Draw stuff start
 	
-	player->Draw();
+	GameObjectsManager::getInstance().Draw();
 	TextRenderer::getInstance().Draw();
 
 	// Draw stuff end
@@ -136,9 +140,9 @@ void GameHandler::Input()
 			TextRenderer::getInstance().removeText("Title");
 		}
 
-		// Handle input on player
-		player->Input();
-	}	
+		// Handle input on gameobjects
+		GameObjectsManager::getInstance().Input();
+	}
 }
 
 /// <summary>

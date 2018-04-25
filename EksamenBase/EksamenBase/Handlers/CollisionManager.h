@@ -1,7 +1,7 @@
 #ifndef COLLISIONMANAGER_H_INCLUDED
 #define COLLISIONMANAGER_H_INCLUDED
 
-#include "GameObjects\GameObject.h"
+#include "../GameObjects\GameObject.h"
 
 class CollisionManager
 {

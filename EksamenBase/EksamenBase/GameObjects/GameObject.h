@@ -2,6 +2,7 @@
 #define GAMEOBJECT_H_INCLUDED
 
 #include "SDL.h"
+#include <string>
 
 class GameObject
 {	
