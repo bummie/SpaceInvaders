@@ -56,6 +56,8 @@ void GameHandler::Init()
 
 	GameObjectsManager::getInstance().Add(new Player(renderer));
 	GameObjectsManager::getInstance().Add(new Enemy(renderer)); 
+	GameObjectsManager::getInstance().Add(new Enemy(renderer));
+	GameObjectsManager::getInstance().Add(new Enemy(renderer));
 
 	TextRenderer::getInstance().addText("Seb", new Text(renderer, "Seb e kul", {255, 0, 255}, 24, 250, 100, 200, 200));
 	TextRenderer::getInstance().addText("Title", new Text(renderer, "HALLO", { 19, 40, 255 }, 12, 10, 10, 100, 100));

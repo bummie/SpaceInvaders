@@ -2,6 +2,7 @@
 #include "../Handlers/InputManager.h"
 #include "../Handlers/TextureManager.h"
 #include "../Handlers/SoundManager.h"
+#include "../Handlers/CollisionManager.h"
 
 #include <iostream>
 
@@ -21,6 +22,10 @@ void Player::Logic()
 	GameObject::Logic();
 
 	// Do more logic
+	if(CollisionManager::getInstance().IsColliding(this) != nullptr)
+	{
+		std::cout << "I AM COLLIDING OOO" << std::endl;
+	}
 
 }
 

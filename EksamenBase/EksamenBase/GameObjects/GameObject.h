@@ -15,7 +15,6 @@ protected:
 	};
 
 	//std::string imagePath;
-	SDL_Rect position;
 	SDL_Texture* texture;
 	SDL_Renderer* renderer;
 	Vector2D velocity;
@@ -27,7 +26,8 @@ protected:
 public:
 	GameObject(SDL_Renderer* renderer);
 	~GameObject();
-	
+
+	SDL_Rect position;
 	std::string tag;
 	virtual void Logic();
 	virtual void Draw();

@@ -44,6 +44,7 @@ void GameObjectsManager::Remove(GameObject* gameObject)
 
 /// <summary>
 /// Retuns an array of gameobject with given tag
+/// TODO:: Test it out, not sure if it works yo
 /// </summary>
 /// <param name="tag"></param>
 /// <returns></returns>
@@ -99,5 +100,3 @@ void GameObjectsManager::Logic()
 		gameObject->Logic();
 	}
 }
-
-

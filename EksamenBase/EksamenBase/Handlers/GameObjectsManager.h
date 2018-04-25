@@ -19,9 +19,9 @@ private:
 	GameObjectsManager(GameObjectsManager const&);
 	void operator=(GameObjectsManager const&);
 
-	std::vector<GameObject*> gameObjectsList;
 public:
 	~GameObjectsManager();
+	std::vector<GameObject*> gameObjectsList;
 
 	void Add(GameObject* gameObject);
 	void Remove(GameObject* gameObject);

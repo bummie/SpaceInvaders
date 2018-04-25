@@ -4,6 +4,7 @@
 #include "../Handlers/SoundManager.h"
 
 #include <iostream>
+#include <stdlib.h>  
 
 Enemy::Enemy(SDL_Renderer * renderer) : GameObject(renderer)
 {
@@ -21,6 +22,9 @@ void Enemy::Logic()
 	GameObject::Logic();
 
 	// Do more logic
+
+	position.x = (rand() % 300 );
+	position.y = (rand() % 300);
 
 }
 
