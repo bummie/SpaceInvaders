@@ -5,6 +5,7 @@
 #include "../Handlers/CollisionManager.h"
 
 #include <iostream>
+#include <vector>
 
 Player::Player(SDL_Renderer * renderer) : GameObject(renderer)
 {
@@ -22,10 +23,16 @@ void Player::Logic()
 	GameObject::Logic();
 
 	// Do more logic
-	if(CollisionManager::getInstance().IsColliding(this) != nullptr)
+	std::vector<GameObject*>* collision = CollisionManager::getInstance().OnCollision(this);
+	if(collision != nullptr)
 	{
-		std::cout << "I AM COLLIDING OOO" << std::endl;
+		for(auto go : *collision)
+		{
+			std::cout << "I AM COLLIDING with " << go->id << std::endl;
+		}
 	}
+
+	delete(collision);
 
 }
 

@@ -29,6 +29,7 @@ public:
 
 	SDL_Rect position;
 	std::string tag;
+	int id;
 	virtual void Logic();
 	virtual void Draw();
 	virtual void Input();

@@ -23,7 +23,7 @@ void GameObjectsManager::Add(GameObject* gameObject)
 			return;
 		}
 	}
-
+	gameObject->id = gameObjectCounter++;
 	gameObjectsList.push_back(gameObject);
 }
 

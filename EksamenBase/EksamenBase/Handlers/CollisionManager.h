@@ -2,6 +2,7 @@
 #define COLLISIONMANAGER_H_INCLUDED
 
 #include "../GameObjects\GameObject.h"
+#include <vector>
 
 class CollisionManager
 {
@@ -19,7 +20,7 @@ private:
 
 public:
 	~CollisionManager();
-	GameObject* IsColliding(GameObject* gameObject);
+	std::vector<GameObject*>* OnCollision(GameObject* gameObject);
 };
 
 #endif

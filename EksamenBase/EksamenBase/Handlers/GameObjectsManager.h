@@ -18,6 +18,7 @@ private:
 	GameObjectsManager() {}
 	GameObjectsManager(GameObjectsManager const&);
 	void operator=(GameObjectsManager const&);
+	int gameObjectCounter = 0;
 
 public:
 	~GameObjectsManager();

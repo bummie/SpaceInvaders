@@ -23,8 +23,11 @@ void Enemy::Logic()
 
 	// Do more logic
 
-	position.x = (rand() % 300 );
-	position.y = (rand() % 300);
+	position.x = std::cos(degree) * 100 + 300;
+	position.y = std::sin(degree) * 100 + 300;
+
+	degree++;
+	if (degree >= 360) { degree = 0; }
 
 }
 
