@@ -33,7 +33,6 @@ void Player::Logic()
 	}
 
 	delete(collision);
-
 }
 
 void Player::Input() 

@@ -6,6 +6,13 @@ CollisionManager::~CollisionManager()
 {
 }
 
+/// <summary>
+/// When there happens a collision with given object
+/// This method will return a vector with the objects 
+/// being collided with.
+/// </summary>
+/// <param name="gameObject"></param>
+/// <returns></returns>
 std::vector<GameObject*>* CollisionManager::OnCollision(GameObject * gameObject)
 {
 	std::vector<GameObject*>* foundCollision = new std::vector<GameObject*>();
@@ -13,11 +20,9 @@ std::vector<GameObject*>* CollisionManager::OnCollision(GameObject * gameObject)
 	{
 		if (gameObject == go) { continue; }
 
-		// TODO: Handle multiply collisions
 		if (SDL_HasIntersection(&go->position, &gameObject->position))
 		{
 			foundCollision->push_back(go);
-			//return go;
 		}
 	}
 
@@ -29,6 +34,4 @@ std::vector<GameObject*>* CollisionManager::OnCollision(GameObject * gameObject)
 		delete(foundCollision);
 		return nullptr;
 	}
-
-	
 }

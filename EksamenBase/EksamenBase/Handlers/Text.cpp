@@ -25,6 +25,7 @@ Text::Text(SDL_Renderer* renderer, std::string text, SDL_Color color, int size, 
 
 Text::~Text()
 {
+	TTF_CloseFont(font);
 	FreeSurface();
 	FreeTexture();
 }
