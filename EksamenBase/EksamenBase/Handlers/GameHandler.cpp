@@ -16,7 +16,7 @@ GameHandler::GameHandler()
 {
 	window = nullptr;
 	screenSurface = nullptr;
-	gameState = GAME_STATE::RUNNING;
+	gameState = GAME_STATE::STARTSCREEN;
 	dtNow = dtLast = 0;
 }
 
@@ -94,13 +94,29 @@ void GameHandler::Update()
 /// </summary>
 void GameHandler::Logic()
 {
-	GameObjectsManager::getInstance().Logic();
+	switch(gameState)
+	{
+	case GAME_STATE::RUNNING:
+		GameObjectsManager::getInstance().Logic();
 
-	//TODO: Own method make pretty
-	m_scorestream.clear();
-	m_scorestream.str(std::string());
-	m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
-	TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
+		//TODO: Own method make pretty
+		m_scorestream.clear();
+		m_scorestream.str(std::string());
+		m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
+		TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
+
+		//TextRenderer::getInstance().getText("score_value")->setVisibile(false);
+
+		
+		break;
+	case GAME_STATE::STARTSCREEN:
+
+		//TextRenderer::getInstance().getText("score_value")->setVisibile(true);
+
+		break;
+	case GAME_STATE::PAUSED:
+		break;
+	}
 }
 
 /// <summary>
@@ -111,8 +127,19 @@ void GameHandler::Draw()
 	SDL_RenderClear(renderer);
 	// Draw stuff start
 	
-	GameObjectsManager::getInstance().Draw();
+	switch (gameState)
+	{
+	case GAME_STATE::RUNNING:
+		GameObjectsManager::getInstance().Draw();
+		break;
+	case GAME_STATE::STARTSCREEN:
+		break;
+	case GAME_STATE::PAUSED:
+		break;
+	}
+
 	TextRenderer::getInstance().Draw();
+
 
 	// Draw stuff end
 	SDL_RenderPresent(renderer);
@@ -149,7 +176,22 @@ void GameHandler::Input()
 		}
 
 		// Handle input on gameobjects
-		GameObjectsManager::getInstance().Input();
+
+		switch (gameState)
+		{
+		case GAME_STATE::RUNNING:
+			GameObjectsManager::getInstance().Input();
+			break;
+		case GAME_STATE::STARTSCREEN:
+			if (InputManager::getInstance().KeyDown(SDLK_SPACE))
+			{
+				std::cout << "STARTING GAME" << std::endl;
+				gameState = GAME_STATE::RUNNING;
+			}
+			break;
+		case GAME_STATE::PAUSED:
+			break;
+		}
 	}
 }
 

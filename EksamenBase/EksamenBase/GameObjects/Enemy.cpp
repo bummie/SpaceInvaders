@@ -21,6 +21,7 @@ void Enemy::Logic()
 {
 	GameObject::Logic();
 
+
 	// Do more logic
 	position.x = std::cos(degree) * 100 + 300;
 	position.y = std::sin(degree) * 100 + 300;
