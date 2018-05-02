@@ -5,7 +5,7 @@ Text::Text(SDL_Renderer* renderer, std::string text, SDL_Color color, int size, 
 {
 	Text::renderer = renderer;
 	Text::text = text;
-	font = TTF_OpenFont("Resources/Fonts/OpenSans-Regular.ttf", size);
+	font = TTF_OpenFont("Resources/Fonts/ca.ttf", size);
 	if (font == nullptr) 
 	{
 		std::cout << "Font is null" << TTF_GetError() << std::endl;

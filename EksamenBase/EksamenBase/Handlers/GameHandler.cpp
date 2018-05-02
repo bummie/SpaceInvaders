@@ -5,10 +5,12 @@
 #include "SoundManager.h"
 #include "GameObjectsManager.h"
 #include "SDL_ttf.h"
-#include <string>
 #include "../GameObjects/Enemy.h"
+#include <string>
+#include <iomanip>
 
 double GameHandler::deltaTime = 0;
+int GameHandler::score = 0;
 
 GameHandler::GameHandler()
 {
@@ -54,13 +56,14 @@ void GameHandler::Init()
 	SDL_UpdateWindowSurface(window);
 	renderer = SDL_CreateRenderer(window, -1, 0);
 
-	GameObjectsManager::getInstance().Add(new Player(renderer));
-	GameObjectsManager::getInstance().Add(new Enemy(renderer)); 
-	GameObjectsManager::getInstance().Add(new Enemy(renderer));
-	GameObjectsManager::getInstance().Add(new Enemy(renderer));
+	// Create player
+	GameObjectsManager::getInstance().Add(new Player(renderer, SCREEN_WIDTH * .5, SCREEN_HEIGHT - 64));
 
-	TextRenderer::getInstance().addText("Seb", new Text(renderer, "Seb e kul", {255, 0, 255}, 24, 250, 100, 200, 200));
-	TextRenderer::getInstance().addText("Title", new Text(renderer, "HALLO", { 19, 40, 255 }, 12, 10, 10, 100, 100));
+	// Init text to screen
+	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", {255, 255, 255}, 24, 0, 0, 164, 32));
+	TextRenderer::getInstance().addText("highscore", new Text(renderer, "HI-SCORE SCORE <2>", { 255, 255, 255 }, 24, 172, 0, 164, 32));
+	TextRenderer::getInstance().addText("score_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 0, 40, 82, 24));
+	TextRenderer::getInstance().addText("highscore_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 172, 40, 82, 24));
 
 	Update();
 }
@@ -92,7 +95,12 @@ void GameHandler::Update()
 void GameHandler::Logic()
 {
 	GameObjectsManager::getInstance().Logic();
-	TextRenderer::getInstance().getText("Seb")->setText("Seb: " + std::to_string(getDeltaTime()));
+
+	//TODO: Own method make pretty
+	m_scorestream.clear();
+	m_scorestream.str(std::string());
+	m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
+	TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
 }
 
 /// <summary>
@@ -132,14 +140,12 @@ void GameHandler::Input()
 		{
 			std::cout << "PAUSING GAME" << std::endl;
 			//gameState = GAME_STATE::PAUSED;
-			TextRenderer::getInstance().getText("Title")->setText("TRYKKET P");
-
 		}
 
-		if (InputManager::getInstance().KeyDown(SDLK_q))
+		// Pause game
+		if (InputManager::getInstance().KeyDown(SDLK_c))
 		{
-			TextRenderer::getInstance().getText("Title")->setText("TRYKKET Q");
-			TextRenderer::getInstance().removeText("Title");
+			GameHandler::score++;
 		}
 
 		// Handle input on gameobjects

@@ -6,7 +6,7 @@
 class Player : public GameObject
 {
 public:
-	Player(SDL_Renderer* renderer);
+	Player(SDL_Renderer * renderer, int x, int y);
 	~Player();
 	void Logic();
 	void Input();

@@ -8,7 +8,7 @@
 
 Enemy::Enemy(SDL_Renderer * renderer) : GameObject(renderer)
 {
-	m_texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/enemy.bmp");
+	m_texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Enemies/Enemy_spaceship.bmp");
 	tag = "Enemy";
 }
 
@@ -22,7 +22,6 @@ void Enemy::Logic()
 	GameObject::Logic();
 
 	// Do more logic
-
 	position.x = std::cos(degree) * 100 + 300;
 	position.y = std::sin(degree) * 100 + 300;
 
