@@ -23,7 +23,6 @@ private:
 	SDL_Surface* screenSurface;
 	SDL_Renderer* renderer;
 	GAME_STATE gameState;
-	SDL_Event e;
 
 	Player* player;
 

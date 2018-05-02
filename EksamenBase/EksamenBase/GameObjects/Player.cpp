@@ -58,32 +58,32 @@ void Player::Input()
 		SoundManager::getInstance().StopMusic();
 	}
 
-	if (InputManager::getInstance().KeyHeld(SDLK_w))
+	if (InputManager::getInstance().KeyHeld(SDLK_w) || InputManager::getInstance().KeyHeld(SDLK_UP))
 	{
 		acceleration.y = -accelerationValue;
 	}
 
-	if (InputManager::getInstance().KeyHeld(SDLK_s))
+	if (InputManager::getInstance().KeyHeld(SDLK_s) || InputManager::getInstance().KeyHeld(SDLK_DOWN))
 	{
 		acceleration.y = accelerationValue;
 	}
 
-	if (InputManager::getInstance().KeyHeld(SDLK_a))
+	if (InputManager::getInstance().KeyHeld(SDLK_a) || InputManager::getInstance().KeyHeld(SDLK_LEFT))
 	{
 		acceleration.x = -accelerationValue;
 	}
 
-	if (InputManager::getInstance().KeyHeld(SDLK_d))
+	if (InputManager::getInstance().KeyHeld(SDLK_d) || InputManager::getInstance().KeyHeld(SDLK_RIGHT))
 	{
 		acceleration.x = accelerationValue;
 	}
 
-	if (!InputManager::getInstance().KeyHeld(SDLK_w) && !InputManager::getInstance().KeyHeld(SDLK_s))
+	if (InputManager::getInstance().KeyHeld(SDLK_w) == InputManager::getInstance().KeyHeld(SDLK_s))
 	{
 		acceleration.y = 0;
 	}
 
-	if (!InputManager::getInstance().KeyHeld(SDLK_a) && !InputManager::getInstance().KeyHeld(SDLK_d))
+	if (InputManager::getInstance().KeyHeld(SDLK_a) == InputManager::getInstance().KeyHeld(SDLK_d))
 	{
 		acceleration.x = 0;
 	}
