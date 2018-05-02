@@ -3,12 +3,15 @@
 #include "../Handlers/TextureManager.h"
 #include "../Handlers/SoundManager.h"
 #include "../Handlers/CollisionManager.h"
+#include "../Handlers/GameHandler.h"
 
 #include <iostream>
 #include <vector>
 
-Player::Player(SDL_Renderer * renderer) : GameObject(renderer)
+Player::Player(SDL_Renderer* renderer, int x, int y) : GameObject(renderer)
 {
+	position.x = x;
+	position.y = y;
 	texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/realplayer.bmp");
 	tag = "Player";
 	position.h = 40;
@@ -24,8 +27,8 @@ void Player::Logic()
 {
 	GameObject::Logic();
 
-	// Do more logic
 	std::vector<GameObject*>* collision = CollisionManager::getInstance().OnCollision(this);
+
 	if(collision != nullptr)
 	{
 		for(auto go : *collision)
@@ -33,59 +36,41 @@ void Player::Logic()
 			std::cout << "I AM COLLIDING with " << go->id << std::endl;
 		}
 	}
-
 	delete(collision);
+
+	// Player collide with side walls
+	if ((position.x < 0 && acceleration.x < 0) || (position.x > (GameHandler::SCREEN_WIDTH - position.w) && acceleration.x > 0))
+	{
+		std::cout << "Click" << std::endl;
+		texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/enemy.bmp");
+	}
 }
 
 void Player::Input() 
 {
-	if (InputManager::getInstance().KeyUp(SDLK_t))
-	{
-		std::cout << "Click" << std::endl;
-		texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/realplayer.bmp");
-	}
-
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 	{
 		std::cout << "SPACE" << std::endl;
 		SoundManager::getInstance().PlaySound("Laser");
-		SoundManager::getInstance().PlayMusic();
-
-	}
-
-	if (InputManager::getInstance().KeyDown(SDLK_g))
-	{
-		std::cout << "g" << std::endl;
-		SoundManager::getInstance().PlaySound("Explosion");
-		SoundManager::getInstance().StopMusic();
-	}
-
-	if (InputManager::getInstance().KeyHeld(SDLK_w))
-	{
-		acceleration.y = -accelerationValue;
-	}
-
-	if (InputManager::getInstance().KeyHeld(SDLK_s))
-	{
-		acceleration.y = accelerationValue;
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_a))
 	{
-		acceleration.x = -accelerationValue;
+		if (position.x > 0)
+		{
+			acceleration.x = -accelerationValue;
+		}
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_d))
 	{
-		acceleration.x = accelerationValue;
+		if (position.x < (GameHandler::SCREEN_WIDTH - position.w))
+		{
+			acceleration.x = accelerationValue;
+		}
 	}
 
-	if (!InputManager::getInstance().KeyHeld(SDLK_w) && !InputManager::getInstance().KeyHeld(SDLK_s))
-	{
-		acceleration.y = 0;
-	}
-
-	if (!InputManager::getInstance().KeyHeld(SDLK_a) && !InputManager::getInstance().KeyHeld(SDLK_d))
+	if (InputManager::getInstance().KeyHeld(SDLK_a) == InputManager::getInstance().KeyHeld(SDLK_d))
 	{
 		acceleration.x = 0;
 	}
