@@ -9,8 +9,10 @@
 
 Player::Player(SDL_Renderer * renderer) : GameObject(renderer)
 {
-	texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/player.bmp");
+	texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/realplayer.bmp");
 	tag = "Player";
+	position.h = 40;
+	position.w = 80;
 }
 
 Player::~Player()
@@ -40,7 +42,7 @@ void Player::Input()
 	if (InputManager::getInstance().KeyUp(SDLK_t))
 	{
 		std::cout << "Click" << std::endl;
-		texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/enemy.bmp");
+		texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/realplayer.bmp");
 	}
 
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
