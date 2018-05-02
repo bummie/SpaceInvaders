@@ -41,8 +41,7 @@ void Player::Logic()
 	// Player collide with side walls
 	if ((position.x < 0 && acceleration.x < 0) || (position.x > (GameHandler::SCREEN_WIDTH - position.w) && acceleration.x > 0))
 	{
-		std::cout << "Click" << std::endl;
-		texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/enemy.bmp");
+		acceleration.x = 0;
 	}
 }
 
