@@ -8,8 +8,10 @@
 #include <iostream>
 #include <vector>
 
-Player::Player(SDL_Renderer* renderer) : GameObject(renderer)
+Player::Player(SDL_Renderer* renderer, int x, int y) : GameObject(renderer)
 {
+	position.x = x;
+	position.y = y;
 	texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/player.bmp");
 	tag = "Player";
 }

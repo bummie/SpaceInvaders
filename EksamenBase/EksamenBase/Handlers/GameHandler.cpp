@@ -54,7 +54,7 @@ void GameHandler::Init()
 	SDL_UpdateWindowSurface(window);
 	renderer = SDL_CreateRenderer(window, -1, 0);
 
-	GameObjectsManager::getInstance().Add(new Player(renderer));
+	GameObjectsManager::getInstance().Add(new Player(renderer, SCREEN_WIDTH * .5, SCREEN_HEIGHT - 64));
 	GameObjectsManager::getInstance().Add(new Enemy(renderer)); 
 	GameObjectsManager::getInstance().Add(new Enemy(renderer));
 	GameObjectsManager::getInstance().Add(new Enemy(renderer));
