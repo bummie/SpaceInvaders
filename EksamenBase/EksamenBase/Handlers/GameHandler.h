@@ -10,11 +10,12 @@
 
 class GameHandler
 {
+public:
+	static const int SCREEN_WIDTH = 640;
+	static const int SCREEN_HEIGHT = 480;
 private:
 	const enum GAME_STATE { RUNNING, GAMEOVER, PAUSED };
 
-	const int SCREEN_WIDTH = 640;
-	const int SCREEN_HEIGHT = 480;
 	const char* GAME_NAME = "BaseGameEksamen";
 
 	const int GAME_DELAY = 1000 / 60;

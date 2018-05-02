@@ -147,7 +147,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Handlers\ConfigParser.cpp" />
     <ClCompile Include="GameObjects\Enemy.cpp" />
     <ClCompile Include="Handlers\CollisionManager.cpp" />
     <ClCompile Include="EksamenBase.cpp" />
@@ -162,7 +161,6 @@
     <ClCompile Include="Handlers\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Handlers\ConfigParser.h" />
     <ClInclude Include="GameObjects\Enemy.h" />
     <ClInclude Include="Handlers\CollisionManager.h" />
     <ClInclude Include="Handlers\GameObjectsManager.h" />

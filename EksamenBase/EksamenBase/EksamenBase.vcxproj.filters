@@ -51,9 +51,6 @@
     <ClCompile Include="GameObjects\Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Handlers\ConfigParser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Handlers\TextureManager.h">
@@ -87,9 +84,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameObjects\Enemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Handlers\ConfigParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
