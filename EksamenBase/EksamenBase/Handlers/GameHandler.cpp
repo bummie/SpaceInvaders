@@ -59,8 +59,11 @@ void GameHandler::Init()
 	GameObjectsManager::getInstance().Add(new Enemy(renderer));
 	GameObjectsManager::getInstance().Add(new Enemy(renderer));
 
-	TextRenderer::getInstance().addText("Seb", new Text(renderer, "Seb e kul", {255, 0, 255}, 24, 250, 100, 200, 200));
-	TextRenderer::getInstance().addText("Title", new Text(renderer, "HALLO", { 19, 40, 255 }, 12, 10, 10, 100, 100));
+	// Init text to screen
+	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", {255, 255, 255}, 24, 0, 0, 164, 32));
+	TextRenderer::getInstance().addText("highscore", new Text(renderer, "HI-SCORE SCORE <2>", { 255, 255, 255 }, 24, 172, 0, 164, 32));
+	TextRenderer::getInstance().addText("score_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 0, 40, 82, 24));
+	TextRenderer::getInstance().addText("highscore_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 172, 40, 82, 24));
 
 	Update();
 }
@@ -92,7 +95,8 @@ void GameHandler::Update()
 void GameHandler::Logic()
 {
 	GameObjectsManager::getInstance().Logic();
-	TextRenderer::getInstance().getText("Seb")->setText("Seb: " + std::to_string(getDeltaTime()));
+
+	TextRenderer::getInstance().getText("score_value")->setText(std::to_string(getDeltaTime()));
 }
 
 /// <summary>
