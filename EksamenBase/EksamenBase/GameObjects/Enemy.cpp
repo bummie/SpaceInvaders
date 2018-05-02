@@ -8,7 +8,7 @@
 
 Enemy::Enemy(SDL_Renderer * renderer) : GameObject(renderer)
 {
-	texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/enemy.bmp");
+	m_texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/enemy.bmp");
 	tag = "Enemy";
 }
 

@@ -14,25 +14,26 @@ protected:
 		float y;
 	};
 
-	//std::string imagePath;
-	SDL_Texture* texture;
-	SDL_Renderer* renderer;
-	Vector2D velocity;
-	Vector2D acceleration;
-	float deAcceleration;
-	float accelerationValue;
-	const float MAX_SPEED = .5f;
+	SDL_Texture* m_texture;
+	SDL_Renderer* m_renderer;
+	Vector2D m_velocity;
+	Vector2D m_acceleration;
+	float m_deAcceleration;
+	float m_accelerationValue;
+	const float M_MAX_SPEED = .5f;
+	int m_hp;
 
 public:
 	GameObject(SDL_Renderer* renderer);
 	~GameObject();
-
 	SDL_Rect position;
 	std::string tag;
 	int id;
 	virtual void Logic();
 	virtual void Draw();
 	virtual void Input();
+	int getHp() const;
+	void setHp(int hp);
 };
 
 #endif 

@@ -1,9 +1,11 @@
 #include "GameObject.h"
-#include "../Handlers/TextureManager.h"
-#include "../Handlers/InputManager.h"
-#include "../Handlers/GameHandler.h"
 #include <iostream>
 #include <cmath>  
+#include "../Handlers/InputManager.h"
+#include "../Handlers/TextureManager.h"
+#include "../Handlers/SoundManager.h"
+#include "../Handlers/CollisionManager.h"
+#include "../Handlers/GameHandler.h"
 
 GameObject::GameObject(SDL_Renderer* renderer)
 {
@@ -11,15 +13,15 @@ GameObject::GameObject(SDL_Renderer* renderer)
 	position.h = 64;
 	position.w = 64;
 
-	velocity = { 0.0f, 0.0f };
-	acceleration = { 0.0f, 0.0f };
-	deAcceleration = 1.0f;
-	accelerationValue = .1f;
+	m_velocity = { 0.0f, 0.0f };
+	m_acceleration = { 0.0f, 0.0f };
+	m_deAcceleration = 1.0f;
+	m_accelerationValue = .1f;
 
 	tag = "GameObject";
 
-	GameObject::renderer = renderer;
-	texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp");
+	GameObject::m_renderer = renderer;
+	m_texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp");
 }
 
 GameObject::~GameObject()
@@ -28,12 +30,12 @@ GameObject::~GameObject()
 
 void GameObject::Draw()
 {
-	if(texture == nullptr)
+	if(m_texture == nullptr)
 	{
 		std::cout << "Texture is null" << std::endl;
 		return;
 	}
-	SDL_RenderCopy(renderer, texture, NULL, &position);
+	SDL_RenderCopy(m_renderer, m_texture, NULL, &position);
 }
 
 void GameObject::Input()
@@ -41,31 +43,40 @@ void GameObject::Input()
 	
 }
 
+int GameObject::getHp() const
+{
+	return m_hp;
+}
+
+void GameObject::setHp(int hp)
+{
+	m_hp = hp;
+}
+
 void GameObject::Logic()
 {
-	//std::cout << "Acc: x: " << acceleration.x << " y: " << acceleration.y << std::endl;
-	//std::cout << "Vel: x: " << velocity.x << " y: " << velocity.y << std::endl;
+	
 
-	if(acceleration.x != 0)
+	if(m_acceleration.x != 0)
 	{
-		velocity.x += acceleration.x;
+		m_velocity.x += m_acceleration.x;
 	}else
 	{
-		velocity.x += -(1.0f, velocity.x) * deAcceleration;
+		m_velocity.x += -(1.0f, m_velocity.x) * m_deAcceleration;
 	}
 	
-	if (acceleration.y != 0)
+	if (m_acceleration.y != 0)
 	{
-		velocity.y += acceleration.y;
+		m_velocity.y += m_acceleration.y;
 	}
 	else
 	{
-		velocity.y += -(1.0f, velocity.y) * deAcceleration;
+		m_velocity.y += -(1.0f, m_velocity.y) * m_deAcceleration;
 	}
 
-	if (std::abs(velocity.y) > MAX_SPEED) { velocity.y = copysign(1.0f, velocity.y) * MAX_SPEED; }
-	if (std::abs(velocity.x) > MAX_SPEED) { velocity.x = copysign(1.0f, velocity.x) * MAX_SPEED; }
+	if (std::abs(m_velocity.y) > M_MAX_SPEED) { m_velocity.y = copysign(1.0f, m_velocity.y) * M_MAX_SPEED; }
+	if (std::abs(m_velocity.x) > M_MAX_SPEED) { m_velocity.x = copysign(1.0f, m_velocity.x) * M_MAX_SPEED; }
 
-	position.x += velocity.x * GameHandler::getDeltaTime();
-	position.y += velocity.y * GameHandler::getDeltaTime();
+	position.x += m_velocity.x * GameHandler::getDeltaTime();
+	position.y += m_velocity.y * GameHandler::getDeltaTime();
 }

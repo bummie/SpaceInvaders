@@ -3,13 +3,13 @@
 #include "../Handlers/TextureManager.h"
 #include "../Handlers/SoundManager.h"
 #include "../Handlers/CollisionManager.h"
-
+#include "../Handlers/GameHandler.h"
 #include <iostream>
 #include <vector>
 
 Player::Player(SDL_Renderer * renderer) : GameObject(renderer)
 {
-	texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/player.bmp");
+	m_texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/player.bmp");
 	tag = "Player";
 }
 
@@ -40,7 +40,7 @@ void Player::Input()
 	if (InputManager::getInstance().KeyUp(SDLK_t))
 	{
 		std::cout << "Click" << std::endl;
-		texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/enemy.bmp");
+		m_texture = TextureManager::getInstance().GetTexture(m_renderer, "Resources/Images/enemy.bmp");
 	}
 
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
@@ -60,31 +60,31 @@ void Player::Input()
 
 	if (InputManager::getInstance().KeyHeld(SDLK_w) || InputManager::getInstance().KeyHeld(SDLK_UP))
 	{
-		acceleration.y = -accelerationValue;
+		m_acceleration.y = -m_accelerationValue;
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_s) || InputManager::getInstance().KeyHeld(SDLK_DOWN))
 	{
-		acceleration.y = accelerationValue;
+		m_acceleration.y = m_accelerationValue;
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_a) || InputManager::getInstance().KeyHeld(SDLK_LEFT))
 	{
-		acceleration.x = -accelerationValue;
+		m_acceleration.x = -m_accelerationValue;
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_d) || InputManager::getInstance().KeyHeld(SDLK_RIGHT))
 	{
-		acceleration.x = accelerationValue;
+		m_acceleration.x = m_accelerationValue;
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_w) == InputManager::getInstance().KeyHeld(SDLK_s))
 	{
-		acceleration.y = 0;
+		m_acceleration.y = 0;
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_a) == InputManager::getInstance().KeyHeld(SDLK_d))
 	{
-		acceleration.x = 0;
+		m_acceleration.x = 0;
 	}
 }

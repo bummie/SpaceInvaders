@@ -147,7 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Handlers\ConfigParser.cpp" />
+    <ClCompile Include="GameObjects\EnemyAttack.cpp" />
     <ClCompile Include="GameObjects\Enemy.cpp" />
     <ClCompile Include="Handlers\CollisionManager.cpp" />
     <ClCompile Include="EksamenBase.cpp" />
@@ -160,9 +160,12 @@
     <ClCompile Include="Handlers\TextRenderer.cpp" />
     <ClCompile Include="Handlers\TextureManager.cpp" />
     <ClCompile Include="Handlers\SoundManager.cpp" />
+    <ClCompile Include="GameObjects\Projectile.cpp" />
+    <ClCompile Include="GameObjects\Laser.cpp" />
+    <ClCompile Include="GameObjects\Snake.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Handlers\ConfigParser.h" />
+    <ClInclude Include="GameObjects\EnemyAttack.h" />
     <ClInclude Include="GameObjects\Enemy.h" />
     <ClInclude Include="Handlers\CollisionManager.h" />
     <ClInclude Include="Handlers\GameObjectsManager.h" />
@@ -174,6 +177,9 @@
     <ClInclude Include="Handlers\TextRenderer.h" />
     <ClInclude Include="Handlers\TextureManager.h" />
     <ClInclude Include="Handlers\SoundManager.h" />
+    <ClInclude Include="GameObjects\Projectile.h" />
+    <ClInclude Include="GameObjects\Laser.h" />
+    <ClInclude Include="GameObjects\Snake.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
