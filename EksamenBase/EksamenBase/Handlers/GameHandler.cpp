@@ -5,10 +5,12 @@
 #include "SoundManager.h"
 #include "GameObjectsManager.h"
 #include "SDL_ttf.h"
-#include <string>
 #include "../GameObjects/Enemy.h"
+#include <string>
+#include <iomanip>
 
 double GameHandler::deltaTime = 0;
+int GameHandler::score = 0;
 
 GameHandler::GameHandler()
 {
@@ -96,7 +98,11 @@ void GameHandler::Logic()
 {
 	GameObjectsManager::getInstance().Logic();
 
-	TextRenderer::getInstance().getText("score_value")->setText(std::to_string(getDeltaTime()));
+	m_scorestream.clear();
+	m_scorestream.str(std::string());
+	m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
+	std::cout << m_scorestream.str() << std::endl;
+	TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
 }
 
 /// <summary>
@@ -136,14 +142,12 @@ void GameHandler::Input()
 		{
 			std::cout << "PAUSING GAME" << std::endl;
 			//gameState = GAME_STATE::PAUSED;
-			TextRenderer::getInstance().getText("Title")->setText("TRYKKET P");
-
 		}
 
-		if (InputManager::getInstance().KeyDown(SDLK_q))
+		// Pause game
+		if (InputManager::getInstance().KeyDown(SDLK_c))
 		{
-			TextRenderer::getInstance().getText("Title")->setText("TRYKKET Q");
-			TextRenderer::getInstance().removeText("Title");
+			GameHandler::score++;
 		}
 
 		// Handle input on gameobjects
