@@ -6,10 +6,14 @@
 class Enemy : public GameObject
 {
 public:
-	Enemy(SDL_Renderer* renderer);
+	enum ENEMY_TYPE { SQUID, GHOST, ALIEN };
+
+	Enemy(SDL_Renderer * renderer, int x, int y, ENEMY_TYPE type);
 	~Enemy();
 	void Logic();
 	void Input();
+private:
+	ENEMY_TYPE m_type;
 };
 
 #endif

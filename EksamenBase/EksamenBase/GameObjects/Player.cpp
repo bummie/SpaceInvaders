@@ -54,7 +54,6 @@ void Player::Input()
 	{
 		std::cout << "SPACE" << std::endl;
 		SoundManager::getInstance().PlaySound("Laser");
-
 		GameObjectsManager::getInstance().Add(new Laser(m_renderer, position.x+21, position.y-12));
 	}
 

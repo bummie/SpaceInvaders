@@ -41,6 +41,7 @@ private:
 	void UpdateDeltaTime();
 	void ChangeGameState(GameHandler::GAME_STATE state);
 	void RemoveDeadObjects();
+	void SpawnEnemies();
 
 public:
 	GameHandler();

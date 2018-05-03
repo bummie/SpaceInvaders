@@ -61,10 +61,7 @@ void GameHandler::Init()
 
 	// Create player
 	GameObjectsManager::getInstance().Add(new Player(renderer, SCREEN_HEIGHT/2, SCREEN_HEIGHT-64));
-	//GameObjectsManager::getInstance().Add(new Enemy(renderer));
-	GameObjectsManager::getInstance().Add(new EnemyAttack(renderer, 300, 0));
-	GameObjectsManager::getInstance().Add(new Snake(renderer, 200, 0));
-
+	SpawnEnemies();
 
 	// Init text to screen
 	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", {255, 255, 255}, 24, 0, 0, 164, 32));
@@ -73,7 +70,7 @@ void GameHandler::Init()
 	TextRenderer::getInstance().addText("highscore_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 172, 40, 82, 24));
 
 	TextRenderer::getInstance().addText("startscreen_title", new Text(renderer, "SPACE INVADERS", { 130, 200, 255 }, 36, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT/5));
-	TextRenderer::getInstance().addText("startscreen_enter", new Text(renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT/2, 164, 32));
+	TextRenderer::getInstance().addText("startscreen_enter", new Text(renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT/2, 250, 48));
 	
 	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 172, SCREEN_HEIGHT / 2, 164, 32));
 
@@ -214,11 +211,6 @@ void GameHandler::Input()
 		case GAME_STATE::PAUSED:
 			break;
 		}
-
-		if (InputManager::getInstance().KeyDown(SDLK_k))
-		{
-			GameObjectsManager::getInstance().Add(new Enemy(renderer));
-		}
 	}
 }
 
@@ -291,6 +283,30 @@ void GameHandler::RemoveDeadObjects()
 		if (gameObject->getHp() <= 0)
 		{
 			GameObjectsManager::getInstance().Remove(gameObject);
+		}
+	}
+}
+
+/// <summary>
+/// Spawns enemies in formation
+/// </summary>
+void GameHandler::SpawnEnemies()
+{
+	Enemy::ENEMY_TYPE type = Enemy::ENEMY_TYPE::SQUID;
+
+	for(int y = 0; y < 5; y++)
+	{
+		if(y == 1 || y == 2)
+		{
+			type = Enemy::ENEMY_TYPE::ALIEN;
+		}else if(y == 3 || y == 4)
+		{
+			type = Enemy::ENEMY_TYPE::GHOST;
+		}
+
+		for (int x = 0; x < 11; x++)
+		{
+			GameObjectsManager::getInstance().Add(new Enemy(renderer, (x * 32) + 50, (y * 48) + 100, type));
 		}
 	}
 }
