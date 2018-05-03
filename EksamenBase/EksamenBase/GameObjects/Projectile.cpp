@@ -8,7 +8,6 @@
 
 Projectile::Projectile(SDL_Renderer* renderer) : GameObject(renderer)
 {
-	m_texture = TextureManager::getInstance().GetTexture(renderer, imgPath);
 	tag = "Projectile";
 }
 

@@ -10,7 +10,7 @@
 Snake::Snake(SDL_Renderer * renderer) : Projectile(renderer)
 {
 	Projectile::Projectile(renderer);
-	m_texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/snake.bmp");
+	m_defTexture = TextureManager::getInstance().GetTexture(renderer, imgPathSnakeDown);
 }
 
 Snake::~Snake()
@@ -20,5 +20,6 @@ Snake::~Snake()
 void Snake::Logic()
 {
 	Projectile::Logic();
+	
 }
 

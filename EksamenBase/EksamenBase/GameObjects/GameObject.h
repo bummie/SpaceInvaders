@@ -14,7 +14,8 @@ protected:
 		float y;
 	};
 
-	SDL_Texture* m_texture;
+	SDL_Texture* m_defTexture;
+	SDL_Texture* m_secondaryTexture;
 	SDL_Renderer* m_renderer;
 	Vector2D m_velocity;
 	Vector2D m_acceleration;
@@ -34,6 +35,9 @@ public:
 	virtual void Input();
 	int getHp() const;
 	void setHp(int hp);
+private:
+	bool m_firstTexture = true;
+	float m_currentTime = 0;
 };
 
 #endif 

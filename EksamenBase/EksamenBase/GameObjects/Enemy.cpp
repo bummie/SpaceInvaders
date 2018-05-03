@@ -8,8 +8,13 @@
 
 Enemy::Enemy(SDL_Renderer * renderer) : GameObject(renderer)
 {
-	m_texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Enemies/Enemy_spaceship.bmp");
+	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Enemies/Enemy_squid_down.bmp");
+	m_secondaryTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Enemies/Enemy_squid_up.bmp");
 	tag = "Enemy";
+	position.x = 128;
+	position.y = 128;
+	position.h = 28;
+	position.w = 28;
 }
 
 Enemy::~Enemy()
@@ -20,14 +25,6 @@ Enemy::~Enemy()
 void Enemy::Logic()
 {
 	GameObject::Logic();
-
-
-	// Do more logic
-	position.x = std::cos(degree) * 100 + 300;
-	position.y = std::sin(degree) * 100 + 300;
-
-	degree++;
-	if (degree >= 360) { degree = 0; }
 
 }
 

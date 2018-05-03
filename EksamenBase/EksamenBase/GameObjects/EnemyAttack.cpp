@@ -9,8 +9,7 @@
 
 EnemyAttack::EnemyAttack(SDL_Renderer* renderer) : Projectile(renderer)
 {	
-	Projectile::Projectile(renderer);
-	m_texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/enemy_attack.bmp");
+	m_defTexture = TextureManager::getInstance().GetTexture(renderer, imgPathCrossDown);
 
 }
 

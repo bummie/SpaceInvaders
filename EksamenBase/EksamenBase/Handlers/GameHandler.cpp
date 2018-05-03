@@ -57,7 +57,8 @@ void GameHandler::Init()
 	renderer = SDL_CreateRenderer(window, -1, 0);
 
 	// Create player
-	GameObjectsManager::getInstance().Add(new Player(renderer, SCREEN_WIDTH * .5, SCREEN_HEIGHT - 64));
+	GameObjectsManager::getInstance().Add(new Player(renderer, SCREEN_HEIGHT/2, SCREEN_HEIGHT-64));
+	GameObjectsManager::getInstance().Add(new Enemy(renderer));
 
 	// Init text to screen
 	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", {255, 255, 255}, 24, 0, 0, 164, 32));

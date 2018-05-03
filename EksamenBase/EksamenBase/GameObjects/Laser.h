@@ -9,6 +9,8 @@ public:
 	Laser(SDL_Renderer* renderer);
 	~Laser();
 	void Logic();
+private:
+	const std::string imgPathLaser = "Resources/Images/Projectiles/Projectile_beam.bmp";
 };
 
 #endif
