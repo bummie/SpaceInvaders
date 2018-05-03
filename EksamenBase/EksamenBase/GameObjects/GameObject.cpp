@@ -50,7 +50,7 @@ void GameObject::Draw()
 	
 	m_currentTime += GameHandler::getDeltaTime();
 	
-	if (m_currentTime > 400)
+	if (m_currentTime > 200)
 	{
 		if (m_firstTexture)
 		{

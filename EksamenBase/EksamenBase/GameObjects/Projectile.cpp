@@ -9,11 +9,7 @@
 Projectile::Projectile(SDL_Renderer* renderer) : GameObject(renderer)
 {
 	tag = "Projectile";
-	position = {
-		400, 400
-	};
-	position.h = 16;
-	position.w = 8;
+	
 }
 
 
