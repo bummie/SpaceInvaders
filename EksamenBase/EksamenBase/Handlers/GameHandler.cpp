@@ -64,6 +64,7 @@ void GameHandler::Init()
 	//GameObjectsManager::getInstance().Add(new Enemy(renderer));
 	GameObjectsManager::getInstance().Add(new Snake(renderer));
 
+
 	// Init text to screen
 	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", {255, 255, 255}, 24, 0, 0, 164, 32));
 	TextRenderer::getInstance().addText("highscore", new Text(renderer, "HI-SCORE SCORE <2>", { 255, 255, 255 }, 24, 172, 0, 164, 32));
@@ -73,8 +74,7 @@ void GameHandler::Init()
 	TextRenderer::getInstance().addText("startscreen_title", new Text(renderer, "SPACE INVADERS", { 130, 200, 255 }, 36, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT/5));
 	TextRenderer::getInstance().addText("startscreen_enter", new Text(renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT/2, 164, 32));
 	
-	TextRenderer::getInstance().addText("paused", new Text(renderer, "Game has been paused", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT / 2, 164, 32));
-
+	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 172, SCREEN_HEIGHT / 2, 164, 32));
 
 	ChangeGameState(GAME_STATE::STARTSCREEN);
 	Update();
@@ -90,13 +90,8 @@ void GameHandler::Update()
 	{
 		UpdateDeltaTime();
 		Input();
-		
-		if(gameState != GAME_STATE::PAUSED)
-		{
-			Logic();
-			Draw();
-		}
-		
+		Logic();
+		Draw();
 		SDL_Delay(GAME_DELAY);
 	}
 }
@@ -106,9 +101,10 @@ void GameHandler::Update()
 /// </summary>
 void GameHandler::Logic()
 {
-	switch(gameState)
+	switch (gameState)
 	{
 	case GAME_STATE::RUNNING:
+	{
 		GameObjectsManager::getInstance().Logic();
 
 		//TODO: Own method make pretty
@@ -117,6 +113,18 @@ void GameHandler::Logic()
 		m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
 		TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
 
+		/* DEMO: GRABBING GAMEOBJECTS BY TAG
+		auto player = GameObjectsManager::getInstance().Find("Player");
+		if (player != nullptr)
+		{
+			for (auto ply : *player)
+			{
+				std::cout << ply->tag << " : " <<  ply->id << std::endl;
+			}
+		}
+		delete(player);
+		*/
+	}
 		break;
 	case GAME_STATE::STARTSCREEN:
 
@@ -146,7 +154,6 @@ void GameHandler::Draw()
 	}
 
 	TextRenderer::getInstance().Draw();
-
 
 	// Draw stuff end
 	SDL_RenderPresent(renderer);
@@ -188,7 +195,6 @@ void GameHandler::Input()
 		}
 
 		// Handle input on gameobjects
-
 		switch (gameState)
 		{
 		case GAME_STATE::RUNNING:
@@ -236,7 +242,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 	{
 	case GAME_STATE::RUNNING:
 		std::cout << "GameState: Running" << std::endl;
-		TextRenderer::getInstance().getText("paused")->setVisible(false);
+		TextRenderer::getInstance().getText("paused_text")->setVisible(false);
 
 		TextRenderer::getInstance().getText("startscreen_title")->setVisible(false);
 		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(false);
@@ -248,8 +254,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		break;
 	case GAME_STATE::STARTSCREEN:
 		std::cout << "GameState: Startscreen" << std::endl;
-
-		TextRenderer::getInstance().getText("paused")->setVisible(false);
+		TextRenderer::getInstance().getText("paused_text")->setVisible(false);
 
 		TextRenderer::getInstance().getText("startscreen_title")->setVisible(true);
 		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(true);
@@ -261,7 +266,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		break;
 	case GAME_STATE::PAUSED:
 		std::cout << "GameState: Paused" << std::endl;
-		TextRenderer::getInstance().getText("paused")->setVisible(true);
+		TextRenderer::getInstance().getText("paused_text")->setVisible(true);
 		break;
 
 	case GAME_STATE::GAMEOVER:
