@@ -6,6 +6,9 @@
 #include "GameObjectsManager.h"
 #include "SDL_ttf.h"
 #include "../GameObjects/Enemy.h"
+#include "../GameObjects/Laser.h"
+#include "../GameObjects/Snake.h"
+#include "../GameObjects/EnemyAttack.h"
 #include <string>
 #include <iomanip>
 
@@ -205,6 +208,11 @@ void GameHandler::Input()
 			break;
 		case GAME_STATE::PAUSED:
 			break;
+		}
+
+		if (InputManager::getInstance().KeyDown(SDLK_k))
+		{
+			GameObjectsManager::getInstance().Add(new Enemy(renderer));
 		}
 	}
 }

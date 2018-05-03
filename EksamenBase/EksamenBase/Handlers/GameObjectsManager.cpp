@@ -89,6 +89,10 @@ void GameObjectsManager::Input()
 {
 	for (auto gameObject : gameObjectsList)
 	{
+		if (gameObject == nullptr)
+		{
+			return;
+		}
 		gameObject->Input();
 		return;
 	}

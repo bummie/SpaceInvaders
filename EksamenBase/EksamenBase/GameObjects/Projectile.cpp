@@ -9,6 +9,7 @@
 Projectile::Projectile(SDL_Renderer* renderer) : GameObject(renderer)
 {
 	tag = "Projectile";
+	
 }
 
 
@@ -19,4 +20,7 @@ Projectile::~Projectile()
 void Projectile::Logic()
 {
 	GameObject::Logic();
+	m_velocity.y = M_MAX_SPEED * direction.y;
+
 }
+

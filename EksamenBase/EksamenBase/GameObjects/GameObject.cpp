@@ -21,7 +21,6 @@ GameObject::GameObject(SDL_Renderer* renderer)
 	tag = "GameObject";
 
 	GameObject::m_renderer = renderer;
-	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp");
 }
 
 GameObject::~GameObject()
@@ -51,7 +50,7 @@ void GameObject::Draw()
 	
 	m_currentTime += GameHandler::getDeltaTime();
 	
-	if (m_currentTime > 400)
+	if (m_currentTime > 200)
 	{
 		if (m_firstTexture)
 		{
