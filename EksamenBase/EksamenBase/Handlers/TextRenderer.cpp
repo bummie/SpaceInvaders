@@ -12,7 +12,7 @@ TextRenderer::~TextRenderer()
 /// </summary>
 /// <param name="textKey"></param>
 /// <returns></returns>
-Text * TextRenderer::getText(std::string textKey)
+Text* TextRenderer::getText(std::string textKey)
 {
 	auto iterator = textMap.find(textKey);
 
