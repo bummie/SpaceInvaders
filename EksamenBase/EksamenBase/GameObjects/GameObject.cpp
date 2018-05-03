@@ -21,7 +21,7 @@ GameObject::GameObject(SDL_Renderer* renderer)
 	tag = "GameObject";
 
 	GameObject::m_renderer = renderer;
-	m_texture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp");
+	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/bear.bmp");
 }
 
 GameObject::~GameObject()
@@ -30,12 +30,39 @@ GameObject::~GameObject()
 
 void GameObject::Draw()
 {
-	if(m_texture == nullptr)
+	if(m_defTexture == nullptr)
 	{
 		std::cout << "Texture is null" << std::endl;
 		return;
 	}
-	SDL_RenderCopy(m_renderer, m_texture, NULL, &position);
+	if (m_secondaryTexture == nullptr)
+	{
+		SDL_RenderCopy(m_renderer, m_defTexture, NULL, &position);
+		return;
+	}
+	if (m_firstTexture)
+	{
+		SDL_RenderCopy(m_renderer, m_defTexture, NULL, &position);
+	}
+	else if (!m_firstTexture)
+	{
+		SDL_RenderCopy(m_renderer, m_secondaryTexture, NULL, &position);
+	}
+	
+	m_currentTime += GameHandler::getDeltaTime();
+	
+	if (m_currentTime > 400)
+	{
+		if (m_firstTexture)
+		{
+			m_firstTexture = false;
+		}
+		else if (!m_firstTexture)
+		{
+			m_firstTexture = true;
+		}
+		m_currentTime = 0;
+	}
 }
 
 void GameObject::Input()

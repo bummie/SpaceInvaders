@@ -8,7 +8,6 @@ class Projectile : public GameObject
 protected:
 	GameObject * owner;
 	Vector2D direction;
-	const std::string imgPath;
 public:
 	Projectile(SDL_Renderer* renderer);
 	~Projectile();
