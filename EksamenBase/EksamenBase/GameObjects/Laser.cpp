@@ -18,7 +18,6 @@ Laser::Laser(SDL_Renderer* renderer, int x, int y) : Projectile(renderer, x, y)
 	m_maxSpeed = .5f;
 }
 
-
 Laser::~Laser()
 {
 }
@@ -36,8 +35,9 @@ void Laser::Logic()
 		for (auto go : *collision)
 		{
 			std::cout << "LASER: " << go->id << std::endl;
-			if(go->tag != "Player")
+			if(go->tag == "Enemy")
 			{
+				GameHandler::score += 40;
 				go->setHp(0);
 				setHp(0);
 				return;

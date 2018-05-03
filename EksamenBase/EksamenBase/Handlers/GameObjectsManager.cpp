@@ -107,6 +107,12 @@ void GameObjectsManager::Logic()
 {
 	for (auto gameObject : gameObjectsList)
 	{
+		if(gameObject == nullptr)
+		{
+			std::cout << gameObject->tag << std::endl;
+			return;
+		}
+		
 		gameObject->Logic();
 	}
 }

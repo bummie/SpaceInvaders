@@ -1,0 +1,137 @@
+\hypertarget{class_text}{}\section{Text Class Reference}
+\label{class_text}\index{Text@{Text}}
+
+
+{\ttfamily \#include $<$Text.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_text_a1a244ff955d98640e0046acef0659413}{Text}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, std\+::string text, S\+D\+L\+\_\+\+Color color, int size, int x, int y, int w, int h)
+\item 
+\mbox{\hyperlink{class_text_a2d49e5c280e205125b149f7777ae30c7}{$\sim$\+Text}} ()
+\item 
+void \mbox{\hyperlink{class_text_ab2d8c95b3d746ae3e8c0fba8318743c9}{set\+Text}} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em Changes the text \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_abb8e725b17de08304a97119d39df5cc1}{set\+Color}} (S\+D\+L\+\_\+\+Color color)
+\begin{DoxyCompactList}\small\item\em Changes the color of the text \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_a55995c22d9a3166ccd856f3b632f2354}{set\+Position}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Changes the position of the text \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_a654ac74524e48652f9aa789d2612052b}{set\+Visible}} (bool visible)
+\begin{DoxyCompactList}\small\item\em If text should be visible or not \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_af4bb084ff0f66ad827ef6b006f9b0ebd}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws the text onto the screen \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{class_text_a0db81807f575e9f4ff86bdae450ee246}{text\+Texture}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_text_a1a244ff955d98640e0046acef0659413}\label{class_text_a1a244ff955d98640e0046acef0659413}} 
+\index{Text@{Text}!Text@{Text}}
+\index{Text@{Text}!Text@{Text}}
+\subsubsection{\texorpdfstring{Text()}{Text()}}
+{\footnotesize\ttfamily Text\+::\+Text (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{std\+::string}]{text,  }\item[{S\+D\+L\+\_\+\+Color}]{color,  }\item[{int}]{size,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_text_a2d49e5c280e205125b149f7777ae30c7}\label{class_text_a2d49e5c280e205125b149f7777ae30c7}} 
+\index{Text@{Text}!````~Text@{$\sim$\+Text}}
+\index{````~Text@{$\sim$\+Text}!Text@{Text}}
+\subsubsection{\texorpdfstring{$\sim$\+Text()}{~Text()}}
+{\footnotesize\ttfamily Text\+::$\sim$\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_text_af4bb084ff0f66ad827ef6b006f9b0ebd}\label{class_text_af4bb084ff0f66ad827ef6b006f9b0ebd}} 
+\index{Text@{Text}!Draw@{Draw}}
+\index{Draw@{Draw}!Text@{Text}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Text\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the text onto the screen 
+
+\mbox{\Hypertarget{class_text_abb8e725b17de08304a97119d39df5cc1}\label{class_text_abb8e725b17de08304a97119d39df5cc1}} 
+\index{Text@{Text}!set\+Color@{set\+Color}}
+\index{set\+Color@{set\+Color}!Text@{Text}}
+\subsubsection{\texorpdfstring{set\+Color()}{setColor()}}
+{\footnotesize\ttfamily void Text\+::set\+Color (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Color}]{color }\end{DoxyParamCaption})}
+
+
+
+Changes the color of the text 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \\
+\hline
+{\em g} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_text_a55995c22d9a3166ccd856f3b632f2354}\label{class_text_a55995c22d9a3166ccd856f3b632f2354}} 
+\index{Text@{Text}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Text@{Text}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}}
+{\footnotesize\ttfamily void Text\+::set\+Position (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Changes the position of the text 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_text_ab2d8c95b3d746ae3e8c0fba8318743c9}\label{class_text_ab2d8c95b3d746ae3e8c0fba8318743c9}} 
+\index{Text@{Text}!set\+Text@{set\+Text}}
+\index{set\+Text@{set\+Text}!Text@{Text}}
+\subsubsection{\texorpdfstring{set\+Text()}{setText()}}
+{\footnotesize\ttfamily void Text\+::set\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{text }\end{DoxyParamCaption})}
+
+
+
+Changes the text 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_text_a654ac74524e48652f9aa789d2612052b}\label{class_text_a654ac74524e48652f9aa789d2612052b}} 
+\index{Text@{Text}!set\+Visible@{set\+Visible}}
+\index{set\+Visible@{set\+Visible}!Text@{Text}}
+\subsubsection{\texorpdfstring{set\+Visible()}{setVisible()}}
+{\footnotesize\ttfamily void Text\+::set\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})}
+
+
+
+If text should be visible or not 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visible} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_text_a0db81807f575e9f4ff86bdae450ee246}\label{class_text_a0db81807f575e9f4ff86bdae450ee246}} 
+\index{Text@{Text}!text\+Texture@{text\+Texture}}
+\index{text\+Texture@{text\+Texture}!Text@{Text}}
+\subsubsection{\texorpdfstring{text\+Texture}{textTexture}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture$\ast$ Text\+::text\+Texture}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Eksamen\+Base/\+Handlers/\mbox{\hyperlink{_text_8h}{Text.\+h}}\item 
+Eksamen\+Base/\+Handlers/\mbox{\hyperlink{_text_8cpp}{Text.\+cpp}}\end{DoxyCompactItemize}

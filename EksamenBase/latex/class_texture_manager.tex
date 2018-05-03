@@ -1,0 +1,73 @@
+\hypertarget{class_texture_manager}{}\section{Texture\+Manager Class Reference}
+\label{class_texture_manager}\index{Texture\+Manager@{Texture\+Manager}}
+
+
+{\ttfamily \#include $<$Texture\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{class_texture_manager_ac472bb04e6b78569441d5088e5dafa33}{Get\+Texture}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, std\+::string location)
+\begin{DoxyCompactList}\small\item\em Takes the renderer and a path to an image Will find given texture in the G\+PU memory If it does not exist it will be created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_texture_manager}{Texture\+Manager}} \& \mbox{\hyperlink{class_texture_manager_a0a6bc63e2f6fa7e1d0aee5b24cfa089a}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Surface $\ast$ \mbox{\hyperlink{class_texture_manager_a29954bc68f26b374cd86849b8a35c9ff}{temp\+Surface}} = nullptr
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, S\+D\+L\+\_\+\+Texture $\ast$ $>$ \mbox{\hyperlink{class_texture_manager_a2c91da057fc96141f7527dc7d2185417}{loaded\+Textures\+Map}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_manager_a0a6bc63e2f6fa7e1d0aee5b24cfa089a}\label{class_texture_manager_a0a6bc63e2f6fa7e1d0aee5b24cfa089a}} 
+\index{Texture\+Manager@{Texture\+Manager}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Texture\+Manager@{Texture\+Manager}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_texture_manager}{Texture\+Manager}}\& Texture\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_texture_manager_ac472bb04e6b78569441d5088e5dafa33}\label{class_texture_manager_ac472bb04e6b78569441d5088e5dafa33}} 
+\index{Texture\+Manager@{Texture\+Manager}!Get\+Texture@{Get\+Texture}}
+\index{Get\+Texture@{Get\+Texture}!Texture\+Manager@{Texture\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Texture()}{GetTexture()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture $\ast$ Texture\+Manager\+::\+Get\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{std\+::string}]{location }\end{DoxyParamCaption})}
+
+
+
+Takes the renderer and a path to an image Will find given texture in the G\+PU memory If it does not exist it will be created. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+{\em location} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+Texture$\ast$
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_texture_manager_a2c91da057fc96141f7527dc7d2185417}\label{class_texture_manager_a2c91da057fc96141f7527dc7d2185417}} 
+\index{Texture\+Manager@{Texture\+Manager}!loaded\+Textures\+Map@{loaded\+Textures\+Map}}
+\index{loaded\+Textures\+Map@{loaded\+Textures\+Map}!Texture\+Manager@{Texture\+Manager}}
+\subsubsection{\texorpdfstring{loaded\+Textures\+Map}{loadedTexturesMap}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, S\+D\+L\+\_\+\+Texture$\ast$$>$ Texture\+Manager\+::loaded\+Textures\+Map}
+
+\mbox{\Hypertarget{class_texture_manager_a29954bc68f26b374cd86849b8a35c9ff}\label{class_texture_manager_a29954bc68f26b374cd86849b8a35c9ff}} 
+\index{Texture\+Manager@{Texture\+Manager}!temp\+Surface@{temp\+Surface}}
+\index{temp\+Surface@{temp\+Surface}!Texture\+Manager@{Texture\+Manager}}
+\subsubsection{\texorpdfstring{temp\+Surface}{tempSurface}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Surface$\ast$ Texture\+Manager\+::temp\+Surface = nullptr}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Eksamen\+Base/\+Handlers/\mbox{\hyperlink{_texture_manager_8h}{Texture\+Manager.\+h}}\item 
+Eksamen\+Base/\+Handlers/\mbox{\hyperlink{_texture_manager_8cpp}{Texture\+Manager.\+cpp}}\end{DoxyCompactItemize}

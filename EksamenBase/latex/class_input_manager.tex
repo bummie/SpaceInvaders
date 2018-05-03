@@ -1,0 +1,138 @@
+\hypertarget{class_input_manager}{}\section{Input\+Manager Class Reference}
+\label{class_input_manager}\index{Input\+Manager@{Input\+Manager}}
+
+
+{\ttfamily \#include $<$Input\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_input_manager_af0d58a0ae0e6cc0ad9205d3bb3b3f8fe}{Key\+Held}} (S\+D\+L\+\_\+\+Keycode key)
+\begin{DoxyCompactList}\small\item\em Returns true if given key is being held down \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_manager_ab506676fb41f532dd3e204eea13b44bc}{Key\+Down}} (S\+D\+L\+\_\+\+Keycode key)
+\begin{DoxyCompactList}\small\item\em When a given key is pressed down \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_manager_a51be2b05d46039439a8f104d374a18aa}{Key\+Up}} (S\+D\+L\+\_\+\+Keycode key)
+\begin{DoxyCompactList}\small\item\em When a given key is being released \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_manager_a1c2f91069dcc0cc7c47947cc56e5846b}{Exit\+Game\+Requested}} ()
+\begin{DoxyCompactList}\small\item\em When the player push the cross in the window \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_manager_a0c1dc308a646b8fcdbdae7f9feea9287}{Update\+States}} ()
+\begin{DoxyCompactList}\small\item\em Updates whether or not a key is being held down \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_input_manager}{Input\+Manager}} \& \mbox{\hyperlink{class_input_manager_afd3f100b1aded300cb79682bfa75f001}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Event \mbox{\hyperlink{class_input_manager_af4889753f2148b02fe0fba6300d283d2}{event}}
+\item 
+const Uint8 $\ast$ \mbox{\hyperlink{class_input_manager_ac4a1f49b858f90ecdc487157f5e43f3a}{key\+State}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_input_manager_a1c2f91069dcc0cc7c47947cc56e5846b}\label{class_input_manager_a1c2f91069dcc0cc7c47947cc56e5846b}} 
+\index{Input\+Manager@{Input\+Manager}!Exit\+Game\+Requested@{Exit\+Game\+Requested}}
+\index{Exit\+Game\+Requested@{Exit\+Game\+Requested}!Input\+Manager@{Input\+Manager}}
+\subsubsection{\texorpdfstring{Exit\+Game\+Requested()}{ExitGameRequested()}}
+{\footnotesize\ttfamily bool Input\+Manager\+::\+Exit\+Game\+Requested (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+When the player push the cross in the window 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_input_manager_afd3f100b1aded300cb79682bfa75f001}\label{class_input_manager_afd3f100b1aded300cb79682bfa75f001}} 
+\index{Input\+Manager@{Input\+Manager}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Input\+Manager@{Input\+Manager}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_input_manager}{Input\+Manager}}\& Input\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_input_manager_ab506676fb41f532dd3e204eea13b44bc}\label{class_input_manager_ab506676fb41f532dd3e204eea13b44bc}} 
+\index{Input\+Manager@{Input\+Manager}!Key\+Down@{Key\+Down}}
+\index{Key\+Down@{Key\+Down}!Input\+Manager@{Input\+Manager}}
+\subsubsection{\texorpdfstring{Key\+Down()}{KeyDown()}}
+{\footnotesize\ttfamily bool Input\+Manager\+::\+Key\+Down (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Keycode}]{key }\end{DoxyParamCaption})}
+
+
+
+When a given key is pressed down 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_input_manager_af0d58a0ae0e6cc0ad9205d3bb3b3f8fe}\label{class_input_manager_af0d58a0ae0e6cc0ad9205d3bb3b3f8fe}} 
+\index{Input\+Manager@{Input\+Manager}!Key\+Held@{Key\+Held}}
+\index{Key\+Held@{Key\+Held}!Input\+Manager@{Input\+Manager}}
+\subsubsection{\texorpdfstring{Key\+Held()}{KeyHeld()}}
+{\footnotesize\ttfamily bool Input\+Manager\+::\+Key\+Held (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Keycode}]{key }\end{DoxyParamCaption})}
+
+
+
+Returns true if given key is being held down 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_input_manager_a51be2b05d46039439a8f104d374a18aa}\label{class_input_manager_a51be2b05d46039439a8f104d374a18aa}} 
+\index{Input\+Manager@{Input\+Manager}!Key\+Up@{Key\+Up}}
+\index{Key\+Up@{Key\+Up}!Input\+Manager@{Input\+Manager}}
+\subsubsection{\texorpdfstring{Key\+Up()}{KeyUp()}}
+{\footnotesize\ttfamily bool Input\+Manager\+::\+Key\+Up (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Keycode}]{key }\end{DoxyParamCaption})}
+
+
+
+When a given key is being released 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_input_manager_a0c1dc308a646b8fcdbdae7f9feea9287}\label{class_input_manager_a0c1dc308a646b8fcdbdae7f9feea9287}} 
+\index{Input\+Manager@{Input\+Manager}!Update\+States@{Update\+States}}
+\index{Update\+States@{Update\+States}!Input\+Manager@{Input\+Manager}}
+\subsubsection{\texorpdfstring{Update\+States()}{UpdateStates()}}
+{\footnotesize\ttfamily void Input\+Manager\+::\+Update\+States (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates whether or not a key is being held down 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_input_manager_af4889753f2148b02fe0fba6300d283d2}\label{class_input_manager_af4889753f2148b02fe0fba6300d283d2}} 
+\index{Input\+Manager@{Input\+Manager}!event@{event}}
+\index{event@{event}!Input\+Manager@{Input\+Manager}}
+\subsubsection{\texorpdfstring{event}{event}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Event Input\+Manager\+::event}
+
+\mbox{\Hypertarget{class_input_manager_ac4a1f49b858f90ecdc487157f5e43f3a}\label{class_input_manager_ac4a1f49b858f90ecdc487157f5e43f3a}} 
+\index{Input\+Manager@{Input\+Manager}!key\+State@{key\+State}}
+\index{key\+State@{key\+State}!Input\+Manager@{Input\+Manager}}
+\subsubsection{\texorpdfstring{key\+State}{keyState}}
+{\footnotesize\ttfamily const Uint8$\ast$ Input\+Manager\+::key\+State}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Eksamen\+Base/\+Handlers/\mbox{\hyperlink{_input_manager_8h}{Input\+Manager.\+h}}\item 
+Eksamen\+Base/\+Handlers/\mbox{\hyperlink{_input_manager_8cpp}{Input\+Manager.\+cpp}}\end{DoxyCompactItemize}

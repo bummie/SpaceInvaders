@@ -2,6 +2,10 @@
 #include "../Handlers/InputManager.h"
 #include "../Handlers/TextureManager.h"
 #include "../Handlers/SoundManager.h"
+#include "../Handlers/GameObjectsManager.h"
+
+#include "Snake.h"
+#include "EnemyAttack.h"
 
 #include <iostream>
 #include <stdlib.h>  
@@ -28,7 +32,6 @@ Enemy::Enemy(SDL_Renderer * renderer, int x, int y, ENEMY_TYPE type) : GameObjec
 		break;
 	}
 
-	
 	tag = "Enemy";
 	m_type = type;
 
@@ -47,6 +50,10 @@ void Enemy::Logic()
 {
 	GameObject::Logic();
 
+	if((rand() % 10000) == 50)
+	{
+		GameObjectsManager::getInstance().Add(new Snake(m_renderer, position.x, position.y));
+	}
 }
 
 void Enemy::Input()

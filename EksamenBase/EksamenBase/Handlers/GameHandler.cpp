@@ -337,6 +337,8 @@ void GameHandler::MoveEnemies()
 
 		for (auto enemy : *m_enemies)
 		{
+			if (enemy->getHp() <= 0) { continue; }
+
 			enemy->position.x += m_enemyMoveDistance * m_enemyMoveDirection;
 			if (m_enemyMoveDown)
 			{
