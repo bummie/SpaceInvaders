@@ -11,6 +11,7 @@ public:
 	void Logic();
 private:
 	const std::string imgPathLaser = "Resources/Images/Projectiles/Projectile_beam.bmp";
+	
 };
 
 #endif

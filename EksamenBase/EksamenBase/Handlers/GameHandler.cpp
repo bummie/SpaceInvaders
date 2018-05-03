@@ -6,6 +6,9 @@
 #include "GameObjectsManager.h"
 #include "SDL_ttf.h"
 #include "../GameObjects/Enemy.h"
+#include "../GameObjects/Laser.h"
+#include "../GameObjects/Snake.h"
+#include "../GameObjects/EnemyAttack.h"
 #include <string>
 #include <iomanip>
 
@@ -58,7 +61,8 @@ void GameHandler::Init()
 
 	// Create player
 	GameObjectsManager::getInstance().Add(new Player(renderer, SCREEN_HEIGHT/2, SCREEN_HEIGHT-64));
-	GameObjectsManager::getInstance().Add(new Enemy(renderer));
+	//GameObjectsManager::getInstance().Add(new Enemy(renderer));
+	GameObjectsManager::getInstance().Add(new Snake(renderer));
 
 	// Init text to screen
 	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", {255, 255, 255}, 24, 0, 0, 164, 32));
@@ -198,6 +202,11 @@ void GameHandler::Input()
 			break;
 		case GAME_STATE::PAUSED:
 			break;
+		}
+
+		if (InputManager::getInstance().KeyDown(SDLK_k))
+		{
+			GameObjectsManager::getInstance().Add(new Enemy(renderer));
 		}
 	}
 }

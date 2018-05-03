@@ -4,6 +4,9 @@
 #include "../Handlers/SoundManager.h"
 #include "../Handlers/CollisionManager.h"
 #include "../Handlers/GameHandler.h"
+#include "../Handlers/GameObjectsManager.h"
+#include "Laser.h"
+#include "Enemy.h"
 
 #include <iostream>
 #include <vector>
@@ -50,6 +53,7 @@ void Player::Input()
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 	{
 		std::cout << "SPACE" << std::endl;
+		GameObjectsManager::getInstance().Add(new Enemy(m_renderer));
 		SoundManager::getInstance().PlaySound("Laser");
 	}
 

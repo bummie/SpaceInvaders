@@ -11,6 +11,7 @@ Snake::Snake(SDL_Renderer * renderer) : Projectile(renderer)
 {
 	Projectile::Projectile(renderer);
 	m_defTexture = TextureManager::getInstance().GetTexture(renderer, imgPathSnakeDown);
+	direction = { 0 , 1 };
 }
 
 Snake::~Snake()

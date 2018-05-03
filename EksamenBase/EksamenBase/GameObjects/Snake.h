@@ -4,7 +4,7 @@
 #include "Projectile.h"
 
 
-class Snake : Projectile
+class Snake : public Projectile
 {
 public:
 	Snake(SDL_Renderer* renderer);

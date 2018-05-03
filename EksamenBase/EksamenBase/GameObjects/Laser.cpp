@@ -10,6 +10,8 @@ Laser::Laser(SDL_Renderer* renderer) : Projectile(renderer)
 {
 	Projectile::Projectile(renderer);
 	m_defTexture = TextureManager::getInstance().GetTexture(renderer, imgPathLaser);
+	direction = { 0, -1 };
+
 }
 
 
@@ -21,3 +23,4 @@ void Laser::Logic()
 {
 	Projectile::Logic();
 }
+

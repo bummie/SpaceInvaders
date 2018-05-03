@@ -3,7 +3,7 @@
 
 #include "Projectile.h"
 
-class EnemyAttack : Projectile
+class EnemyAttack : public Projectile
 {
 public:
 	EnemyAttack(SDL_Renderer* renderer);
