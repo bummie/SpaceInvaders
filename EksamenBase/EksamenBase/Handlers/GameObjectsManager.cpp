@@ -7,8 +7,8 @@ GameObjectsManager::~GameObjectsManager()
 {
 	for(auto gameObject : gameObjectsList)
 	{
-		delete(gameObject);
-		gameObject = nullptr;
+		//delete(gameObject);
+		//gameObject = nullptr;
 	}
 }
 
@@ -16,7 +16,7 @@ GameObjectsManager::~GameObjectsManager()
 /// Adds the given gameobject to the list
 /// </summary>
 /// <param name="gameObject"></param>
-void GameObjectsManager::Add(GameObject* gameObject)
+void GameObjectsManager::Add(std::shared_ptr<GameObject> gameObject)
 {
 	for (auto listGameObject : gameObjectsList)
 	{
@@ -33,15 +33,14 @@ void GameObjectsManager::Add(GameObject* gameObject)
 /// Removes the given gameobject
 /// </summary>
 /// <param name="gameObject"></param>
-void GameObjectsManager::Remove(GameObject* gameObject)
+void GameObjectsManager::Remove(std::shared_ptr<GameObject> gameObject)
 {
 	auto position = std::find(gameObjectsList.begin(), gameObjectsList.end(), gameObject);
 	if (position != gameObjectsList.end())
 	{
 		delete(&(*position));
 		gameObjectsList.erase(position);
-	}
-	
+	}	
 }
 
 /// <summary>
@@ -50,9 +49,9 @@ void GameObjectsManager::Remove(GameObject* gameObject)
 /// </summary>
 /// <param name="tag"></param>
 /// <returns></returns>
-std::vector<GameObject*>* GameObjectsManager::Find(std::string tag)
+std::vector<std::shared_ptr<GameObject>>* GameObjectsManager::Find(std::string tag)
 {
-	std::vector<GameObject*>* foundGameObjects = new std::vector<GameObject*>();
+	std::vector<std::shared_ptr<GameObject>>* foundGameObjects = new std::vector<std::shared_ptr<GameObject>>();
 	for (auto listGameObject : GameObjectsManager::getInstance().gameObjectsList)
 	{
 		if (!listGameObject->tag.compare(tag))
@@ -109,7 +108,7 @@ void GameObjectsManager::Logic()
 	{
 		if(gameObject == nullptr)
 		{
-			std::cout << gameObject->tag << std::endl;
+			std::cout << gameObject->tag << " er en nullptr yo" << std::endl;
 			return;
 		}
 		

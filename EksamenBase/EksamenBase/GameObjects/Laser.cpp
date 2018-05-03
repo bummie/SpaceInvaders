@@ -28,7 +28,7 @@ void Laser::Logic()
 
 	Projectile::Logic();
 
-	std::vector<GameObject*>* collision = CollisionManager::getInstance().OnCollision(this);
+	std::vector<std::shared_ptr<GameObject>>* collision = CollisionManager::getInstance().OnCollision(this);
 
 	if (collision != nullptr)
 	{
