@@ -58,7 +58,7 @@ void GameHandler::Init()
 
 	// Create player
 	GameObjectsManager::getInstance().Add(new Player(renderer, SCREEN_HEIGHT/2, SCREEN_HEIGHT-64));
-	GameObjectsManager::getInstance().Add(new Enemy(renderer));
+	//GameObjectsManager::getInstance().Add(new Enemy(renderer));
 
 	// Init text to screen
 	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", {255, 255, 255}, 24, 0, 0, 164, 32));
@@ -193,12 +193,14 @@ void GameHandler::Input()
 		switch (gameState)
 		{
 		case GAME_STATE::RUNNING:
-			GameObjectsManager::getInstance().Input();
+				GameObjectsManager::getInstance().Input();
 			break;
 		case GAME_STATE::STARTSCREEN:
-			if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 			{
-				ChangeGameState(GAME_STATE::RUNNING);
+				if (InputManager::getInstance().KeyDown(SDLK_SPACE))
+				{
+					ChangeGameState(GAME_STATE::RUNNING);
+				}
 			}
 			break;
 		case GAME_STATE::PAUSED:
