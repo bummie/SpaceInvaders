@@ -21,6 +21,13 @@ GameHandler::GameHandler()
 	screenSurface = nullptr;
 	gameState = GAME_STATE::GAMEOVER;
 	dtNow = dtLast = 0;
+	m_enemyMoveDelay = 400;
+	m_enemyMoveTimer = 0;
+	m_enemyMoveDistance = 5;
+	m_enemyMoveDirection = -1;
+	m_enemyTurnAround = false;
+	m_enemyMoveDown = false;
+
 }
 
 /// <summary>
@@ -104,6 +111,7 @@ void GameHandler::Logic()
 	case GAME_STATE::RUNNING:
 	{
 		GameObjectsManager::getInstance().Logic();
+		MoveEnemies();
 
 		//TODO: Own method make pretty
 		m_scorestream.clear();
@@ -295,6 +303,45 @@ void GameHandler::SpawnEnemies()
 			GameObjectsManager::getInstance().Add(new Enemy(renderer, (x * 32) + 50, (y * 48) + 100, type));
 		}
 	}
+
+	m_enemies = GameObjectsManager::getInstance().Find("Enemy");
+}
+
+/// <summary>
+/// Moves the enemies side to side and downwards towards the earth!
+/// </summary>
+void GameHandler::MoveEnemies()
+{
+	if(m_enemies == nullptr) { return; }
+
+	if(m_enemyMoveTimer >= m_enemyMoveDelay)
+	{
+		if (m_enemyTurnAround)
+		{
+			m_enemyMoveDirection *= -1;
+			m_enemyTurnAround = false;
+		}
+
+		for (auto enemy : *m_enemies)
+		{
+			enemy->position.x += m_enemyMoveDistance * m_enemyMoveDirection;
+			if (m_enemyMoveDown)
+			{
+				enemy->position.y += m_enemyMoveDistance;
+			}
+
+			if(enemy->position.x <= 0 || enemy->position.x >= (SCREEN_WIDTH - enemy->position.w))
+			{
+				m_enemyTurnAround = true;
+				m_enemyMoveDown = true;
+			}
+		}
+		if (!m_enemyTurnAround) { m_enemyMoveDown = false; }
+		
+		m_enemyMoveTimer = 0;
+	}
+
+	m_enemyMoveTimer += getDeltaTime();
 }
 
 /// <summary>

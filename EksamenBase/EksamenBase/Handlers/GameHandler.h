@@ -5,6 +5,7 @@
 #undef main
 #include <iostream>
 #include <string>
+#include <vector>
 #include <sstream>
 #include "../GameObjects/Player.h"
 #include "Text.h"
@@ -33,6 +34,13 @@ private:
 	static double deltaTime;
 
 	std::stringstream m_scorestream;
+	std::vector<GameObject*>* m_enemies;
+	float m_enemyMoveDelay;
+	float m_enemyMoveTimer;
+	int m_enemyMoveDistance;
+	int m_enemyMoveDirection;
+	bool m_enemyTurnAround;
+	bool m_enemyMoveDown;
 
 	void Update();
 	void Draw();
@@ -41,6 +49,7 @@ private:
 	void UpdateDeltaTime();
 	void ChangeGameState(GameHandler::GAME_STATE state);
 	void SpawnEnemies();
+	void MoveEnemies();
 
 public:
 	GameHandler();
