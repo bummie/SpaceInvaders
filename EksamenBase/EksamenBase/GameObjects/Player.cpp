@@ -17,8 +17,8 @@ Player::Player(SDL_Renderer* renderer, int x, int y) : GameObject(renderer)
 	position.y = y;
 	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/realplayer.bmp");
 	tag = "Player";
-	position.h = 30;
-	position.w = 60;
+	position.h = 25;
+	position.w = 50;
 }
 
 Player::~Player()
@@ -54,6 +54,7 @@ void Player::Input()
 	{
 		std::cout << "SPACE" << std::endl;
 		SoundManager::getInstance().PlaySound("Laser");
+		GameObjectsManager::getInstance().Add(new Laser(m_renderer, position.x+21, position.y-12));
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_a))

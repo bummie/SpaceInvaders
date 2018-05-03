@@ -140,6 +140,7 @@ void GameHandler::Logic()
 	}
 }
 
+
 /// <summary>
 /// Draws to the window
 /// </summary>
@@ -279,6 +280,18 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 	}
 
 
+}
+
+void GameHandler::RemoveDeadObjects()
+{
+	std::vector<GameObject*> tmpGameObjectsList = GameObjectsManager::getInstance().gameObjectsList;
+	for (auto gameObject : tmpGameObjectsList)
+	{
+		if (gameObject->getHp() <= 0)
+		{
+			GameObjectsManager::getInstance().Remove(gameObject);
+		}
+	}
 }
 
 /// <summary>
