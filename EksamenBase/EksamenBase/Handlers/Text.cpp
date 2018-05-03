@@ -13,6 +13,7 @@ Text::Text(SDL_Renderer* renderer, std::string text, SDL_Color color, int size, 
 	textColor = color;
 	textSurface = TTF_RenderText_Solid(font, text.c_str(), color);
 	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+	m_visible = true;
 
 	position = SDL_Rect();
 	position.x = x;
@@ -72,11 +73,26 @@ void Text::setPosition(int x, int y)
 }
 
 /// <summary>
+/// If text should be visible or not
+/// </summary>
+/// <param name="visible"></param>
+void Text::setVisible(bool visible)
+{
+	if(m_visible != visible)
+	{
+		m_visible = visible;
+	}
+}
+
+/// <summary>
 /// Draws the text onto the screen
 /// </summary>
 void Text::Draw()
 {
-	SDL_RenderCopy(renderer, textTexture, NULL, &position);
+	if(m_visible)
+	{
+		SDL_RenderCopy(renderer, textTexture, NULL, &position);
+	}
 }
 
 /// <summary>
@@ -88,6 +104,9 @@ void Text::FreeSurface()
 	textSurface = nullptr;
 }
 
+/// <summary>
+/// Frees the texture
+/// </summary>
 void Text::FreeTexture()
 {
 	SDL_DestroyTexture(textTexture);

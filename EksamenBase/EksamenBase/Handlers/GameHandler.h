@@ -39,6 +39,7 @@ private:
 	void Logic();
 	void Input();
 	void UpdateDeltaTime();
+	void ChangeGameState(GameHandler::GAME_STATE state);
 
 public:
 	GameHandler();

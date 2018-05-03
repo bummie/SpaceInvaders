@@ -16,7 +16,7 @@ GameHandler::GameHandler()
 {
 	window = nullptr;
 	screenSurface = nullptr;
-	gameState = GAME_STATE::STARTSCREEN;
+	gameState = GAME_STATE::GAMEOVER;
 	dtNow = dtLast = 0;
 }
 
@@ -65,6 +65,13 @@ void GameHandler::Init()
 	TextRenderer::getInstance().addText("score_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 0, 40, 82, 24));
 	TextRenderer::getInstance().addText("highscore_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 172, 40, 82, 24));
 
+	TextRenderer::getInstance().addText("startscreen_title", new Text(renderer, "SPACE INVADERS", { 130, 200, 255 }, 36, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT/5));
+	TextRenderer::getInstance().addText("startscreen_enter", new Text(renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT/2, 164, 32));
+	
+	TextRenderer::getInstance().addText("paused", new Text(renderer, "Game has been paused", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT / 2, 164, 32));
+
+
+	ChangeGameState(GAME_STATE::STARTSCREEN);
 	Update();
 }
 
@@ -105,13 +112,8 @@ void GameHandler::Logic()
 		m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
 		TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
 
-		//TextRenderer::getInstance().getText("score_value")->setVisibile(false);
-
-		
 		break;
 	case GAME_STATE::STARTSCREEN:
-
-		//TextRenderer::getInstance().getText("score_value")->setVisibile(true);
 
 		break;
 	case GAME_STATE::PAUSED:
@@ -159,17 +161,22 @@ void GameHandler::Input()
 		if (InputManager::getInstance().ExitGameRequested())
 		{
 			std::cout << "Pressed Exit" << std::endl;
-			gameState = GAME_STATE::GAMEOVER;
+			ChangeGameState(GAME_STATE::GAMEOVER);
 		}
 
 		// Pause game
-		if (InputManager::getInstance().KeyDown(SDLK_p))
+		if (InputManager::getInstance().KeyDown(SDLK_p) && gameState != GAME_STATE::STARTSCREEN)
 		{
-			std::cout << "PAUSING GAME" << std::endl;
-			//gameState = GAME_STATE::PAUSED;
+			if(gameState != GAME_STATE::PAUSED)
+			{
+				ChangeGameState(GAME_STATE::PAUSED);
+			}else
+			{
+				ChangeGameState(GAME_STATE::RUNNING);
+			}
 		}
 
-		// Pause game
+		// Add score to player
 		if (InputManager::getInstance().KeyDown(SDLK_c))
 		{
 			GameHandler::score++;
@@ -185,8 +192,7 @@ void GameHandler::Input()
 		case GAME_STATE::STARTSCREEN:
 			if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 			{
-				std::cout << "STARTING GAME" << std::endl;
-				gameState = GAME_STATE::RUNNING;
+				ChangeGameState(GAME_STATE::RUNNING);
 			}
 			break;
 		case GAME_STATE::PAUSED:
@@ -204,6 +210,57 @@ void GameHandler::UpdateDeltaTime()
 	dtNow = SDL_GetPerformanceCounter();
 
 	GameHandler::deltaTime = (double)((dtNow - dtLast) * 1000 / SDL_GetPerformanceFrequency());
+}
+
+/// <summary>
+/// Handles the change of game state
+/// </summary>
+/// <param name="state"></param>
+void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
+{
+	if (gameState == state) { return; }
+	
+	gameState = state;
+
+	switch (gameState)
+	{
+	case GAME_STATE::RUNNING:
+		std::cout << "GameState: Running" << std::endl;
+		TextRenderer::getInstance().getText("paused")->setVisible(false);
+
+		TextRenderer::getInstance().getText("startscreen_title")->setVisible(false);
+		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(false);
+
+		TextRenderer::getInstance().getText("score")->setVisible(true);
+		TextRenderer::getInstance().getText("score_value")->setVisible(true);
+		TextRenderer::getInstance().getText("highscore")->setVisible(true);
+		TextRenderer::getInstance().getText("highscore_value")->setVisible(true);
+		break;
+	case GAME_STATE::STARTSCREEN:
+		std::cout << "GameState: Startscreen" << std::endl;
+
+		TextRenderer::getInstance().getText("paused")->setVisible(false);
+
+		TextRenderer::getInstance().getText("startscreen_title")->setVisible(true);
+		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(true);
+
+		TextRenderer::getInstance().getText("score")->setVisible(false);
+		TextRenderer::getInstance().getText("score_value")->setVisible(false);
+		TextRenderer::getInstance().getText("highscore")->setVisible(false);
+		TextRenderer::getInstance().getText("highscore_value")->setVisible(false);
+		break;
+	case GAME_STATE::PAUSED:
+		std::cout << "GameState: Paused" << std::endl;
+		TextRenderer::getInstance().getText("paused")->setVisible(true);
+		break;
+
+	case GAME_STATE::GAMEOVER:
+		std::cout << "GameState: GameOver" << std::endl;
+
+		break;
+	}
+
+
 }
 
 /// <summary>

@@ -15,6 +15,7 @@ private:
 	std::string text;
 	SDL_Rect position;
 	SDL_Renderer* renderer;
+	bool m_visible;
 
 	void FreeSurface();
 	void FreeTexture();
@@ -28,6 +29,7 @@ public:
 	void setText(std::string text);
 	void setColor(SDL_Color color);
 	void setPosition(int x, int y);
+	void setVisible(bool visible);
 
 	void Draw();
 };
