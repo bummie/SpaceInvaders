@@ -6,7 +6,7 @@
 class Laser : public Projectile
 {
 public:
-	Laser(SDL_Renderer* renderer);
+	Laser(SDL_Renderer* renderer, int x, int y);
 	~Laser();
 	void Logic();
 private:

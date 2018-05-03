@@ -62,8 +62,8 @@ void GameHandler::Init()
 	// Create player
 	GameObjectsManager::getInstance().Add(new Player(renderer, SCREEN_HEIGHT/2, SCREEN_HEIGHT-64));
 	//GameObjectsManager::getInstance().Add(new Enemy(renderer));
-	GameObjectsManager::getInstance().Add(new EnemyAttack(renderer));
-	GameObjectsManager::getInstance().Add(new Snake(renderer));
+	GameObjectsManager::getInstance().Add(new EnemyAttack(renderer, 300, 0));
+	GameObjectsManager::getInstance().Add(new Snake(renderer, 200, 0));
 
 
 	// Init text to screen

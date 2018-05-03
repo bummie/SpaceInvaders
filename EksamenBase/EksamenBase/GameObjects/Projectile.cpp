@@ -6,9 +6,13 @@
 #include "../Handlers/GameHandler.h"
 
 
-Projectile::Projectile(SDL_Renderer* renderer) : GameObject(renderer)
+Projectile::Projectile(SDL_Renderer* renderer, int x, int y) : GameObject(renderer)
 {
 	tag = "Projectile";
+	m_maxSpeed = .3f;
+	position = {
+		x, y
+	};
 	
 }
 
@@ -20,7 +24,7 @@ Projectile::~Projectile()
 void Projectile::Logic()
 {
 	GameObject::Logic();
-	m_velocity.y = M_MAX_SPEED * direction.y;
+	m_acceleration.y = (m_maxSpeed * direction.y);
 
 }
 

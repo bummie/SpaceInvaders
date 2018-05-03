@@ -100,8 +100,8 @@ void GameObject::Logic()
 		m_velocity.y += -(1.0f, m_velocity.y) * m_deAcceleration;
 	}
 
-	if (std::abs(m_velocity.y) > M_MAX_SPEED) { m_velocity.y = copysign(1.0f, m_velocity.y) * M_MAX_SPEED; }
-	if (std::abs(m_velocity.x) > M_MAX_SPEED) { m_velocity.x = copysign(1.0f, m_velocity.x) * M_MAX_SPEED; }
+	if (std::abs(m_velocity.y) > m_maxSpeed) { m_velocity.y = copysign(1.0f, m_velocity.y) * m_maxSpeed; }
+	if (std::abs(m_velocity.x) > m_maxSpeed) { m_velocity.x = copysign(1.0f, m_velocity.x) * m_maxSpeed; }
 
 	position.x += m_velocity.x * GameHandler::getDeltaTime();
 	position.y += m_velocity.y * GameHandler::getDeltaTime();

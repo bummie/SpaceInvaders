@@ -6,9 +6,9 @@
 #include "../Handlers/CollisionManager.h"
 #include "../Handlers/GameHandler.h"
 
-Laser::Laser(SDL_Renderer* renderer) : Projectile(renderer)
+Laser::Laser(SDL_Renderer* renderer, int x, int y) : Projectile(renderer, x, y)
 {
-	Projectile::Projectile(renderer);
+	Projectile::Projectile(renderer, x, y);
 	m_defTexture = TextureManager::getInstance().GetTexture(renderer, imgPathLaser);
 	direction = { 0, -1 };
 

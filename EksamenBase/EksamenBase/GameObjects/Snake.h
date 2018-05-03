@@ -7,7 +7,7 @@
 class Snake : public Projectile
 {
 public:
-	Snake(SDL_Renderer* renderer);
+	Snake(SDL_Renderer* renderer, int x, int y);
 	~Snake();
 	void Logic();
 private:

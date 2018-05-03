@@ -17,8 +17,8 @@ Player::Player(SDL_Renderer* renderer, int x, int y) : GameObject(renderer)
 	position.y = y;
 	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/realplayer.bmp");
 	tag = "Player";
-	position.h = 40;
-	position.w = 80;
+	position.h = 30;
+	position.w = 60;
 }
 
 Player::~Player()
