@@ -10,6 +10,11 @@ public:
 	~Player();
 	void Logic();
 	void Input();
+	void Replenish();
+private:
+	bool m_replenished = true;
+	void Shoot();
+	GameObject* currentLaser;
 };
 
 #endif
