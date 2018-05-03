@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
+
 GameObjectsManager::~GameObjectsManager()
 {
 	for(auto gameObject : gameObjectsList)
@@ -97,6 +98,7 @@ void GameObjectsManager::Input()
 		return;
 	}
 }
+
 
 /// <summary>
 /// Handles all the logic

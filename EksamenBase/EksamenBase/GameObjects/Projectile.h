@@ -8,6 +8,7 @@ class Projectile : public GameObject
 protected:
 	GameObject * owner;
 	Vector2D direction;
+	void CheckPosition();
 public:
 	Projectile(SDL_Renderer* renderer, int x, int y);
 	~Projectile();

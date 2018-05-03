@@ -107,6 +107,7 @@ void GameHandler::Logic()
 	case GAME_STATE::RUNNING:
 	{
 		GameObjectsManager::getInstance().Logic();
+		//RemoveDeadObjects();
 
 		//TODO: Own method make pretty
 		m_scorestream.clear();
@@ -134,6 +135,7 @@ void GameHandler::Logic()
 		break;
 	}
 }
+
 
 /// <summary>
 /// Draws to the window
@@ -279,6 +281,18 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 	}
 
 
+}
+
+void GameHandler::RemoveDeadObjects()
+{
+	std::vector<GameObject*> tmpGameObjectsList = GameObjectsManager::getInstance().gameObjectsList;
+	for (auto gameObject : tmpGameObjectsList)
+	{
+		if (gameObject->getHp() <= 0)
+		{
+			GameObjectsManager::getInstance().Remove(gameObject);
+		}
+	}
 }
 
 /// <summary>

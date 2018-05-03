@@ -40,6 +40,7 @@ private:
 	void Input();
 	void UpdateDeltaTime();
 	void ChangeGameState(GameHandler::GAME_STATE state);
+	void RemoveDeadObjects();
 
 public:
 	GameHandler();
