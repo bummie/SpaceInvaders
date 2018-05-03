@@ -17,7 +17,7 @@ GameObject::GameObject(SDL_Renderer* renderer)
 	m_acceleration = { 0.0f, 0.0f };
 	m_deAcceleration = 1.0f;
 	m_accelerationValue = .1f;
-
+	m_hp = 100;
 	tag = "GameObject";
 
 	GameObject::m_renderer = renderer;
@@ -29,6 +29,8 @@ GameObject::~GameObject()
 
 void GameObject::Draw()
 {
+	if (getHp() <= 0) { return; }
+
 	if(m_defTexture == nullptr)
 	{
 		std::cout << "Texture is null" << std::endl;
@@ -66,7 +68,8 @@ void GameObject::Draw()
 
 void GameObject::Input()
 {
-	
+	if (getHp() <= 0) { return; }
+
 }
 
 int GameObject::getHp() const
@@ -81,7 +84,7 @@ void GameObject::setHp(int hp)
 
 void GameObject::Logic()
 {
-	
+	if (getHp() <= 0) { return; }
 
 	if(m_acceleration.x != 0)
 	{

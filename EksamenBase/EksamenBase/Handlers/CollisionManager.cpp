@@ -20,7 +20,7 @@ std::vector<GameObject*>* CollisionManager::OnCollision(GameObject * gameObject)
 	{
 		if (gameObject == go) { continue; }
 
-		if (SDL_HasIntersection(&go->position, &gameObject->position))
+		if (SDL_HasIntersection(&go->position, &gameObject->position) && go->getHp() > 0)
 		{
 			foundCollision->push_back(go);
 		}
