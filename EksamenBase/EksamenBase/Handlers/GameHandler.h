@@ -7,8 +7,10 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <memory>
 #include "../GameObjects/Player.h"
 #include "Text.h"
+
 
 class GameHandler
 {
@@ -34,7 +36,7 @@ private:
 	static double deltaTime;
 
 	std::stringstream m_scorestream;
-	std::vector<GameObject*>* m_enemies;
+	std::vector<std::shared_ptr<GameObject>>* m_enemies;
 	float m_enemyMoveDelay;
 	float m_enemyMoveTimer;
 	int m_enemyMoveDistance;

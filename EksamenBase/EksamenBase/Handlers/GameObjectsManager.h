@@ -4,6 +4,7 @@
 #include "../GameObjects\GameObject.h"
 #include <vector>
 #include <string>
+#include <memory>
 
 class GameObjectsManager
 {
@@ -22,11 +23,11 @@ private:
 
 public:
 	~GameObjectsManager();
-	std::vector<GameObject*> gameObjectsList;
+	void Add(std::shared_ptr<GameObject> gameObject);
+	std::vector<std::shared_ptr<GameObject>> gameObjectsList;
 
-	void Add(GameObject* gameObject);
-	void Remove(GameObject* gameObject);
-	std::vector<GameObject*>* Find(std::string tag);
+	void Remove(std::shared_ptr<GameObject> gameObject);
+	std::vector<std::shared_ptr<GameObject>>* Find(std::string tag);
 
 	void Draw();
 	void Input();

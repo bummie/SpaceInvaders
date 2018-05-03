@@ -3,6 +3,7 @@
 
 #include "../GameObjects\GameObject.h"
 #include <vector>
+#include <memory>
 
 class CollisionManager
 {
@@ -20,7 +21,7 @@ private:
 
 public:
 	~CollisionManager();
-	std::vector<GameObject*>* OnCollision(GameObject* gameObject);
+	std::vector<std::shared_ptr<GameObject>>* OnCollision(GameObject * gameObject);
 };
 
 #endif

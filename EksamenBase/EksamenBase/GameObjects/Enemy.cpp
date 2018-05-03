@@ -8,6 +8,7 @@
 #include "EnemyAttack.h"
 
 #include <iostream>
+#include <memory>
 #include <stdlib.h>  
 
 Enemy::Enemy(SDL_Renderer * renderer, int x, int y, ENEMY_TYPE type) : GameObject(renderer)
@@ -52,7 +53,7 @@ void Enemy::Logic()
 
 	if((rand() % 10000) == 50)
 	{
-		GameObjectsManager::getInstance().Add(new Snake(m_renderer, position.x, position.y));
+		GameObjectsManager::getInstance().Add(std::shared_ptr<Snake>(new Snake(m_renderer, position.x, position.y)));
 	}
 }
 

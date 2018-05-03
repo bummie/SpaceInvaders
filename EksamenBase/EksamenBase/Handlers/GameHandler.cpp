@@ -11,6 +11,7 @@
 #include "../GameObjects/EnemyAttack.h"
 #include <string>
 #include <iomanip>
+#include <memory>
 
 double GameHandler::deltaTime = 0;
 int GameHandler::score = 0;
@@ -67,7 +68,7 @@ void GameHandler::Init()
 	renderer = SDL_CreateRenderer(window, -1, 0);
 
 	// Create player
-	GameObjectsManager::getInstance().Add(new Player(renderer, SCREEN_HEIGHT/2, SCREEN_HEIGHT-64));
+	GameObjectsManager::getInstance().Add(std::shared_ptr<Player>(new Player(renderer, SCREEN_HEIGHT/2, SCREEN_HEIGHT-64)));
 	SpawnEnemies();
 
 	// Init text to screen
@@ -284,7 +285,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 
 void GameHandler::RemoveDeadObjects()
 {
-	std::vector<GameObject*> tmpGameObjectsList = GameObjectsManager::getInstance().gameObjectsList;
+	auto tmpGameObjectsList = GameObjectsManager::getInstance().gameObjectsList;
 	for (auto gameObject : tmpGameObjectsList)
 	{
 		if (gameObject->getHp() <= 0)
@@ -313,7 +314,7 @@ void GameHandler::SpawnEnemies()
 
 		for (int x = 0; x < 11; x++)
 		{
-			GameObjectsManager::getInstance().Add(new Enemy(renderer, (x * 32) + 50, (y * 48) + 100, type));
+			GameObjectsManager::getInstance().Add(std::shared_ptr<Enemy>(new Enemy(renderer, (x * 32) + 50, (y * 48) + 100, type)));
 		}
 	}
 

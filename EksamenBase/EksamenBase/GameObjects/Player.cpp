@@ -8,6 +8,7 @@
 #include "Laser.h"
 #include "Enemy.h"
 
+#include <memory>
 #include <iostream>
 #include <vector>
 
@@ -30,7 +31,7 @@ void Player::Logic()
 {
 	GameObject::Logic();
 
-	std::vector<GameObject*>* collision = CollisionManager::getInstance().OnCollision(this);
+	auto collision = CollisionManager::getInstance().OnCollision(this);
 
 	if (collision != nullptr)
 	{
@@ -54,7 +55,7 @@ void Player::Input()
 	{
 		std::cout << "SPACE" << std::endl;
 		SoundManager::getInstance().PlaySound("Laser");
-		GameObjectsManager::getInstance().Add(new Laser(m_renderer, position.x+21, position.y-12));
+		GameObjectsManager::getInstance().Add(std::shared_ptr<Laser>(new Laser(m_renderer, position.x+21, position.y-12)));
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_a))
