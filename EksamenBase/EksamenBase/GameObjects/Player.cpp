@@ -49,7 +49,7 @@ void Player::Input()
 {
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 	{
-		std::cout << "SPACE" << std::endl;
+		 std::cout << "SPACE" << std::endl;
 		SoundManager::getInstance().PlaySound("Laser");
 	}
 

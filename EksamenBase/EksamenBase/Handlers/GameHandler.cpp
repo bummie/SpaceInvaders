@@ -60,6 +60,7 @@ void GameHandler::Init()
 	GameObjectsManager::getInstance().Add(new Player(renderer, SCREEN_HEIGHT/2, SCREEN_HEIGHT-64));
 	GameObjectsManager::getInstance().Add(new Enemy(renderer));
 
+
 	// Init text to screen
 	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", {255, 255, 255}, 24, 0, 0, 164, 32));
 	TextRenderer::getInstance().addText("highscore", new Text(renderer, "HI-SCORE SCORE <2>", { 255, 255, 255 }, 24, 172, 0, 164, 32));
