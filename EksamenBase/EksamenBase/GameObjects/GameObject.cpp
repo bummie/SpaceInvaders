@@ -69,7 +69,6 @@ void GameObject::Draw()
 void GameObject::Input()
 {
 	if (getHp() <= 0) { return; }
-
 }
 
 int GameObject::getHp() const

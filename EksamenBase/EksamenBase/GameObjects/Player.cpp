@@ -32,6 +32,14 @@ void Player::Logic()
 
 	std::vector<GameObject*>* collision = CollisionManager::getInstance().OnCollision(this);
 
+	if (currentLaser != nullptr)
+	{
+		if (currentLaser->getHp() <= 0)
+		{
+			Replenish();
+		}
+	}
+
 	if (collision != nullptr)
 	{
 		for (auto go : *collision)
@@ -52,9 +60,10 @@ void Player::Input()
 {
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 	{
-		std::cout << "SPACE" << std::endl;
-		SoundManager::getInstance().PlaySound("Laser");
-		GameObjectsManager::getInstance().Add(new Laser(m_renderer, position.x+21, position.y-12));
+		if (m_replenished)
+		{
+			Shoot();
+		}
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_a))
@@ -77,4 +86,18 @@ void Player::Input()
 	{
 		m_acceleration.x = 0;
 	}
+}
+
+void Player::Shoot()
+{
+	std::cout << "SPACE" << std::endl;
+	SoundManager::getInstance().PlaySound("Laser");
+	currentLaser = new Laser(m_renderer, position.x + 21, position.y - 12);
+	GameObjectsManager::getInstance().Add(currentLaser);
+	m_replenished = false;
+}
+
+void Player::Replenish()
+{
+	m_replenished = true;
 }
