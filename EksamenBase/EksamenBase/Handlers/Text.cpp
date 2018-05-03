@@ -78,10 +78,7 @@ void Text::setPosition(int x, int y)
 /// <param name="visible"></param>
 void Text::setVisible(bool visible)
 {
-	if(m_visible != visible)
-	{
-		m_visible = visible;
-	}
+	m_visible = visible;
 }
 
 /// <summary>
