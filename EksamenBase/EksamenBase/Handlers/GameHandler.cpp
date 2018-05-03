@@ -96,9 +96,10 @@ void GameHandler::Update()
 /// </summary>
 void GameHandler::Logic()
 {
-	switch(gameState)
+	switch (gameState)
 	{
 	case GAME_STATE::RUNNING:
+	{
 		GameObjectsManager::getInstance().Logic();
 
 		//TODO: Own method make pretty
@@ -107,6 +108,18 @@ void GameHandler::Logic()
 		m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
 		TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
 
+		/* DEMO: GRABBING GAMEOBJECTS BY TAG
+		auto player = GameObjectsManager::getInstance().Find("Player");
+		if (player != nullptr)
+		{
+			for (auto ply : *player)
+			{
+				std::cout << ply->tag << " : " <<  ply->id << std::endl;
+			}
+		}
+		delete(player);
+		*/
+	}
 		break;
 	case GAME_STATE::STARTSCREEN:
 

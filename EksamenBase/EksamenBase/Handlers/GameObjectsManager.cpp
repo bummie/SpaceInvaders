@@ -48,24 +48,26 @@ void GameObjectsManager::Remove(GameObject* gameObject)
 /// </summary>
 /// <param name="tag"></param>
 /// <returns></returns>
-GameObject** GameObjectsManager::Find(std::string tag)
+std::vector<GameObject*>* GameObjectsManager::Find(std::string tag)
 {
-	std::vector<GameObject*> foundGameObjects;
-
-	for (auto listGameObject : gameObjectsList)
+	std::vector<GameObject*>* foundGameObjects = new std::vector<GameObject*>();
+	for (auto listGameObject : GameObjectsManager::getInstance().gameObjectsList)
 	{
-		if (listGameObject->tag.compare(tag))
+		if (!listGameObject->tag.compare(tag))
 		{
-			foundGameObjects.push_back(listGameObject);
+			foundGameObjects->push_back(listGameObject);
 		}
 	}
 
-	if(foundGameObjects.size() <= 0)
+	if (foundGameObjects->size() > 0)
 	{
+		return foundGameObjects;
+	}
+	else
+	{
+		delete(foundGameObjects);
 		return nullptr;
 	}
-
-	return foundGameObjects.data();
 }
 
 /// <summary>

@@ -26,7 +26,7 @@ public:
 
 	void Add(GameObject* gameObject);
 	void Remove(GameObject* gameObject);
-	GameObject** Find(std::string tag);
+	std::vector<GameObject*>* Find(std::string tag);
 
 	void Draw();
 	void Input();
