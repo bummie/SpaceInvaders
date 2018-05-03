@@ -5,8 +5,6 @@
 
 class Enemy : public GameObject
 {
-private:
-	int degree = 0;
 public:
 	Enemy(SDL_Renderer* renderer);
 	~Enemy();

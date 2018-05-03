@@ -199,12 +199,14 @@ void GameHandler::Input()
 		switch (gameState)
 		{
 		case GAME_STATE::RUNNING:
-			GameObjectsManager::getInstance().Input();
+				GameObjectsManager::getInstance().Input();
 			break;
 		case GAME_STATE::STARTSCREEN:
-			if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 			{
-				ChangeGameState(GAME_STATE::RUNNING);
+				if (InputManager::getInstance().KeyDown(SDLK_SPACE))
+				{
+					ChangeGameState(GAME_STATE::RUNNING);
+				}
 			}
 			break;
 		case GAME_STATE::PAUSED:

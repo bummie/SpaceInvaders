@@ -52,9 +52,10 @@ void Player::Input()
 {
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 	{
-		GameObjectsManager::getInstance().Add(new Enemy(m_renderer));
-		 std::cout << "SPACE" << std::endl;
+		std::cout << "SPACE" << std::endl;
 		SoundManager::getInstance().PlaySound("Laser");
+
+		GameObjectsManager::getInstance().Add(new Laser(m_renderer));
 	}
 
 	if (InputManager::getInstance().KeyHeld(SDLK_a))

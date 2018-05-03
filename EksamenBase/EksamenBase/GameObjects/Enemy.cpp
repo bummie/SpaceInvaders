@@ -11,8 +11,8 @@ Enemy::Enemy(SDL_Renderer * renderer) : GameObject(renderer)
 	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Enemies/Enemy_squid_down.bmp");
 	m_secondaryTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Enemies/Enemy_squid_up.bmp");
 	tag = "Enemy";
-	position.x = 128;
-	position.y = 128;
+	position.x = rand() % 300;
+	position.y = rand() % 300;
 	position.h = 28;
 	position.w = 28;
 }

@@ -1,5 +1,6 @@
 #include "GameObjectsManager.h"
 #include <algorithm>
+#include <iostream>
 
 GameObjectsManager::~GameObjectsManager()
 {
@@ -93,6 +94,7 @@ void GameObjectsManager::Input()
 			return;
 		}
 		gameObject->Input();
+		return;
 	}
 }
 
