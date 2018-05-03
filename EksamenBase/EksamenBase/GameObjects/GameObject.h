@@ -21,7 +21,7 @@ protected:
 	Vector2D m_acceleration;
 	float m_deAcceleration;
 	float m_accelerationValue;
-	const float M_MAX_SPEED = .5f;
+	float m_maxSpeed = .5f;
 	int m_hp;
 
 public:

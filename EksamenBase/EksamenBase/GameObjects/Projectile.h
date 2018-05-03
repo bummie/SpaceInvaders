@@ -9,7 +9,7 @@ protected:
 	GameObject * owner;
 	Vector2D direction;
 public:
-	Projectile(SDL_Renderer* renderer);
+	Projectile(SDL_Renderer* renderer, int x, int y);
 	~Projectile();
 	void Logic();
 	

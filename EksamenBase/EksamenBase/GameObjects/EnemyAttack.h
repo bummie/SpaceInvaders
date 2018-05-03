@@ -6,7 +6,7 @@
 class EnemyAttack : public Projectile
 {
 public:
-	EnemyAttack(SDL_Renderer* renderer);
+	EnemyAttack(SDL_Renderer* renderer, int x, int y);
 	~EnemyAttack();
 	void Logic();
 private:
