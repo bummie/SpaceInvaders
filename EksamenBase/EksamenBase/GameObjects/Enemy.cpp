@@ -26,7 +26,6 @@ void Enemy::Logic()
 {
 	GameObject::Logic();
 
-
 }
 
 void Enemy::Input()

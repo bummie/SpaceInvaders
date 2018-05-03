@@ -16,7 +16,7 @@ public:
 	static const int SCREEN_HEIGHT = 480;
 	static int score;
 private:
-	const enum GAME_STATE { RUNNING, GAMEOVER, PAUSED };
+	const enum GAME_STATE { RUNNING, STARTSCREEN, GAMEOVER, PAUSED };
 
 	const char* GAME_NAME = "Space Invaders 2018";
 
@@ -39,6 +39,7 @@ private:
 	void Logic();
 	void Input();
 	void UpdateDeltaTime();
+	void ChangeGameState(GameHandler::GAME_STATE state);
 
 public:
 	GameHandler();
