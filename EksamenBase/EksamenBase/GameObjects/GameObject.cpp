@@ -72,11 +72,19 @@ void GameObject::Input()
 
 }
 
+/// <summary>
+/// Returns HP
+/// </summary>
+/// <returns></returns>
 int GameObject::getHp() const
 {
 	return m_hp;
 }
 
+/// <summary>
+/// Sets HP
+/// </summary>
+/// <param name="hp"></param>
 void GameObject::setHp(int hp)
 {
 	m_hp = hp;

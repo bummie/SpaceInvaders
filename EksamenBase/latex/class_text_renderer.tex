@@ -1,0 +1,108 @@
+\hypertarget{class_text_renderer}{}\section{Text\+Renderer Class Reference}
+\label{class_text_renderer}\index{Text\+Renderer@{Text\+Renderer}}
+
+
+{\ttfamily \#include $<$Text\+Renderer.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_text_renderer_a7087505bdc31e41416408c27fe029f20}{$\sim$\+Text\+Renderer}} ()
+\item 
+\mbox{\hyperlink{class_text}{Text}} $\ast$ \mbox{\hyperlink{class_text_renderer_ac05aa714426b16276c45647e8c7c50bd}{get\+Text}} (std\+::string text\+Key)
+\begin{DoxyCompactList}\small\item\em Retrieves a text with given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_renderer_af174d80bebf4e0eb8a9039bc7466893e}{add\+Text}} (std\+::string text\+Key, \mbox{\hyperlink{class_text}{Text}} $\ast$text)
+\begin{DoxyCompactList}\small\item\em Add a new text to the renderer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_renderer_a7bbce1218d00986c91ff15e5e6dfdc3a}{remove\+Text}} (std\+::string text\+Key)
+\begin{DoxyCompactList}\small\item\em Removes a text with given key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_renderer_a58d44a6db6f6410a6ec292b811f774a2}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws every text to the screen \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_text_renderer}{Text\+Renderer}} \& \mbox{\hyperlink{class_text_renderer_a94a68e46e699ba95ae64ad7bf6f8a1be}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_text_renderer_a7087505bdc31e41416408c27fe029f20}\label{class_text_renderer_a7087505bdc31e41416408c27fe029f20}} 
+\index{Text\+Renderer@{Text\+Renderer}!````~Text\+Renderer@{$\sim$\+Text\+Renderer}}
+\index{````~Text\+Renderer@{$\sim$\+Text\+Renderer}!Text\+Renderer@{Text\+Renderer}}
+\subsubsection{\texorpdfstring{$\sim$\+Text\+Renderer()}{~TextRenderer()}}
+{\footnotesize\ttfamily Text\+Renderer\+::$\sim$\+Text\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_text_renderer_af174d80bebf4e0eb8a9039bc7466893e}\label{class_text_renderer_af174d80bebf4e0eb8a9039bc7466893e}} 
+\index{Text\+Renderer@{Text\+Renderer}!add\+Text@{add\+Text}}
+\index{add\+Text@{add\+Text}!Text\+Renderer@{Text\+Renderer}}
+\subsubsection{\texorpdfstring{add\+Text()}{addText()}}
+{\footnotesize\ttfamily void Text\+Renderer\+::add\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{text\+Key,  }\item[{\mbox{\hyperlink{class_text}{Text}} $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Add a new text to the renderer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text\+Key} & \\
+\hline
+{\em text} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_text_renderer_a58d44a6db6f6410a6ec292b811f774a2}\label{class_text_renderer_a58d44a6db6f6410a6ec292b811f774a2}} 
+\index{Text\+Renderer@{Text\+Renderer}!Draw@{Draw}}
+\index{Draw@{Draw}!Text\+Renderer@{Text\+Renderer}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Text\+Renderer\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws every text to the screen 
+
+\mbox{\Hypertarget{class_text_renderer_a94a68e46e699ba95ae64ad7bf6f8a1be}\label{class_text_renderer_a94a68e46e699ba95ae64ad7bf6f8a1be}} 
+\index{Text\+Renderer@{Text\+Renderer}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Text\+Renderer@{Text\+Renderer}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_text_renderer}{Text\+Renderer}}\& Text\+Renderer\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_text_renderer_ac05aa714426b16276c45647e8c7c50bd}\label{class_text_renderer_ac05aa714426b16276c45647e8c7c50bd}} 
+\index{Text\+Renderer@{Text\+Renderer}!get\+Text@{get\+Text}}
+\index{get\+Text@{get\+Text}!Text\+Renderer@{Text\+Renderer}}
+\subsubsection{\texorpdfstring{get\+Text()}{getText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_text}{Text}} $\ast$ Text\+Renderer\+::get\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{text\+Key }\end{DoxyParamCaption})}
+
+
+
+Retrieves a text with given key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text\+Key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_text_renderer_a7bbce1218d00986c91ff15e5e6dfdc3a}\label{class_text_renderer_a7bbce1218d00986c91ff15e5e6dfdc3a}} 
+\index{Text\+Renderer@{Text\+Renderer}!remove\+Text@{remove\+Text}}
+\index{remove\+Text@{remove\+Text}!Text\+Renderer@{Text\+Renderer}}
+\subsubsection{\texorpdfstring{remove\+Text()}{removeText()}}
+{\footnotesize\ttfamily void Text\+Renderer\+::remove\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{text\+Key }\end{DoxyParamCaption})}
+
+
+
+Removes a text with given key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text\+Key} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Eksamen\+Base/\+Handlers/\mbox{\hyperlink{_text_renderer_8h}{Text\+Renderer.\+h}}\item 
+Eksamen\+Base/\+Handlers/\mbox{\hyperlink{_text_renderer_8cpp}{Text\+Renderer.\+cpp}}\end{DoxyCompactItemize}

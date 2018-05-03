@@ -1,0 +1,217 @@
+\hypertarget{class_game_object}{}\section{Game\+Object Class Reference}
+\label{class_game_object}\index{Game\+Object@{Game\+Object}}
+
+
+{\ttfamily \#include $<$Game\+Object.\+h$>$}
+
+Inheritance diagram for Game\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_game_object}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_game_object_1_1_vector2_d}{Vector2D}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a0b60783781874241ad26049ad968a78b}{Game\+Object}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+\mbox{\hyperlink{class_game_object_ab82dfdb656f9051c0587e6593b2dda97}{$\sim$\+Game\+Object}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_a79510ffc77339fe850491dce9f580fa9}{Logic}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_ad3ac1deac50048cf7a1a19eb0e61ad26}{Draw}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_a430742cf91abb99337c556c88bef880a}{Input}} ()
+\item 
+int \mbox{\hyperlink{class_game_object_a13b96d5c268bca096f8e3a3e85d35732}{get\+Hp}} () const
+\begin{DoxyCompactList}\small\item\em Returns HP \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7aa67e2bbfd37af89d86df0b030b5a81}{set\+Hp}} (int hp)
+\begin{DoxyCompactList}\small\item\em Sets HP \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Rect \mbox{\hyperlink{class_game_object_af6009d73be98a4bd54272d06b50f2eac}{position}}
+\item 
+std\+::string \mbox{\hyperlink{class_game_object_a66891b8bfd67373dde0155ae7808bbb4}{tag}}
+\item 
+int \mbox{\hyperlink{class_game_object_a98291c60da12d9036e1ad24cfebcf6b3}{id}}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{class_game_object_a5202d5d5df1813c567fb344617250b42}{m\+\_\+def\+Texture}}
+\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{class_game_object_aa89e916d62813d047b054c0c9cf97559}{m\+\_\+secondary\+Texture}}
+\item 
+S\+D\+L\+\_\+\+Renderer $\ast$ \mbox{\hyperlink{class_game_object_a2be93417ea72201ce5edc093167b2f68}{m\+\_\+renderer}}
+\item 
+\mbox{\hyperlink{struct_game_object_1_1_vector2_d}{Vector2D}} \mbox{\hyperlink{class_game_object_ac27549efb645f7c924d6604e318877bf}{m\+\_\+velocity}}
+\item 
+\mbox{\hyperlink{struct_game_object_1_1_vector2_d}{Vector2D}} \mbox{\hyperlink{class_game_object_a934563079577e8f20b597e23ae40ec20}{m\+\_\+acceleration}}
+\item 
+float \mbox{\hyperlink{class_game_object_a82b60a9ea631d253434ba8683ee69370}{m\+\_\+de\+Acceleration}}
+\item 
+float \mbox{\hyperlink{class_game_object_a6a2eccbbf7974ae9d76e58f4f5b899ac}{m\+\_\+acceleration\+Value}}
+\item 
+float \mbox{\hyperlink{class_game_object_a13670cbe19b2daaedbd696a3495bf598}{m\+\_\+max\+Speed}} = .\+5f
+\item 
+int \mbox{\hyperlink{class_game_object_a26687f9a79576969707c47f5562b7037}{m\+\_\+hp}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_object_a0b60783781874241ad26049ad968a78b}\label{class_game_object_a0b60783781874241ad26049ad968a78b}} 
+\index{Game\+Object@{Game\+Object}!Game\+Object@{Game\+Object}}
+\index{Game\+Object@{Game\+Object}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{Game\+Object()}{GameObject()}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_object_ab82dfdb656f9051c0587e6593b2dda97}\label{class_game_object_ab82dfdb656f9051c0587e6593b2dda97}} 
+\index{Game\+Object@{Game\+Object}!````~Game\+Object@{$\sim$\+Game\+Object}}
+\index{````~Game\+Object@{$\sim$\+Game\+Object}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{$\sim$\+Game\+Object()}{~GameObject()}}
+{\footnotesize\ttfamily Game\+Object\+::$\sim$\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_object_ad3ac1deac50048cf7a1a19eb0e61ad26}\label{class_game_object_ad3ac1deac50048cf7a1a19eb0e61ad26}} 
+\index{Game\+Object@{Game\+Object}!Draw@{Draw}}
+\index{Draw@{Draw}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_game_object_a13b96d5c268bca096f8e3a3e85d35732}\label{class_game_object_a13b96d5c268bca096f8e3a3e85d35732}} 
+\index{Game\+Object@{Game\+Object}!get\+Hp@{get\+Hp}}
+\index{get\+Hp@{get\+Hp}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{get\+Hp()}{getHp()}}
+{\footnotesize\ttfamily int Game\+Object\+::get\+Hp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns HP 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a430742cf91abb99337c556c88bef880a}\label{class_game_object_a430742cf91abb99337c556c88bef880a}} 
+\index{Game\+Object@{Game\+Object}!Input@{Input}}
+\index{Input@{Input}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{Input()}{Input()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_enemy_ad4958e67a70c706e37a80b285ac89854}{Enemy}}, and \mbox{\hyperlink{class_player_a65a76094cff6f149d5847d2110fe443d}{Player}}.
+
+\mbox{\Hypertarget{class_game_object_a79510ffc77339fe850491dce9f580fa9}\label{class_game_object_a79510ffc77339fe850491dce9f580fa9}} 
+\index{Game\+Object@{Game\+Object}!Logic@{Logic}}
+\index{Logic@{Logic}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{Logic()}{Logic()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Logic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_projectile_a871e265207d2bf2d5180152a7acf2d40}{Projectile}}, \mbox{\hyperlink{class_enemy_adcde768475970dae1e4c3e76fb59bc46}{Enemy}}, \mbox{\hyperlink{class_snake_a1f01e21a73734f9c0d701ec02a9d2e41}{Snake}}, \mbox{\hyperlink{class_enemy_attack_a2f735b2cbf13787217a5daed7ff8f7a4}{Enemy\+Attack}}, \mbox{\hyperlink{class_laser_a1f2135281ecc1b318357633f4e7dd34c}{Laser}}, and \mbox{\hyperlink{class_player_ae30c8d49de94ee8c73ed6ab6315a2854}{Player}}.
+
+\mbox{\Hypertarget{class_game_object_a7aa67e2bbfd37af89d86df0b030b5a81}\label{class_game_object_a7aa67e2bbfd37af89d86df0b030b5a81}} 
+\index{Game\+Object@{Game\+Object}!set\+Hp@{set\+Hp}}
+\index{set\+Hp@{set\+Hp}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{set\+Hp()}{setHp()}}
+{\footnotesize\ttfamily void Game\+Object\+::set\+Hp (\begin{DoxyParamCaption}\item[{int}]{hp }\end{DoxyParamCaption})}
+
+
+
+Sets HP 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hp} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_object_a98291c60da12d9036e1ad24cfebcf6b3}\label{class_game_object_a98291c60da12d9036e1ad24cfebcf6b3}} 
+\index{Game\+Object@{Game\+Object}!id@{id}}
+\index{id@{id}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int Game\+Object\+::id}
+
+\mbox{\Hypertarget{class_game_object_a934563079577e8f20b597e23ae40ec20}\label{class_game_object_a934563079577e8f20b597e23ae40ec20}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+acceleration@{m\+\_\+acceleration}}
+\index{m\+\_\+acceleration@{m\+\_\+acceleration}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+acceleration}{m\_acceleration}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_game_object_1_1_vector2_d}{Vector2D}} Game\+Object\+::m\+\_\+acceleration\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_a6a2eccbbf7974ae9d76e58f4f5b899ac}\label{class_game_object_a6a2eccbbf7974ae9d76e58f4f5b899ac}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+acceleration\+Value@{m\+\_\+acceleration\+Value}}
+\index{m\+\_\+acceleration\+Value@{m\+\_\+acceleration\+Value}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+acceleration\+Value}{m\_accelerationValue}}
+{\footnotesize\ttfamily float Game\+Object\+::m\+\_\+acceleration\+Value\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_a82b60a9ea631d253434ba8683ee69370}\label{class_game_object_a82b60a9ea631d253434ba8683ee69370}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+de\+Acceleration@{m\+\_\+de\+Acceleration}}
+\index{m\+\_\+de\+Acceleration@{m\+\_\+de\+Acceleration}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+de\+Acceleration}{m\_deAcceleration}}
+{\footnotesize\ttfamily float Game\+Object\+::m\+\_\+de\+Acceleration\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_a5202d5d5df1813c567fb344617250b42}\label{class_game_object_a5202d5d5df1813c567fb344617250b42}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+def\+Texture@{m\+\_\+def\+Texture}}
+\index{m\+\_\+def\+Texture@{m\+\_\+def\+Texture}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+def\+Texture}{m\_defTexture}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture$\ast$ Game\+Object\+::m\+\_\+def\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_a26687f9a79576969707c47f5562b7037}\label{class_game_object_a26687f9a79576969707c47f5562b7037}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+hp@{m\+\_\+hp}}
+\index{m\+\_\+hp@{m\+\_\+hp}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+hp}{m\_hp}}
+{\footnotesize\ttfamily int Game\+Object\+::m\+\_\+hp\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_a13670cbe19b2daaedbd696a3495bf598}\label{class_game_object_a13670cbe19b2daaedbd696a3495bf598}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+max\+Speed@{m\+\_\+max\+Speed}}
+\index{m\+\_\+max\+Speed@{m\+\_\+max\+Speed}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+max\+Speed}{m\_maxSpeed}}
+{\footnotesize\ttfamily float Game\+Object\+::m\+\_\+max\+Speed = .\+5f\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_a2be93417ea72201ce5edc093167b2f68}\label{class_game_object_a2be93417ea72201ce5edc093167b2f68}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+renderer@{m\+\_\+renderer}}
+\index{m\+\_\+renderer@{m\+\_\+renderer}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+renderer}{m\_renderer}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Renderer$\ast$ Game\+Object\+::m\+\_\+renderer\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_aa89e916d62813d047b054c0c9cf97559}\label{class_game_object_aa89e916d62813d047b054c0c9cf97559}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+secondary\+Texture@{m\+\_\+secondary\+Texture}}
+\index{m\+\_\+secondary\+Texture@{m\+\_\+secondary\+Texture}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+secondary\+Texture}{m\_secondaryTexture}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture$\ast$ Game\+Object\+::m\+\_\+secondary\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_ac27549efb645f7c924d6604e318877bf}\label{class_game_object_ac27549efb645f7c924d6604e318877bf}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+velocity@{m\+\_\+velocity}}
+\index{m\+\_\+velocity@{m\+\_\+velocity}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+velocity}{m\_velocity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_game_object_1_1_vector2_d}{Vector2D}} Game\+Object\+::m\+\_\+velocity\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_af6009d73be98a4bd54272d06b50f2eac}\label{class_game_object_af6009d73be98a4bd54272d06b50f2eac}} 
+\index{Game\+Object@{Game\+Object}!position@{position}}
+\index{position@{position}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Rect Game\+Object\+::position}
+
+\mbox{\Hypertarget{class_game_object_a66891b8bfd67373dde0155ae7808bbb4}\label{class_game_object_a66891b8bfd67373dde0155ae7808bbb4}} 
+\index{Game\+Object@{Game\+Object}!tag@{tag}}
+\index{tag@{tag}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{tag}{tag}}
+{\footnotesize\ttfamily std\+::string Game\+Object\+::tag}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Eksamen\+Base/\+Game\+Objects/\mbox{\hyperlink{_game_object_8h}{Game\+Object.\+h}}\item 
+Eksamen\+Base/\+Game\+Objects/\mbox{\hyperlink{_game_object_8cpp}{Game\+Object.\+cpp}}\end{DoxyCompactItemize}
