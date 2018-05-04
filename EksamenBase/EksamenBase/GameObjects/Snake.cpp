@@ -9,11 +9,12 @@
 Snake::Snake(SDL_Renderer * renderer, int x, int y) : Projectile(renderer, x, y)
 {
 	Projectile::Projectile(renderer, x, y);
-	m_defTexture = TextureManager::getInstance().GetTexture(renderer, imgPathSnakeDown);
-	m_secondaryTexture = TextureManager::getInstance().GetTexture(renderer, imgPathSnakeUp);
+	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Projectiles/Projectile_snake_down.bmp");
+	m_secondaryTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Projectiles/Projectile_snake_up.bmp");
 	direction = { 0 , 1 };
 	position.h = 16;
 	position.w = 8;
+	m_renderer = renderer;
 }
 
 Snake::~Snake()

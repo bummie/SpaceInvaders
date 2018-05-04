@@ -52,7 +52,7 @@ void Enemy::Logic()
 	GameObject::Logic();
 	if (getHp() <= 0) { return; }
 
-	if ((rand() % 7000) == 50)
+	if ((rand() % 70) == 50)
 	{
 		if ((rand() % 10) > 5)
 		{

@@ -6,7 +6,9 @@
 #include "../Handlers/CollisionManager.h"
 #include "../Handlers/GameHandler.h"
 
-
+/// <summary>
+/// Checks whether the projectil is out of bounds or not
+/// </summary>
 void Projectile::CheckPosition()
 {
 	if (position.y > GameHandler::SCREEN_HEIGHT || position.y < 0)
@@ -18,13 +20,11 @@ void Projectile::CheckPosition()
 Projectile::Projectile(SDL_Renderer* renderer, int x, int y) : GameObject(renderer)
 {
 	tag = "Projectile";
+	m_renderer = renderer;
 	m_maxSpeed = .3f;
-	position = {
-		x, y
-	};
+	position = { x, y };
 	
 }
-
 
 Projectile::~Projectile()
 {
@@ -35,6 +35,5 @@ void Projectile::Logic()
 	GameObject::Logic();
 	CheckPosition();
 	m_acceleration.y = (m_maxSpeed * direction.y);
-
 }
 

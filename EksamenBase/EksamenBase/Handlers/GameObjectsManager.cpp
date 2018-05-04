@@ -26,7 +26,8 @@ void GameObjectsManager::Add(std::shared_ptr<GameObject> gameObject)
 		}
 	}
 	gameObject->id = gameObjectCounter++;
-	gameObjectsList.push_back(gameObject);
+	gameObjectsList.push_back(std::move(gameObject));
+	std::cout << gameObjectsList.size() << "/" << gameObjectsList.capacity() << std::endl;
 }
 
 /// <summary>
@@ -87,31 +88,25 @@ void GameObjectsManager::Draw()
 /// </summary>
 void GameObjectsManager::Input()
 {
-	for (auto gameObject : gameObjectsList)
+	std::vector<std::shared_ptr<GameObject>> copyGameObjectsList;
+	copyGameObjectsList.assign(gameObjectsList.begin(), gameObjectsList.end());
+
+	for (auto gameObject : copyGameObjectsList)
 	{
-		if (gameObject == nullptr)
-		{
-			return;
-		}
 		gameObject->Input();
-		return;
 	}
 }
-
 
 /// <summary>
 /// Handles all the logic
 /// </summary>
 void GameObjectsManager::Logic()
 {
-	for (auto gameObject : gameObjectsList)
-	{
-		if(gameObject == nullptr)
-		{
-			std::cout << gameObject->tag << " er en nullptr yo" << std::endl;
-			return;
-		}
-		
+	std::vector<std::shared_ptr<GameObject>> copyGameObjectsList;
+	copyGameObjectsList.assign(gameObjectsList.begin(), gameObjectsList.end());
+
+	for (auto gameObject : copyGameObjectsList)
+	{	
 		gameObject->Logic();
 	}
 }
