@@ -20,12 +20,11 @@ public:
 		static ObjectsPool instance;
 		return instance;
 	}
-
-	ObjectsPool();
 	~ObjectsPool();
 	std::shared_ptr<GameObject> GetEnemyAttack(SDL_Renderer* renderer, int x, int y);
 	std::shared_ptr<GameObject> GetSnake(SDL_Renderer* renderer, int x, int y);
 private:
+	ObjectsPool();
 	std::vector<std::shared_ptr<GameObject>> m_objectsList;
 
 };

@@ -10,8 +10,8 @@ public:
 	~EnemyAttack();
 	void Logic();
 private:
-	const std::string imgPathCrossDown = "Resources/Images/Projectiles/Projectile_cross_down.bmp";
-	const std::string imgPathCrossUp = "Resources/Images/Projectiles/Projectile_cross_up.bmp";
+	const std::string m_imgPathCrossDown = "Resources/Images/Projectiles/Projectile_cross_down.bmp";
+	const std::string m_imgPathCrossUp = "Resources/Images/Projectiles/Projectile_cross_up.bmp";
 };
 
 #endif

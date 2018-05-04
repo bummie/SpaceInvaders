@@ -24,7 +24,7 @@ void GameObjectsManager::Add(std::shared_ptr<GameObject> gameObject)
 			return;
 		}
 	}
-	gameObject->id = gameObjectCounter++;
+	gameObject->id = m_gameObjectCounter++;
 	gameObjectsList.push_back(std::move(gameObject));
 	//std::cout << gameObjectsList.size() << "/" << gameObjectsList.capacity() << std::endl;
 }

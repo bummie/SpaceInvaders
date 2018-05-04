@@ -4,33 +4,33 @@
 
 Text::Text(SDL_Renderer* renderer, std::string text, SDL_Color color, int size, int x, int y, int w, int h)
 {
-	Text::renderer = renderer;
-	Text::text = text;
-	font = TTF_OpenFont("Resources/Fonts/ca.ttf", size);
-	if (font == nullptr) 
+	Text::m_renderer = renderer;
+	Text::m_text = text;
+	m_font = TTF_OpenFont("Resources/Fonts/ca.ttf", size);
+	if (m_font == nullptr)
 	{
 		std::cout << "Font is null" << TTF_GetError() << std::endl;
 	}
-	textColor = color;
-	textSurface = TTF_RenderText_Solid(font, text.c_str(), color);
-	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+	m_textColor = color;
+	m_textSurface = TTF_RenderText_Solid(m_font, text.c_str(), color);
+	textTexture = SDL_CreateTextureFromSurface(renderer, m_textSurface);
 	m_visible = true;
 	m_blink = false;
 	m_blinkDelay = 300;
 	m_blinkTimePassed = 0;
 
-	position = SDL_Rect();
-	position.x = x;
-	position.y = y;
-	position.w = w;
-	position.h = h;
+	m_position = SDL_Rect();
+	m_position.x = x;
+	m_position.y = y;
+	m_position.w = w;
+	m_position.h = h;
 
 	FreeSurface();
 }
 
 Text::~Text()
 {
-	TTF_CloseFont(font);
+	TTF_CloseFont(m_font);
 	FreeSurface();
 	FreeTexture();
 }
@@ -42,9 +42,9 @@ Text::~Text()
 void Text::setText(std::string text)
 {
 	FreeTexture();
-	Text::text = text;
-	textSurface = TTF_RenderText_Solid(font, text.c_str(), textColor);
-	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+	Text::m_text = text;
+	m_textSurface = TTF_RenderText_Solid(m_font, text.c_str(), m_textColor);
+	textTexture = SDL_CreateTextureFromSurface(m_renderer, m_textSurface);
 
 	FreeSurface();
 }
@@ -58,9 +58,9 @@ void Text::setText(std::string text)
 void Text::setColor(SDL_Color color)
 {
 	FreeTexture();
-	textColor = color;
-	textSurface = TTF_RenderText_Solid(font, text.c_str(), textColor);
-	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+	m_textColor = color;
+	m_textSurface = TTF_RenderText_Solid(m_font, m_text.c_str(), m_textColor);
+	textTexture = SDL_CreateTextureFromSurface(m_renderer, m_textSurface);
 
 	FreeSurface();
 }
@@ -72,8 +72,8 @@ void Text::setColor(SDL_Color color)
 /// <param name="y"></param>
 void Text::setPosition(int x, int y)
 {
-	position.x = x;
-	position.y = y;
+	m_position.x = x;
+	m_position.y = y;
 }
 
 /// <summary>
@@ -113,7 +113,7 @@ void Text::Draw()
 
 	if(m_visible)
 	{
-		SDL_RenderCopy(renderer, textTexture, NULL, &position);
+		SDL_RenderCopy(m_renderer, textTexture, NULL, &m_position);
 	}
 }
 
@@ -122,8 +122,8 @@ void Text::Draw()
 /// </summary>
 void Text::FreeSurface()
 {
-	SDL_FreeSurface(textSurface);
-	textSurface = nullptr;
+	SDL_FreeSurface(m_textSurface);
+	m_textSurface = nullptr;
 }
 
 /// <summary>

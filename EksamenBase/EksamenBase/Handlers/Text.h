@@ -8,13 +8,13 @@
 class Text
 {
 private:
-	SDL_Surface* textSurface;
-	TTF_Font* font;
-	SDL_Color textColor;
-	int textSize;
-	std::string text;
-	SDL_Rect position;
-	SDL_Renderer* renderer;
+	SDL_Surface* m_textSurface;
+	TTF_Font* m_font;
+	SDL_Color m_textColor;
+	int m_textSize;
+	std::string m_text;
+	SDL_Rect m_position;
+	SDL_Renderer* m_renderer;
 	bool m_visible;
 	bool m_blink;
 	int m_blinkDelay;
