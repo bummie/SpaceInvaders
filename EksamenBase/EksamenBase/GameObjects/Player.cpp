@@ -63,7 +63,7 @@ void Player::Logic()
 
 void Player::Input()
 {
-	GameObject::Input();
+	if (getHp() <= 0) { return; }
 
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 	{
