@@ -66,6 +66,14 @@ void Projectile::Logic()
 				SoundManager::getInstance().PlaySound("Explosion");
 				return;
 			}
+			else if (go->tag == "MysteryShip")
+			{
+				GameHandler::score += ((rand() % 3) + 1) * 50;
+				go->setHp(0);
+				setHp(0);
+				SoundManager::getInstance().PlaySound("Explosion");
+				return;
+			}
 		}
 	}
 	delete(collision);

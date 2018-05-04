@@ -9,6 +9,7 @@
 #include "../GameObjects/Laser.h"
 #include "../GameObjects/Snake.h"
 #include "../GameObjects/EnemyAttack.h"
+#include "../GameObjects/MysteryShip.h"
 #include <string>
 #include <iomanip>
 #include <memory>
@@ -28,7 +29,6 @@ GameHandler::GameHandler()
 	m_enemyMoveDirection = -1;
 	m_enemyTurnAround = false;
 	m_enemyMoveDown = false;
-
 }
 
 /// <summary>
@@ -69,6 +69,7 @@ void GameHandler::Init()
 
 	// Create player
 	GameObjectsManager::getInstance().Add(std::shared_ptr<Player>(new Player(renderer, SCREEN_HEIGHT / 2, SCREEN_HEIGHT - 64)));
+	GameObjectsManager::getInstance().Add(std::shared_ptr<MysteryShip>(new MysteryShip(renderer)));
 	SpawnEnemies();
 	SpawnBarricades();
 	
