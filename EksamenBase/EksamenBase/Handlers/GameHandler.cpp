@@ -341,11 +341,12 @@ void GameHandler::ResetEnemies()
 /// </summary>
 void GameHandler::ResetPlayer()
 {
-	auto player = GameObjectsManager::getInstance().Find("Player");
-	for (auto ply : *player) 
+	auto playerArray = GameObjectsManager::getInstance().Find("Player");
+	for (auto ply : *playerArray)
 	{
 		ply->setHp(100);
 	}
+	delete(player);
 }
 
 /// <summary>
