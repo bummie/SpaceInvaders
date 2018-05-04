@@ -348,7 +348,7 @@ void GameHandler::ResetPlayer()
 	{
 		ply->setHp(100);
 	}
-	delete(player);
+	delete(playerArray);
 }
 
 /// <summary>
