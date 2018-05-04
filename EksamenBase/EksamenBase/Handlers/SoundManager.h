@@ -23,7 +23,7 @@ private:
 
 	std::unordered_map<std::string, Mix_Chunk*> m_soundMap;
 	Mix_Music* m_music;
-
+	bool m_isPlaying;
 	void LoadSounds();
 
 public:
@@ -31,6 +31,7 @@ public:
 	void PlaySound(std::string soundName);
 	void PlayMusic();
 	void StopMusic();
+	bool MusicPlaying();
 
 };
 
