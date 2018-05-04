@@ -10,6 +10,7 @@
 #include <memory>
 #include "../GameObjects/Player.h"
 #include "Text.h"
+#include "../GameObjects/Barricade.h"
 
 class GameHandler
 {
@@ -42,6 +43,7 @@ private:
 	int m_enemyMoveDirection;
 	bool m_enemyTurnAround;
 	bool m_enemyMoveDown;
+	Barricade* m_barricade;
 
 	void Update();
 	void Draw();
@@ -49,7 +51,6 @@ private:
 	void Input();
 	void UpdateDeltaTime();
 	void ChangeGameState(GameHandler::GAME_STATE state);
-	void RemoveDeadObjects();
 	void SpawnEnemies();
 	void MoveEnemies();
 	void NextLevel();

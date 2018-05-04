@@ -150,6 +150,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObjects\Barricade.cpp" />
+    <ClCompile Include="GameObjects\BarricadeBlock.cpp" />
     <ClCompile Include="GameObjects\EnemyAttack.cpp" />
     <ClCompile Include="GameObjects\Enemy.cpp" />
     <ClCompile Include="Handlers\CollisionManager.cpp" />
@@ -169,6 +171,8 @@
     <ClCompile Include="Handlers\ObjectsPool.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameObjects\Barricade.h" />
+    <ClInclude Include="GameObjects\BarricadeBlock.h" />
     <ClInclude Include="GameObjects\EnemyAttack.h" />
     <ClInclude Include="GameObjects\Enemy.h" />
     <ClInclude Include="Handlers\CollisionManager.h" />

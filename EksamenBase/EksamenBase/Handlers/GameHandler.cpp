@@ -70,7 +70,8 @@ void GameHandler::Init()
 	// Create player
 	GameObjectsManager::getInstance().Add(std::shared_ptr<Player>(new Player(renderer, SCREEN_HEIGHT / 2, SCREEN_HEIGHT - 64)));
 	SpawnEnemies();
-
+	m_barricade = new Barricade(renderer, 1, 250);
+	
 	// Init text to screen
 	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", { 255, 255, 255 }, 24, 0, 0, 164, 32));
 	TextRenderer::getInstance().addText("highscore", new Text(renderer, "HI-SCORE SCORE <2>", { 255, 255, 255 }, 24, 172, 0, 164, 32));
@@ -80,7 +81,7 @@ void GameHandler::Init()
 	TextRenderer::getInstance().addText("startscreen_title", new Text(renderer, "SPACE INVADERS", { 130, 200, 255 }, 36, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 5));
 	TextRenderer::getInstance().addText("startscreen_enter", new Text(renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT / 2, 250, 48));
 
-	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
+	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 250, 48));
 
 	TextRenderer::getInstance().addText("gameover_text", new Text(renderer, "Gameover. Try again?", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
 	TextRenderer::getInstance().addText("gameover_yes", new Text(renderer, "Space for yes", { 0, 255, 0 }, 16, 140, (SCREEN_HEIGHT / 2) + 40, 140, 32));
