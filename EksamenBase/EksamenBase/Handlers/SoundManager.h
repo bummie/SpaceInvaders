@@ -21,8 +21,8 @@ private:
 	SoundManager(SoundManager const&);
 	void operator=(SoundManager const&);
 
-	std::unordered_map<std::string, Mix_Chunk*> soundMap;
-	Mix_Music* music;
+	std::unordered_map<std::string, Mix_Chunk*> m_soundMap;
+	Mix_Music* m_music;
 
 	void LoadSounds();
 

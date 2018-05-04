@@ -5,13 +5,13 @@
 SoundManager::~SoundManager()
 {
 	// Free the sound effects
-	for (auto sound : soundMap)
+	for (auto sound : m_soundMap)
 	{
 		Mix_FreeChunk(sound.second);
 	}
 
 	//Free the music
-	Mix_FreeMusic(music);
+	Mix_FreeMusic(m_music);
 
 	Mix_CloseAudio();
 }
@@ -38,22 +38,22 @@ bool SoundManager::Init()
 void SoundManager::LoadSounds()
 {
 	// Game music
-	music = Mix_LoadMUS("Resources/Sound/music.wav");
-	if (music == NULL)
+	m_music = Mix_LoadMUS("Resources/Sound/music.wav");
+	if (m_music == NULL)
 	{
 		std::cout << "Music could not be loaded: " << Mix_GetError() << std::endl;
 	}
 
 	// Laser being shot
-	soundMap["Laser"] = Mix_LoadWAV("Resources/Sound/laser.wav");
-	if(soundMap["Laser"] == NULL)
+	m_soundMap["Laser"] = Mix_LoadWAV("Resources/Sound/laser.wav");
+	if(m_soundMap["Laser"] == NULL)
 	{
 		std::cout << "Sound could not be loaded: " << Mix_GetError() << std::endl;
 	}
 
 	// Explosion
-	soundMap["Explosion"] = Mix_LoadWAV("Resources/Sound/explosion.wav");
-	if (soundMap["Explosion"] == NULL)
+	m_soundMap["Explosion"] = Mix_LoadWAV("Resources/Sound/explosion.wav");
+	if (m_soundMap["Explosion"] == NULL)
 	{
 		std::cout << "Sound could not be loaded: " << Mix_GetError() << std::endl;
 	}
@@ -66,15 +66,15 @@ void SoundManager::LoadSounds()
 /// <param name="soundName"></param>
 void SoundManager::PlaySound(std::string soundName)
 {
-	auto iterator = soundMap.find(soundName);
+	auto iterator = m_soundMap.find(soundName);
 
-	if (iterator == soundMap.end())
+	if (iterator == m_soundMap.end())
 	{
 		std::cout << "Could not find sound with name " << soundName << std::endl;
 		return;
 	}
 
-	if (Mix_PlayChannel(-1, soundMap[soundName], 0) == -1)
+	if (Mix_PlayChannel(-1, m_soundMap[soundName], 0) == -1)
 	{
 		std::cout << "Failed to play sound" << soundName << std::endl;
 		return;
@@ -88,7 +88,7 @@ void SoundManager::PlayMusic()
 {
 	if (Mix_PlayingMusic() == 0)
 	{
-		if (Mix_PlayMusic(music, -1) == -1)
+		if (Mix_PlayMusic(m_music, -1) == -1)
 		{
 			return;
 		}

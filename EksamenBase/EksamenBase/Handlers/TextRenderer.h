@@ -18,7 +18,7 @@ private:
 	TextRenderer(TextRenderer const&);
 	void operator=(TextRenderer const&);
 	
-	std::unordered_map<std::string, Text*> textMap;
+	std::unordered_map<std::string, Text*> m_textMap;
 
 public:
 	~TextRenderer();

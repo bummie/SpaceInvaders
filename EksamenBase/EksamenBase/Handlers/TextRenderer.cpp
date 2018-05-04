@@ -14,11 +14,11 @@ TextRenderer::~TextRenderer()
 /// <returns></returns>
 Text* TextRenderer::getText(std::string textKey)
 {
-	auto iterator = textMap.find(textKey);
+	auto iterator = m_textMap.find(textKey);
 
-	if (iterator != textMap.end())
+	if (iterator != m_textMap.end())
 	{
-		return textMap[textKey];
+		return m_textMap[textKey];
 	}
 
 	return nullptr;
@@ -31,11 +31,11 @@ Text* TextRenderer::getText(std::string textKey)
 /// <param name="text"></param>
 void TextRenderer::addText(std::string textKey, Text * text)
 {
-	auto iterator = textMap.find(textKey);
+	auto iterator = m_textMap.find(textKey);
 
-	if (iterator == textMap.end())
+	if (iterator == m_textMap.end())
 	{
-		textMap[textKey] = text;
+		m_textMap[textKey] = text;
 		return;
 	}
 
@@ -49,11 +49,11 @@ void TextRenderer::addText(std::string textKey, Text * text)
 /// <param name="textKey"></param>
 void TextRenderer::removeText(std::string textKey)
 {
-	auto iterator = textMap.find(textKey);
+	auto iterator = m_textMap.find(textKey);
 
-	if (iterator != textMap.end())
+	if (iterator != m_textMap.end())
 	{
-		textMap.erase(textKey);
+		m_textMap.erase(textKey);
 	}
 }
 
@@ -62,7 +62,7 @@ void TextRenderer::removeText(std::string textKey)
 /// </summary>
 void TextRenderer::Draw()
 {
-	for (auto text : textMap)
+	for (auto text : m_textMap)
 	{
 		text.second->Draw();
 	}

@@ -10,7 +10,7 @@ public:
 	~Laser();
 	void Logic();
 private:
-	const std::string imgPathLaser = "Resources/Images/Projectiles/Projectile_beam.bmp";
+	const std::string m_imgPathLaser = "Resources/Images/Projectiles/Projectile_beam.bmp";
 	
 };
 

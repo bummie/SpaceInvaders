@@ -21,14 +21,14 @@ public:
 private:
 	const enum GAME_STATE { RUNNING, STARTSCREEN, GAMEOVER, PAUSED, EXIT };
 
-	const char* GAME_NAME = "Space Invaders 2018";
+	const char* M_GAME_NAME = "Space Invaders 2018";
 
-	const int GAME_DELAY = 1000 / 60;
+	const int M_GAME_DELAY = 1000 / 60;
 
-	SDL_Window* window;
-	SDL_Surface* screenSurface;
-	SDL_Renderer* renderer;
-	GAME_STATE gameState;
+	SDL_Window* m_window;
+	SDL_Surface* m_screenSurface;
+	SDL_Renderer* m_renderer;
+	GAME_STATE m_gameState;
 
 	Player* player;
 
