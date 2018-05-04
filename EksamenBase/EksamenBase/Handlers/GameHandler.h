@@ -52,6 +52,7 @@ private:
 	void UpdateDeltaTime();
 	void ChangeGameState(GameHandler::GAME_STATE state);
 	void SpawnEnemies();
+	void ResetEnemies();
 	void MoveEnemies();
 	void SpawnBarricades();
 	void NextLevel();

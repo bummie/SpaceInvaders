@@ -204,7 +204,8 @@ void GameHandler::Input()
 		// Gamover
 		if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
 		{
-			ChangeGameState(GAME_STATE::GAMEOVER);
+			//ChangeGameState(GAME_STATE::GAMEOVER);
+			ResetEnemies();
 		}
 
 		// Handle input on gameobjects
@@ -311,6 +312,25 @@ void GameHandler::SpawnEnemies()
 	}
 
 	m_enemies = GameObjectsManager::getInstance().Find("Enemy");
+}
+
+/// <summary>
+/// Reset enemies
+/// </summary>
+void GameHandler::ResetEnemies()
+{
+	m_enemyMoveDirection = -1;
+
+	for (int y = 0; y < 5; y++)
+	{
+		for (int x = 0; x < 11; x++)
+		{
+			int pos = (11 * y) + x;
+			m_enemies->at(pos)->position.x = (x * 30) + 50;
+			m_enemies->at(pos)->position.y = (y * 32) + 100;
+			m_enemies->at(pos)->setHp(100);
+		}
+	}
 }
 
 /// <summary>
