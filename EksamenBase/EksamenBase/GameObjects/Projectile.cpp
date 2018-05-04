@@ -39,7 +39,6 @@ void Projectile::Logic()
 
 	if (collision != nullptr)
 	{
-		std::cout << "Collision: " << tag << std::endl;
 		for (auto go : *collision)
 		{
 			if (go->tag == "Enemy" && tag == "Laser")
