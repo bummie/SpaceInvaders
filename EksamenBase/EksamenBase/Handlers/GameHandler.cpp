@@ -292,20 +292,6 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 	case GAME_STATE::EXIT:
 		std::cout << "GameState: EXIT" << std::endl;
 		break;
-
-	}
-
-}
-
-void GameHandler::RemoveDeadObjects()
-{
-	auto tmpGameObjectsList = GameObjectsManager::getInstance().gameObjectsList;
-	for (auto gameObject : tmpGameObjectsList)
-	{
-		if (gameObject->getHp() <= 0)
-		{
-			GameObjectsManager::getInstance().Remove(gameObject);
-		}
 	}
 }
 
@@ -329,7 +315,7 @@ void GameHandler::SpawnEnemies()
 
 		for (int x = 0; x < 11; x++)
 		{
-			GameObjectsManager::getInstance().Add(std::shared_ptr<Enemy>(new Enemy(renderer, (x * 32) + 50, (y * 48) + 100, type)));
+			GameObjectsManager::getInstance().Add(std::shared_ptr<Enemy>(new Enemy(renderer, (x * 30) + 50, (y * 32) + 100, type)));
 		}
 	}
 
