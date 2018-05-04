@@ -65,12 +65,10 @@ private:
 	void SetScoreFile();
 	
 
-
 	void DisplayStartScreenText(bool shouldDisplay);
 	void DisplayGameScreenText(bool shouldDisplay);
 	void DisplayGameOverScreenText(bool shouldDisplay);
 	void DisplayPausedText(bool shouldDisplay);
-
 
 public:
 	GameHandler();

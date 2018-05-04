@@ -24,6 +24,7 @@ bool SoundManager::Init()
 	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
 	{
 		std::cout << "Could not load SDL_Mixer" << std::endl;
+		m_isPlaying = false;
 		return false;
 	}
 
@@ -86,6 +87,8 @@ void SoundManager::PlaySound(std::string soundName)
 /// </summary>
 void SoundManager::PlayMusic()
 {
+	m_isPlaying = true;
+
 	if (Mix_PlayingMusic() == 0)
 	{
 		if (Mix_PlayMusic(m_music, -1) == -1)
@@ -95,7 +98,6 @@ void SoundManager::PlayMusic()
 	}
 	else if (Mix_PausedMusic() == 1)
 	{
-		//Resume the music
 		Mix_ResumeMusic();
 	}
 }
@@ -106,4 +108,14 @@ void SoundManager::PlayMusic()
 void SoundManager::StopMusic()
 {
 	Mix_PauseMusic();
+	m_isPlaying = false;
+}
+
+/// <summary>
+/// Returns true if music is playing
+/// </summary>
+/// <returns></returns>
+bool SoundManager::MusicPlaying()
+{
+	return m_isPlaying;
 }

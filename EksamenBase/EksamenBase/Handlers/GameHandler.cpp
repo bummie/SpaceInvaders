@@ -18,6 +18,7 @@
 
 double GameHandler::deltaTime = 0;
 int GameHandler::score = 0;
+int GameHandler::highScore = 0;
 
 GameHandler::GameHandler()
 {
@@ -181,11 +182,23 @@ void GameHandler::Input()
 			ChangeGameState(GAME_STATE::EXIT);
 		}
 
+		if (InputManager::getInstance().KeyDown(SDLK_m))
+		{
+			if(SoundManager::getInstance().MusicPlaying())
+			{
+				SoundManager::getInstance().StopMusic();
+			}else
+			{
+				SoundManager::getInstance().PlayMusic();
+			}
+		}
+
 		// Pause game
 		if (InputManager::getInstance().KeyDown(SDLK_p) && m_gameState != GAME_STATE::STARTSCREEN)
 		{
 			if (m_gameState != GAME_STATE::PAUSED)
 			{
+				std::cout << GameObjectsManager::getInstance().gameObjectsList.front()->getHp() << std::endl;
 				ChangeGameState(GAME_STATE::PAUSED);
 			}
 			else
@@ -262,6 +275,9 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		DisplayStartScreenText(false);
 		DisplayGameOverScreenText(false);
 		DisplayGameScreenText(true);
+
+		SoundManager::getInstance().PlayMusic();
+
 		break;
 	case GAME_STATE::STARTSCREEN:
 		std::cout << "GameState: Startscreen" << std::endl;
@@ -269,6 +285,8 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		DisplayStartScreenText(true);
 		DisplayGameOverScreenText(false);
 		DisplayGameScreenText(false);
+
+		SoundManager::getInstance().StopMusic();
 		break;
 	case GAME_STATE::PAUSED:
 		std::cout << "GameState: Paused" << std::endl;
@@ -276,6 +294,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		DisplayStartScreenText(false);
 		DisplayGameOverScreenText(false);
 		DisplayGameScreenText(true);
+		SoundManager::getInstance().StopMusic();
 		break;
 
 	case GAME_STATE::GAMEOVER:
@@ -285,6 +304,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		DisplayStartScreenText(false);
 		DisplayGameOverScreenText(true);
 		DisplayGameScreenText(false);
+		SoundManager::getInstance().StopMusic();
 		break;
 
 	case GAME_STATE::EXIT:
@@ -351,7 +371,8 @@ void GameHandler::ResetPlayer()
 	{
 		ply->setHp(100);
 	}
-	delete(m_player);
+
+	delete(playerArray);
 }
 
 /// <summary>
@@ -512,6 +533,9 @@ double GameHandler::getDeltaTime()
 	return deltaTime;
 }
 
+/// <summary>
+/// 
+/// </summary>
 void GameHandler::CheckWin()
 {
 	bool allEnemiesDead;
@@ -536,14 +560,16 @@ void GameHandler::CheckWin()
 	}
 }
 
+/// <summary>
+/// 
+/// </summary>
 void GameHandler::CheckDeath()
 {
 	if (m_gameState != GAME_STATE::STARTSCREEN || m_gameState != GAME_STATE::EXIT)
 	{
-		auto player = GameObjectsManager::getInstance().Find("Player");
-		for (auto players : *player)
+		if (GameObjectsManager::getInstance().gameObjectsList.front()->getHp() > 0)
 		{
-			if (players->getHp() <= 0)
+			if (m_player->getHp() <= 0)
 			{
 				ChangeGameState(GAME_STATE::GAMEOVER);
 				if (score > highScore)
