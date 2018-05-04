@@ -56,6 +56,13 @@ void Projectile::Logic()
 				SoundManager::getInstance().PlaySound("Explosion");
 				return;
 			}
+			else if (go->tag == "BarricadeBlock")
+			{
+				go->setHp(go->getHp() - 20);
+				setHp(0);
+				SoundManager::getInstance().PlaySound("Explosion");
+				return;
+			}
 		}
 	}
 	delete(collision);

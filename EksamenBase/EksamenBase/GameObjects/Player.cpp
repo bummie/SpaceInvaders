@@ -17,7 +17,7 @@ Player::Player(SDL_Renderer* renderer, int x, int y) : GameObject(renderer)
 {
 	position.x = x;
 	position.y = y;
-	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/realplayer.bmp");
+	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/player.bmp");
 	m_deathTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Explode/Explode_enemy_beam.bmp");
 	tag = "Player";
 	position.h = 25;
@@ -95,6 +95,9 @@ void Player::Input()
 	}
 }
 
+/// <summary>
+/// Shoots a laser beam, ONLY ONE LASER AT A TIME
+/// </summary>
 void Player::Shoot()
 {
 	std::cout << "SPACE" << std::endl;
@@ -105,6 +108,9 @@ void Player::Shoot()
 	m_replenished = false;
 }
 
+/// <summary>
+/// Sets the bool m_replenished to true
+/// </summary>
 void Player::Replenish()
 {
 	m_replenished = true;
