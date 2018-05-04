@@ -52,6 +52,7 @@ private:
 	void RemoveDeadObjects();
 	void SpawnEnemies();
 	void MoveEnemies();
+	void NextLevel();
 
 	void DisplayStartScreenText(bool shouldDisplay);
 	void DisplayGameScreenText(bool shouldDisplay);
