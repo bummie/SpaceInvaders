@@ -510,6 +510,7 @@ void GameHandler::CheckDeath()
 			}
 		}
 	}
+	//legger den her bare for luls hahahah	
 }
 
 /// <summary>
