@@ -108,6 +108,12 @@ void GameObject::setHp(int hp)
 	m_hp = hp;
 }
 
+void GameObject::ResetAnim()
+{
+	m_currentTime = 0;
+	m_firstTexture = true;
+}
+
 void GameObject::Logic()
 {
 	if (getHp() <= 0) { return; }

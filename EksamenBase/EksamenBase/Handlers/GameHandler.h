@@ -54,8 +54,8 @@ private:
 	void SpawnEnemies();
 	void ResetEnemies();
 	void MoveEnemies();
+	void CheckWin();
 	void SpawnBarricades();
-	void NextLevel();
 
 	void DisplayStartScreenText(bool shouldDisplay);
 	void DisplayGameScreenText(bool shouldDisplay);
@@ -67,7 +67,7 @@ public:
 	GameHandler();
 	~GameHandler();
 	void Init();
-
+	
 	static double getDeltaTime();
 };
 

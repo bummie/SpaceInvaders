@@ -59,16 +59,10 @@ void Enemy::Logic()
 		if ((rand() % 10) > 5)
 		{
 			ObjectsPool::getInstance().GetSnake(m_renderer, position.x, position.y);
-			//GameObjectsManager::getInstance().Add(std::shared_ptr<Snake>(new Snake(m_renderer, position.x, position.y)));
 		}else
 		{
 			ObjectsPool::getInstance().GetEnemyAttack(m_renderer, position.x, position.y);
-			//GameObjectsManager::getInstance().Add(std::shared_ptr<EnemyAttack>(new EnemyAttack(m_renderer, position.x, position.y)));
 		}
 	}
 }
 
-void Enemy::Input()
-{
-	
-}

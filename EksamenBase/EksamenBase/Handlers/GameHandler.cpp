@@ -104,7 +104,7 @@ void GameHandler::Update()
 		Input();
 		Logic();
 		Draw();
-		NextLevel();
+		CheckWin();
 		SDL_Delay(GAME_DELAY);
 	}
 }
@@ -330,6 +330,7 @@ void GameHandler::ResetEnemies()
 			m_enemies->at(pos)->position.x = (x * 30) + 50;
 			m_enemies->at(pos)->position.y = (y * 32) + 100;
 			m_enemies->at(pos)->setHp(100);
+			m_enemies->at(pos)->ResetAnim();
 		}
 	}
 }
@@ -434,29 +435,27 @@ double GameHandler::getDeltaTime()
 	return deltaTime;
 }
 
-void GameHandler::NextLevel()
+void GameHandler::CheckWin()
 {
-	bool nextLevel;
+	bool allEnemiesDead;
 	for (auto enemy : *m_enemies)
 	{
 		if (enemy->getHp() <= 0)
 		{
-			nextLevel = true;
+			allEnemiesDead = true;
 		}
 
 		if (enemy->getHp() > 0)
 		{
-			nextLevel = false;
-			break;
+			allEnemiesDead = false;
+			return;
 		}
 	}
 
-	if (nextLevel)
+	if (allEnemiesDead)
 	{
-		for (auto enemy : *m_enemies)
-		{
-			//respawn
-		}
+		ResetEnemies();
+		m_enemyMoveDelay *= .7;
 	}
 }
 
