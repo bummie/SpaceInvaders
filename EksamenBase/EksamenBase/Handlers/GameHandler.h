@@ -30,7 +30,7 @@ private:
 	SDL_Renderer* m_renderer;
 	GAME_STATE m_gameState;
 
-	Player* player;
+	Player* m_player;
 
 	Uint64 dtNow, dtLast;
 	static double deltaTime;
@@ -53,9 +53,14 @@ private:
 	void ChangeGameState(GameHandler::GAME_STATE state);
 	void SpawnEnemies();
 	void ResetEnemies();
+	void ResetPlayer();
+	void ResetBarricades();
+	void ResetGame();
 	void MoveEnemies();
 	void CheckWin();
+	void CheckDeath();
 	void SpawnBarricades();
+
 
 	void DisplayStartScreenText(bool shouldDisplay);
 	void DisplayGameScreenText(bool shouldDisplay);

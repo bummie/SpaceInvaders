@@ -105,6 +105,7 @@ void GameHandler::Update()
 		Logic();
 		Draw();
 		CheckWin();
+		CheckDeath();
 		SDL_Delay(M_GAME_DELAY);
 	}
 }
@@ -182,6 +183,7 @@ void GameHandler::Input()
 		{
 			if (m_gameState != GAME_STATE::PAUSED)
 			{
+				std::cout << GameObjectsManager::getInstance().gameObjectsList.front()->getHp() << std::endl;
 				ChangeGameState(GAME_STATE::PAUSED);
 			}
 			else
@@ -198,15 +200,16 @@ void GameHandler::Input()
 			}
 			if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 			{
-				//restart();
+				ChangeGameState(GAME_STATE::RUNNING);
+				ResetGame();
 			}
 		}
 
 		// Gamover
 		if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
 		{
-			//ChangeGameState(GAME_STATE::GAMEOVER);
-			ResetEnemies();
+			ChangeGameState(GAME_STATE::GAMEOVER);
+			
 		}
 
 		// Handle input on gameobjects
@@ -336,6 +339,41 @@ void GameHandler::ResetEnemies()
 }
 
 /// <summary>
+/// Resets the player
+/// </summary>
+void GameHandler::ResetPlayer()
+{
+	auto playerArray = GameObjectsManager::getInstance().Find("Player");
+	for (auto ply : *playerArray)
+	{
+		ply->setHp(100);
+	}
+	delete(m_player);
+}
+
+/// <summary>
+/// Resets all the barricades
+/// </summary>
+void GameHandler::ResetBarricades()
+{
+	for(auto barricade : m_barricade)
+	{
+		barricade->ResetBarricadeBlocks();
+	}
+}
+
+/// <summary>
+/// Resets the game
+/// </summary>
+void GameHandler::ResetGame()
+{
+	ResetEnemies();
+	ResetPlayer();
+	ResetBarricades();
+	GameHandler::score = 0;
+}
+
+/// <summary>
 /// Moves the enemies side to side and downwards towards the earth!
 /// </summary>
 void GameHandler::MoveEnemies()
@@ -456,6 +494,17 @@ void GameHandler::CheckWin()
 	{
 		ResetEnemies();
 		m_enemyMoveDelay *= .7;
+	}
+}
+
+void GameHandler::CheckDeath()
+{
+	if (m_gameState != GAME_STATE::STARTSCREEN || m_gameState != GAME_STATE::EXIT)
+	{
+		if (GameObjectsManager::getInstance().gameObjectsList.front()->getHp() > 0)
+		{
+			ChangeGameState(GAME_STATE::GAMEOVER);
+		}
 	}
 }
 

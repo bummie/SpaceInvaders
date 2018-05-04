@@ -31,3 +31,14 @@ Barricade::Barricade(SDL_Renderer* renderer,  int x, int y)
 Barricade::~Barricade()
 {
 }
+
+/// <summary>
+/// Resets the barricadeblocks
+/// </summary>
+void Barricade::ResetBarricadeBlocks()
+{
+	for (auto block : m_barricadeBlocks) 
+	{
+		block->setHp(100);
+	}
+}
