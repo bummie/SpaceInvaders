@@ -179,7 +179,7 @@ void GameHandler::Input()
 		}
 
 		// Pause game
-		if (InputManager::getInstance().KeyDown(SDLK_p) && m_gameState != GAME_STATE::STARTSCREEN)
+		if (InputManager::getInstance().KeyDown(SDLK_p) && m_gameState != GAME_STATE::STARTSCREEN && m_gameState != GAME_STATE::GAMEOVER)
 		{
 			if (m_gameState != GAME_STATE::PAUSED)
 			{
@@ -281,7 +281,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		DisplayPausedText(false);
 		DisplayStartScreenText(false);
 		DisplayGameOverScreenText(true);
-		DisplayGameScreenText(false);
+		DisplayGameScreenText(true);
 		break;
 
 	case GAME_STATE::EXIT:
