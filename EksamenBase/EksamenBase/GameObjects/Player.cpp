@@ -63,6 +63,8 @@ void Player::Logic()
 
 void Player::Input()
 {
+	GameObject::Input();
+
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 	{
 		if (m_replenished)
