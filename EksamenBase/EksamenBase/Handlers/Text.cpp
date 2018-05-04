@@ -1,5 +1,6 @@
 #include "Text.h"
 #include <iostream>
+#include "GameHandler.h"
 
 Text::Text(SDL_Renderer* renderer, std::string text, SDL_Color color, int size, int x, int y, int w, int h)
 {
@@ -14,6 +15,9 @@ Text::Text(SDL_Renderer* renderer, std::string text, SDL_Color color, int size, 
 	textSurface = TTF_RenderText_Solid(font, text.c_str(), color);
 	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 	m_visible = true;
+	m_blink = false;
+	m_blinkDelay = 300;
+	m_blinkTimePassed = 0;
 
 	position = SDL_Rect();
 	position.x = x;
@@ -82,10 +86,31 @@ void Text::setVisible(bool visible)
 }
 
 /// <summary>
+/// Turn blinking on and off
+/// </summary>
+/// <param name="shouldBlink"></param>
+void Text::setBlink(bool shouldBlink)
+{
+	m_blink = shouldBlink;
+	setVisible(false);
+}
+
+/// <summary>
 /// Draws the text onto the screen
 /// </summary>
 void Text::Draw()
 {
+	if(m_blink)
+	{
+		if(m_blinkTimePassed >= m_blinkDelay)
+		{
+			m_visible = m_visible ? false : true;
+			m_blinkTimePassed = 0;
+		}
+
+		m_blinkTimePassed += GameHandler::getDeltaTime();
+	}
+
 	if(m_visible)
 	{
 		SDL_RenderCopy(renderer, textTexture, NULL, &position);
