@@ -33,6 +33,7 @@ Enemy::Enemy(SDL_Renderer * renderer, int x, int y, ENEMY_TYPE type) : GameObjec
 		break;
 	}
 
+	m_deathTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Explode/Explode_enemy.bmp");
 	tag = "Enemy";
 	m_type = type;
 
