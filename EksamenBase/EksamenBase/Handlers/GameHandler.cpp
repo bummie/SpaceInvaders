@@ -179,11 +179,10 @@ void GameHandler::Input()
 		}
 
 		// Pause game
-		if (InputManager::getInstance().KeyDown(SDLK_p) && m_gameState != GAME_STATE::STARTSCREEN)
+		if (InputManager::getInstance().KeyDown(SDLK_p) && m_gameState != GAME_STATE::STARTSCREEN && m_gameState != GAME_STATE::GAMEOVER)
 		{
 			if (m_gameState != GAME_STATE::PAUSED)
 			{
-				std::cout << GameObjectsManager::getInstance().gameObjectsList.front()->getHp() << std::endl;
 				ChangeGameState(GAME_STATE::PAUSED);
 			}
 			else
@@ -282,7 +281,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		DisplayPausedText(false);
 		DisplayStartScreenText(false);
 		DisplayGameOverScreenText(true);
-		DisplayGameScreenText(false);
+		DisplayGameScreenText(true);
 		break;
 
 	case GAME_STATE::EXIT:
@@ -502,9 +501,13 @@ void GameHandler::CheckDeath()
 {
 	if (m_gameState != GAME_STATE::STARTSCREEN || m_gameState != GAME_STATE::EXIT)
 	{
-		if (GameObjectsManager::getInstance().gameObjectsList.front()->getHp() > 0)
+		auto player = GameObjectsManager::getInstance().Find("Player");
+		for (auto players : *player)
 		{
-			ChangeGameState(GAME_STATE::GAMEOVER);
+			if (players->getHp() <= 0)
+			{
+				ChangeGameState(GAME_STATE::GAMEOVER);
+			}
 		}
 	}
 }
