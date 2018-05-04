@@ -18,13 +18,12 @@ SDL_Texture* TextureManager::GetTexture(SDL_Renderer* renderer, std::string loca
 		std::cout << "Texture not loaded, loading now.." << std::endl;
 		tempSurface = SDL_LoadBMP(location.c_str());
 		if (tempSurface == NULL) { return nullptr; }
-
+		
 		// Makes white pixels transparent
-		SDL_SetColorKey(tempSurface, SDL_TRUE, SDL_MapRGB(tempSurface->format, 0xFF, 0xFF, 0xFF));
-
+		SDL_SetColorKey(tempSurface, SDL_TRUE, SDL_MapRGB(tempSurface->format, 0xFF, 0x69, 0xB4));
+	
 		SDL_Texture* tempTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
 		if (tempTexture == NULL) { return nullptr; }
-
 
 		SDL_FreeSurface(tempSurface);
 		tempSurface = nullptr;

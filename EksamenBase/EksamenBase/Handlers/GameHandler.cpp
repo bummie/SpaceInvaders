@@ -86,9 +86,6 @@ void GameHandler::Init()
 	TextRenderer::getInstance().addText("gameover_yes", new Text(renderer, "Space for yes", { 0, 255, 0 }, 16, 140, (SCREEN_HEIGHT / 2) + 40, 140, 32));
 	TextRenderer::getInstance().addText("gameover_no", new Text(renderer, "Escape for Exit", { 0, 255, 0 }, 16, 380, (SCREEN_HEIGHT / 2) + 40, 140, 32));
 
-
-
-
 	ChangeGameState(GAME_STATE::STARTSCREEN);
 	Update();
 }
