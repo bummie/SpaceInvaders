@@ -353,7 +353,7 @@ void GameHandler::ResetEnemies()
 	{
 		for (int x = 0; x < m_enemyColumnCount; x++)
 		{
-			int pos = (m_enemyRowCount * y) + x;
+			int pos = (m_enemyColumnCount * y) + x;
 			m_enemies->at(pos)->position.x = (x * m_enemySpacing) + 50;
 			m_enemies->at(pos)->position.y = (y * m_enemySpacing) + 100;
 			m_enemies->at(pos)->setHp(100);
