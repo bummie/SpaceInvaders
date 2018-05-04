@@ -11,7 +11,7 @@
 Laser::Laser(SDL_Renderer* renderer, int x, int y) : Projectile(renderer, x, y)
 {
 	Projectile::Projectile(renderer, x, y);
-	m_defTexture = TextureManager::getInstance().GetTexture(renderer, imgPathLaser);
+	m_defTexture = TextureManager::getInstance().GetTexture(renderer, m_imgPathLaser);
 	direction = { 0, -1 };
 	position.h = 16;
 	position.w = 8;

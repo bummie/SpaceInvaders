@@ -7,7 +7,7 @@
 /// <returns></returns>
 bool InputManager::KeyHeld(SDL_Keycode key)
 {
-	return keyHeldMap[key];
+	return m_keyHeldMap[key];
 }
 
 /// <summary>
@@ -17,14 +17,14 @@ bool InputManager::KeyHeld(SDL_Keycode key)
 /// <returns></returns>
 bool InputManager::KeyDown(SDL_Keycode key)
 {
-	if(keyPressedMap[key])
+	if(m_keyPressedMap[key])
 	{
 		return false;
 	}
 
 	if (event.type == SDL_KEYDOWN && event.key.keysym.sym == key)
 	{
-		keyPressedMap[key] = true;
+		m_keyPressedMap[key] = true;
 		return true;
 	}
 
@@ -40,7 +40,7 @@ bool InputManager::KeyUp(SDL_Keycode key)
 {
 	if (event.type == SDL_KEYUP && event.key.keysym.sym == key)
 	{
-		keyPressedMap[key] = false;
+		m_keyPressedMap[key] = false;
 		return true;
 	}
 
@@ -67,11 +67,11 @@ void InputManager::UpdateStates()
 {
 	if (event.type == SDL_KEYUP)
 	{
-		keyHeldMap[event.key.keysym.sym] = false;
-		keyPressedMap[event.key.keysym.sym] = false;
+		m_keyHeldMap[event.key.keysym.sym] = false;
+		m_keyPressedMap[event.key.keysym.sym] = false;
 	}else if (event.type == SDL_KEYDOWN)
 	{
-		keyHeldMap[event.key.keysym.sym] = true;
+		m_keyHeldMap[event.key.keysym.sym] = true;
 	}
 
 }

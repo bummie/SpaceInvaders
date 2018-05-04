@@ -19,9 +19,9 @@ int GameHandler::score = 0;
 
 GameHandler::GameHandler()
 {
-	window = nullptr;
-	screenSurface = nullptr;
-	gameState = GAME_STATE::EXIT;
+	m_window = nullptr;
+	m_screenSurface = nullptr;
+	m_gameState = GAME_STATE::EXIT;
 	dtNow = dtLast = 0;
 	m_enemyMoveDelay = 400;
 	m_enemyMoveTimer = 0;
@@ -42,9 +42,9 @@ void GameHandler::Init()
 		return;
 	}
 
-	window = SDL_CreateWindow(GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+	m_window = SDL_CreateWindow(M_GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
-	if (window == NULL)
+	if (m_window == NULL)
 	{
 		printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
 		return;
@@ -58,35 +58,35 @@ void GameHandler::Init()
 
 	if (!SoundManager::getInstance().Init()) { return; }
 
-	screenSurface = SDL_GetWindowSurface(window);
+	m_screenSurface = SDL_GetWindowSurface(m_window);
 
 	//Fill the surface black
-	SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0x00, 0x00, 0x00));
+	SDL_FillRect(m_screenSurface, NULL, SDL_MapRGB(m_screenSurface->format, 0x00, 0x00, 0x00));
 
 	//Update the surface
-	SDL_UpdateWindowSurface(window);
-	renderer = SDL_CreateRenderer(window, -1, 0);
+	SDL_UpdateWindowSurface(m_window);
+	m_renderer = SDL_CreateRenderer(m_window, -1, 0);
 
 	// Create player
-	GameObjectsManager::getInstance().Add(std::shared_ptr<Player>(new Player(renderer, SCREEN_HEIGHT / 2, SCREEN_HEIGHT - 64)));
-	GameObjectsManager::getInstance().Add(std::shared_ptr<MysteryShip>(new MysteryShip(renderer)));
+	GameObjectsManager::getInstance().Add(std::shared_ptr<Player>(new Player(m_renderer, SCREEN_HEIGHT / 2, SCREEN_HEIGHT - 64)));
+	GameObjectsManager::getInstance().Add(std::shared_ptr<MysteryShip>(new MysteryShip(m_renderer)));
 	SpawnEnemies();
 	SpawnBarricades();
 	
 	// Init text to screen
-	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", { 255, 255, 255 }, 24, 0, 0, 164, 32));
-	TextRenderer::getInstance().addText("highscore", new Text(renderer, "HI-SCORE SCORE <2>", { 255, 255, 255 }, 24, 172, 0, 164, 32));
-	TextRenderer::getInstance().addText("score_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 0, 40, 82, 24));
-	TextRenderer::getInstance().addText("highscore_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 172, 40, 82, 24));
+	TextRenderer::getInstance().addText("score", new Text(m_renderer, "Score <1>", { 255, 255, 255 }, 24, 0, 0, 164, 32));
+	TextRenderer::getInstance().addText("highscore", new Text(m_renderer, "HI-SCORE SCORE <2>", { 255, 255, 255 }, 24, 172, 0, 164, 32));
+	TextRenderer::getInstance().addText("score_value", new Text(m_renderer, "0000", { 255, 255, 255 }, 16, 0, 40, 82, 24));
+	TextRenderer::getInstance().addText("highscore_value", new Text(m_renderer, "0000", { 255, 255, 255 }, 16, 172, 40, 82, 24));
 
-	TextRenderer::getInstance().addText("startscreen_title", new Text(renderer, "SPACE INVADERS", { 130, 200, 255 }, 36, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 5));
-	TextRenderer::getInstance().addText("startscreen_enter", new Text(renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT / 2, 250, 48));
+	TextRenderer::getInstance().addText("startscreen_title", new Text(m_renderer, "SPACE INVADERS", { 130, 200, 255 }, 36, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 5));
+	TextRenderer::getInstance().addText("startscreen_enter", new Text(m_renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT / 2, 250, 48));
 
-	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 250, 48));
+	TextRenderer::getInstance().addText("paused_text", new Text(m_renderer, "Game has been paused", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 250, 48));
 
-	TextRenderer::getInstance().addText("gameover_text", new Text(renderer, "Gameover. Try again?", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
-	TextRenderer::getInstance().addText("gameover_yes", new Text(renderer, "Space for yes", { 0, 255, 0 }, 16, 140, (SCREEN_HEIGHT / 2) + 40, 140, 32));
-	TextRenderer::getInstance().addText("gameover_no", new Text(renderer, "Escape for Exit", { 0, 255, 0 }, 16, 380, (SCREEN_HEIGHT / 2) + 40, 140, 32));
+	TextRenderer::getInstance().addText("gameover_text", new Text(m_renderer, "Gameover. Try again?", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
+	TextRenderer::getInstance().addText("gameover_yes", new Text(m_renderer, "Space for yes", { 0, 255, 0 }, 16, 140, (SCREEN_HEIGHT / 2) + 40, 140, 32));
+	TextRenderer::getInstance().addText("gameover_no", new Text(m_renderer, "Escape for Exit", { 0, 255, 0 }, 16, 380, (SCREEN_HEIGHT / 2) + 40, 140, 32));
 
 	ChangeGameState(GAME_STATE::STARTSCREEN);
 	Update();
@@ -98,15 +98,15 @@ void GameHandler::Init()
 void GameHandler::Update()
 {
 	// Game loop
-	while (gameState != GAME_STATE::EXIT)
+	while (m_gameState != GAME_STATE::EXIT)
 	{
 		UpdateDeltaTime();
 		Input();
 		Logic();
 		Draw();
 		CheckWin();
-		//CheckDeath();
-		SDL_Delay(GAME_DELAY);
+		CheckDeath();
+		SDL_Delay(M_GAME_DELAY);
 	}
 }
 
@@ -115,7 +115,7 @@ void GameHandler::Update()
 /// </summary>
 void GameHandler::Logic()
 {
-	switch (gameState)
+	switch (m_gameState)
 	{
 		case GAME_STATE::RUNNING:
 		{
@@ -142,9 +142,9 @@ void GameHandler::Logic()
 /// </summary>
 void GameHandler::Draw()
 {
-	SDL_RenderClear(renderer);
+	SDL_RenderClear(m_renderer);
 	// Draw stuff start
-	switch (gameState)
+	switch (m_gameState)
 	{
 	case GAME_STATE::RUNNING:
 		GameObjectsManager::getInstance().Draw();
@@ -158,7 +158,7 @@ void GameHandler::Draw()
 	TextRenderer::getInstance().Draw();
 
 	// Draw stuff end
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(m_renderer);
 }
 
 /// <summary>
@@ -179,9 +179,9 @@ void GameHandler::Input()
 		}
 
 		// Pause game
-		if (InputManager::getInstance().KeyDown(SDLK_p) && gameState != GAME_STATE::STARTSCREEN)
+		if (InputManager::getInstance().KeyDown(SDLK_p) && m_gameState != GAME_STATE::STARTSCREEN)
 		{
-			if (gameState != GAME_STATE::PAUSED)
+			if (m_gameState != GAME_STATE::PAUSED)
 			{
 				std::cout << GameObjectsManager::getInstance().gameObjectsList.front()->getHp() << std::endl;
 				ChangeGameState(GAME_STATE::PAUSED);
@@ -192,7 +192,7 @@ void GameHandler::Input()
 			}
 		}
 
-		if (gameState == GAME_STATE::GAMEOVER)
+		if (m_gameState == GAME_STATE::GAMEOVER)
 		{
 			if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
 			{
@@ -213,7 +213,7 @@ void GameHandler::Input()
 		}
 
 		// Handle input on gameobjects
-		switch (gameState)
+		switch (m_gameState)
 		{
 		case GAME_STATE::RUNNING:
 			GameObjectsManager::getInstance().Input();
@@ -249,10 +249,10 @@ void GameHandler::UpdateDeltaTime()
 /// <param name="state"></param>
 void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 {
-	if (gameState == state) { return; }
-	gameState = state;
+	if (m_gameState == state) { return; }
+	m_gameState = state;
 
-	switch (gameState)
+	switch (m_gameState)
 	{
 	case GAME_STATE::RUNNING:
 		std::cout << "GameState: Running" << std::endl;
@@ -311,7 +311,7 @@ void GameHandler::SpawnEnemies()
 
 		for (int x = 0; x < 11; x++)
 		{
-			GameObjectsManager::getInstance().Add(std::shared_ptr<Enemy>(new Enemy(renderer, (x * 30) + 50, (y * 32) + 100, type)));
+			GameObjectsManager::getInstance().Add(std::shared_ptr<Enemy>(new Enemy(m_renderer, (x * 30) + 50, (y * 32) + 100, type)));
 		}
 	}
 
@@ -348,6 +348,7 @@ void GameHandler::ResetPlayer()
 	{
 		ply->setHp(100);
 	}
+
 	delete(playerArray);
 }
 
@@ -418,7 +419,7 @@ void GameHandler::SpawnBarricades()
 {
 	for(int i = 0; i < 4; i++)
 	{
-		m_barricade[i] = new Barricade(renderer, (i * 120) + 100, 350);
+		m_barricade[i] = new Barricade(m_renderer, (i * 120) + 100, 350);
 	}
 }
 
@@ -499,7 +500,7 @@ void GameHandler::CheckWin()
 
 void GameHandler::CheckDeath()
 {
-	if (gameState != GAME_STATE::STARTSCREEN || gameState != GAME_STATE::EXIT)
+	if (m_gameState != GAME_STATE::STARTSCREEN || m_gameState != GAME_STATE::EXIT)
 	{
 		if (GameObjectsManager::getInstance().gameObjectsList.front()->getHp() > 0)
 		{
@@ -514,7 +515,7 @@ void GameHandler::CheckDeath()
 GameHandler::~GameHandler()
 {
 	// MORE DESTROY
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
+	SDL_DestroyRenderer(m_renderer);
+	SDL_DestroyWindow(m_window);
 	SDL_Quit();
 }

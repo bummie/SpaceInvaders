@@ -10,8 +10,8 @@
 EnemyAttack::EnemyAttack(SDL_Renderer* renderer, int x, int y) : Projectile(renderer, x, y)
 {	
 	Projectile::Projectile(renderer, x , y);
-	m_defTexture = TextureManager::getInstance().GetTexture(renderer, imgPathCrossDown);
-	m_secondaryTexture = TextureManager::getInstance().GetTexture(renderer, imgPathCrossUp);
+	m_defTexture = TextureManager::getInstance().GetTexture(renderer, m_imgPathCrossDown);
+	m_secondaryTexture = TextureManager::getInstance().GetTexture(renderer, m_imgPathCrossUp);
 	position.h = 16;
 	position.w = 8;
 	direction = { 0, 1 };

@@ -22,9 +22,6 @@ private:
 	void operator=(TextureManager const&);
 
 public:
-	//TextureManager(TextureManager const&) = delete;
-	//void operator=(TextureManager const&) = delete;
-
 
 	SDL_Surface* tempSurface = nullptr;
 	std::unordered_map<std::string, SDL_Texture*> loadedTexturesMap;
