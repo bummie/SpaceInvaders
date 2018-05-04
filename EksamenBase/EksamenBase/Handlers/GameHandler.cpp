@@ -85,7 +85,9 @@ void GameHandler::Init()
 	TextRenderer::getInstance().addText("startscreen_title", new Text(m_renderer, "SPACE INVADERS", { 130, 200, 255 }, 36, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 5));
 	TextRenderer::getInstance().addText("startscreen_enter", new Text(m_renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT / 2, 250, 48));
 
-	TextRenderer::getInstance().addText("paused_text", new Text(m_renderer, "Game has been paused", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 250, 48));
+	TextRenderer::getInstance().addText("paused_text", new Text(m_renderer, "Game has been paused", { 0, 255, 0 }, 24, 200, SCREEN_HEIGHT / 2, 250, 48));
+	TextRenderer::getInstance().addText("paused_exit", new Text(m_renderer, "Escape for Exit", { 0, 255, 0 }, 16, 250, (SCREEN_HEIGHT / 2) + 40, 140, 32));
+
 
 	TextRenderer::getInstance().addText("gameover_text", new Text(m_renderer, "Gameover. Try again?", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
 	TextRenderer::getInstance().addText("gameover_yes", new Text(m_renderer, "Space for yes", { 0, 255, 0 }, 16, 140, (SCREEN_HEIGHT / 2) + 40, 140, 32));
@@ -188,12 +190,19 @@ void GameHandler::Input()
 			}
 		}
 
+		if (m_gameState == GAME_STATE::PAUSED)
+		{
+			if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
+			{
+				ChangeGameState(GAME_STATE::EXIT);
+			}
+		}
+
 		// Pause game
-		if (InputManager::getInstance().KeyDown(SDLK_p) && m_gameState != GAME_STATE::STARTSCREEN)
+		if (InputManager::getInstance().KeyDown(SDLK_p) && m_gameState != GAME_STATE::STARTSCREEN && m_gameState != GAME_STATE::GAMEOVER)
 		{
 			if (m_gameState != GAME_STATE::PAUSED)
 			{
-				std::cout << GameObjectsManager::getInstance().gameObjectsList.front()->getHp() << std::endl;
 				ChangeGameState(GAME_STATE::PAUSED);
 			}
 			else
@@ -215,12 +224,6 @@ void GameHandler::Input()
 			}
 		}
 
-		// Gamover
-		if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
-		{
-			ChangeGameState(GAME_STATE::GAMEOVER);
-			
-		}
 
 		// Handle input on gameobjects
 		switch (m_gameState)
@@ -298,7 +301,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		DisplayPausedText(false);
 		DisplayStartScreenText(false);
 		DisplayGameOverScreenText(true);
-		DisplayGameScreenText(false);
+		DisplayGameScreenText(true);
 		SoundManager::getInstance().StopMusic();
 		break;
 
@@ -541,6 +544,8 @@ void GameHandler::DisplayGameOverScreenText(bool shouldDisplay)
 void GameHandler::DisplayPausedText(bool shouldDisplay)
 {
 	TextRenderer::getInstance().getText("paused_text")->setBlink(shouldDisplay);
+	TextRenderer::getInstance().getText("paused_exit")->setBlink(shouldDisplay);
+
 }
 
 /// <summary>
@@ -601,6 +606,7 @@ void GameHandler::CheckWin()
 					}
 				}
 			}		
+			delete(player);
 		}
 	}
 
