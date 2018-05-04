@@ -50,7 +50,7 @@ void GameHandler::Init()
 		return;
 	}
 
-	if (TTF_Init() == -1)
+	if (TTF_Init() == -1) 
 	{
 		printf("TTF_Init: %s\n", TTF_GetError());
 		return;
@@ -80,7 +80,7 @@ void GameHandler::Init()
 	TextRenderer::getInstance().addText("startscreen_title", new Text(renderer, "SPACE INVADERS", { 130, 200, 255 }, 36, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 5));
 	TextRenderer::getInstance().addText("startscreen_enter", new Text(renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT / 2, 250, 48));
 
-	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 172, SCREEN_HEIGHT / 2, 164, 32));
+	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
 
 	TextRenderer::getInstance().addText("gameover_text", new Text(renderer, "Gameover. Try again?", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
 	TextRenderer::getInstance().addText("gameover_yes", new Text(renderer, "Space for yes", { 0, 255, 0 }, 16, 140, (SCREEN_HEIGHT / 2) + 40, 140, 32));
@@ -124,19 +124,9 @@ void GameHandler::Logic()
 		m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
 		TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
 
-		/* DEMO: GRABBING GAMEOBJECTS BY TAG
-		auto player = GameObjectsManager::getInstance().Find("Player");
-		if (player != nullptr)
-		{
-		for (auto ply : *player)
-		{
-		std::cout << ply->tag << " : " <<  ply->id << std::endl;
-		}
-		}
-		delete(player);
-		*/
 	}
-	break;
+
+		break;
 	case GAME_STATE::STARTSCREEN:
 
 		break;
@@ -153,7 +143,6 @@ void GameHandler::Draw()
 {
 	SDL_RenderClear(renderer);
 	// Draw stuff start
-
 	switch (gameState)
 	{
 	case GAME_STATE::RUNNING:
@@ -220,6 +209,12 @@ void GameHandler::Input()
 			ChangeGameState(GAME_STATE::GAMEOVER);
 		}
 
+		// Add score to player
+		if (InputManager::getInstance().KeyDown(SDLK_c))
+		{
+			GameHandler::score++;
+		}
+
 		// Handle input on gameobjects
 		switch (gameState)
 		{
@@ -258,7 +253,6 @@ void GameHandler::UpdateDeltaTime()
 void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 {
 	if (gameState == state) { return; }
-
 	gameState = state;
 
 	switch (gameState)
@@ -287,6 +281,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 
 	case GAME_STATE::GAMEOVER:
 		std::cout << "GameState: GameOver" << std::endl;
+
 		DisplayPausedText(false);
 		DisplayStartScreenText(false);
 		DisplayGameOverScreenText(true);
@@ -296,7 +291,9 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 	case GAME_STATE::EXIT:
 		std::cout << "GameState: EXIT" << std::endl;
 		break;
+
 	}
+
 }
 
 void GameHandler::RemoveDeadObjects()
@@ -370,7 +367,6 @@ void GameHandler::MoveEnemies()
 			}
 		}
 		if (!m_enemyTurnAround) { m_enemyMoveDown = false; }
-
 		m_enemyMoveTimer = 0;
 	}
 

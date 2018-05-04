@@ -16,6 +16,8 @@ Laser::Laser(SDL_Renderer* renderer, int x, int y) : Projectile(renderer, x, y)
 	position.h = 16;
 	position.w = 8;
 	m_maxSpeed = .5f;
+	m_hp = 0;
+	tag = "Laser";
 }
 
 Laser::~Laser()
