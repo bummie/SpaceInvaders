@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['laser',['Laser',['../class_laser.html',1,'Laser'],['../class_laser.html#ac799230b67fc870ae9699efcf4ef27cb',1,'Laser::Laser()']]],
-  ['laser_2ecpp',['Laser.cpp',['../_laser_8cpp.html',1,'']]],
-  ['laser_2eh',['Laser.h',['../_laser_8h.html',1,'']]],
-  ['loadedtexturesmap',['loadedTexturesMap',['../class_texture_manager.html#a2c91da057fc96141f7527dc7d2185417',1,'TextureManager']]],
-  ['logic',['Logic',['../class_enemy.html#adcde768475970dae1e4c3e76fb59bc46',1,'Enemy::Logic()'],['../class_enemy_attack.html#a2f735b2cbf13787217a5daed7ff8f7a4',1,'EnemyAttack::Logic()'],['../class_game_object.html#a79510ffc77339fe850491dce9f580fa9',1,'GameObject::Logic()'],['../class_laser.html#a1f2135281ecc1b318357633f4e7dd34c',1,'Laser::Logic()'],['../class_player.html#ae30c8d49de94ee8c73ed6ab6315a2854',1,'Player::Logic()'],['../class_projectile.html#a871e265207d2bf2d5180152a7acf2d40',1,'Projectile::Logic()'],['../class_snake.html#a1f01e21a73734f9c0d701ec02a9d2e41',1,'Snake::Logic()'],['../class_game_objects_manager.html#ac77aa52afc2dfbb678c51a27022fc60a',1,'GameObjectsManager::Logic()']]]
+  ['id',['id',['../class_game_object.html#a98291c60da12d9036e1ad24cfebcf6b3',1,'GameObject']]],
+  ['init',['Init',['../class_game_handler.html#aba984ea50d3ce52070950c5aa24e0d7f',1,'GameHandler::Init()'],['../class_sound_manager.html#af1ee5e29fca894a8ac9aeeb56b81f21d',1,'SoundManager::Init()']]],
+  ['input',['Input',['../class_barricade_block.html#adc4d1d90b1d7ad2a6b043aef0a9886d2',1,'BarricadeBlock::Input()'],['../class_game_object.html#a430742cf91abb99337c556c88bef880a',1,'GameObject::Input()'],['../class_mystery_ship.html#ad79eee772a091f9ea2b194744450e5f2',1,'MysteryShip::Input()'],['../class_player.html#a65a76094cff6f149d5847d2110fe443d',1,'Player::Input()'],['../class_game_objects_manager.html#a9f5ca8d981a423e9c5ab56978a1cd99e',1,'GameObjectsManager::Input()']]],
+  ['inputmanager',['InputManager',['../class_input_manager.html',1,'']]],
+  ['inputmanager_2ecpp',['InputManager.cpp',['../_input_manager_8cpp.html',1,'']]],
+  ['inputmanager_2eh',['InputManager.h',['../_input_manager_8h.html',1,'']]]
 ];

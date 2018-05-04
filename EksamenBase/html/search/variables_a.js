@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tag',['tag',['../class_game_object.html#a66891b8bfd67373dde0155ae7808bbb4',1,'GameObject']]],
-  ['tempsurface',['tempSurface',['../class_texture_manager.html#a29954bc68f26b374cd86849b8a35c9ff',1,'TextureManager']]],
-  ['texttexture',['textTexture',['../class_text.html#a0db81807f575e9f4ff86bdae450ee246',1,'Text']]]
+  ['score',['score',['../class_game_handler.html#a985aa228815f283446ce0f354f513e80',1,'GameHandler']]],
+  ['screen_5fheight',['SCREEN_HEIGHT',['../class_game_handler.html#af09c16007a8cb793fa21dd5fb5d31201',1,'GameHandler']]],
+  ['screen_5fwidth',['SCREEN_WIDTH',['../class_game_handler.html#a9ae6b1b8478a4bc1928f07d5e52d0b95',1,'GameHandler']]]
 ];

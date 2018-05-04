@@ -7,7 +7,7 @@
 Inheritance diagram for Game\+Object\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{class_game_object}
+\includegraphics[height=2.616822cm]{class_game_object}
 \end{center}
 \end{figure}
 \subsection*{Classes}
@@ -31,7 +31,9 @@ virtual void \mbox{\hyperlink{class_game_object_a430742cf91abb99337c556c88bef880
 int \mbox{\hyperlink{class_game_object_a13b96d5c268bca096f8e3a3e85d35732}{get\+Hp}} () const
 \begin{DoxyCompactList}\small\item\em Returns HP \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_game_object_a7aa67e2bbfd37af89d86df0b030b5a81}{set\+Hp}} (int hp)
-\begin{DoxyCompactList}\small\item\em Sets HP \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets HP \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a29708ce7009e5de901438b9a4f02e365}{Reset\+Anim}} ()
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,6 +50,8 @@ S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{class_game_object_a5202d5d5df1813
 \item 
 S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{class_game_object_aa89e916d62813d047b054c0c9cf97559}{m\+\_\+secondary\+Texture}}
 \item 
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{class_game_object_a585ecfe9ee67a81264e2e414dbba80dd}{m\+\_\+death\+Texture}}
+\item 
 S\+D\+L\+\_\+\+Renderer $\ast$ \mbox{\hyperlink{class_game_object_a2be93417ea72201ce5edc093167b2f68}{m\+\_\+renderer}}
 \item 
 \mbox{\hyperlink{struct_game_object_1_1_vector2_d}{Vector2D}} \mbox{\hyperlink{class_game_object_ac27549efb645f7c924d6604e318877bf}{m\+\_\+velocity}}
@@ -59,6 +63,12 @@ float \mbox{\hyperlink{class_game_object_a82b60a9ea631d253434ba8683ee69370}{m\+\
 float \mbox{\hyperlink{class_game_object_a6a2eccbbf7974ae9d76e58f4f5b899ac}{m\+\_\+acceleration\+Value}}
 \item 
 float \mbox{\hyperlink{class_game_object_a13670cbe19b2daaedbd696a3495bf598}{m\+\_\+max\+Speed}} = .\+5f
+\item 
+bool \mbox{\hyperlink{class_game_object_a23bb632b062159fd2038ad1ba90c3cba}{m\+\_\+has\+Shown\+Death\+Texture}}
+\item 
+int \mbox{\hyperlink{class_game_object_abf206053b21dce61fcb5d20b4273b7c6}{m\+\_\+death\+Texture\+Duration}}
+\item 
+int \mbox{\hyperlink{class_game_object_a425076c967951b2f01b9fa8fdfe6dc2c}{m\+\_\+death\+Texture\+Time\+Passed}}
 \item 
 int \mbox{\hyperlink{class_game_object_a26687f9a79576969707c47f5562b7037}{m\+\_\+hp}}
 \end{DoxyCompactItemize}
@@ -107,7 +117,7 @@ Returns HP
 
 
 
-Reimplemented in \mbox{\hyperlink{class_enemy_ad4958e67a70c706e37a80b285ac89854}{Enemy}}, and \mbox{\hyperlink{class_player_a65a76094cff6f149d5847d2110fe443d}{Player}}.
+Reimplemented in \mbox{\hyperlink{class_barricade_block_adc4d1d90b1d7ad2a6b043aef0a9886d2}{Barricade\+Block}}, \mbox{\hyperlink{class_mystery_ship_ad79eee772a091f9ea2b194744450e5f2}{Mystery\+Ship}}, and \mbox{\hyperlink{class_player_a65a76094cff6f149d5847d2110fe443d}{Player}}.
 
 \mbox{\Hypertarget{class_game_object_a79510ffc77339fe850491dce9f580fa9}\label{class_game_object_a79510ffc77339fe850491dce9f580fa9}} 
 \index{Game\+Object@{Game\+Object}!Logic@{Logic}}
@@ -117,7 +127,13 @@ Reimplemented in \mbox{\hyperlink{class_enemy_ad4958e67a70c706e37a80b285ac89854}
 
 
 
-Reimplemented in \mbox{\hyperlink{class_projectile_a871e265207d2bf2d5180152a7acf2d40}{Projectile}}, \mbox{\hyperlink{class_enemy_adcde768475970dae1e4c3e76fb59bc46}{Enemy}}, \mbox{\hyperlink{class_snake_a1f01e21a73734f9c0d701ec02a9d2e41}{Snake}}, \mbox{\hyperlink{class_enemy_attack_a2f735b2cbf13787217a5daed7ff8f7a4}{Enemy\+Attack}}, \mbox{\hyperlink{class_laser_a1f2135281ecc1b318357633f4e7dd34c}{Laser}}, and \mbox{\hyperlink{class_player_ae30c8d49de94ee8c73ed6ab6315a2854}{Player}}.
+Reimplemented in \mbox{\hyperlink{class_projectile_a871e265207d2bf2d5180152a7acf2d40}{Projectile}}, \mbox{\hyperlink{class_barricade_block_ac01d18a8afea6f0b15c7ec7b0167c7f1}{Barricade\+Block}}, \mbox{\hyperlink{class_enemy_adcde768475970dae1e4c3e76fb59bc46}{Enemy}}, \mbox{\hyperlink{class_mystery_ship_ace0406106086ab58d8da318e902ade0a}{Mystery\+Ship}}, \mbox{\hyperlink{class_player_ae30c8d49de94ee8c73ed6ab6315a2854}{Player}}, \mbox{\hyperlink{class_snake_a1f01e21a73734f9c0d701ec02a9d2e41}{Snake}}, \mbox{\hyperlink{class_enemy_attack_a2f735b2cbf13787217a5daed7ff8f7a4}{Enemy\+Attack}}, and \mbox{\hyperlink{class_laser_a1f2135281ecc1b318357633f4e7dd34c}{Laser}}.
+
+\mbox{\Hypertarget{class_game_object_a29708ce7009e5de901438b9a4f02e365}\label{class_game_object_a29708ce7009e5de901438b9a4f02e365}} 
+\index{Game\+Object@{Game\+Object}!Reset\+Anim@{Reset\+Anim}}
+\index{Reset\+Anim@{Reset\+Anim}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{Reset\+Anim()}{ResetAnim()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Reset\+Anim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_game_object_a7aa67e2bbfd37af89d86df0b030b5a81}\label{class_game_object_a7aa67e2bbfd37af89d86df0b030b5a81}} 
 \index{Game\+Object@{Game\+Object}!set\+Hp@{set\+Hp}}
@@ -161,11 +177,35 @@ Sets HP
 \subsubsection{\texorpdfstring{m\+\_\+de\+Acceleration}{m\_deAcceleration}}
 {\footnotesize\ttfamily float Game\+Object\+::m\+\_\+de\+Acceleration\hspace{0.3cm}{\ttfamily [protected]}}
 
+\mbox{\Hypertarget{class_game_object_a585ecfe9ee67a81264e2e414dbba80dd}\label{class_game_object_a585ecfe9ee67a81264e2e414dbba80dd}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+death\+Texture@{m\+\_\+death\+Texture}}
+\index{m\+\_\+death\+Texture@{m\+\_\+death\+Texture}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+death\+Texture}{m\_deathTexture}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture$\ast$ Game\+Object\+::m\+\_\+death\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_abf206053b21dce61fcb5d20b4273b7c6}\label{class_game_object_abf206053b21dce61fcb5d20b4273b7c6}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+death\+Texture\+Duration@{m\+\_\+death\+Texture\+Duration}}
+\index{m\+\_\+death\+Texture\+Duration@{m\+\_\+death\+Texture\+Duration}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+death\+Texture\+Duration}{m\_deathTextureDuration}}
+{\footnotesize\ttfamily int Game\+Object\+::m\+\_\+death\+Texture\+Duration\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_a425076c967951b2f01b9fa8fdfe6dc2c}\label{class_game_object_a425076c967951b2f01b9fa8fdfe6dc2c}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+death\+Texture\+Time\+Passed@{m\+\_\+death\+Texture\+Time\+Passed}}
+\index{m\+\_\+death\+Texture\+Time\+Passed@{m\+\_\+death\+Texture\+Time\+Passed}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+death\+Texture\+Time\+Passed}{m\_deathTextureTimePassed}}
+{\footnotesize\ttfamily int Game\+Object\+::m\+\_\+death\+Texture\+Time\+Passed\hspace{0.3cm}{\ttfamily [protected]}}
+
 \mbox{\Hypertarget{class_game_object_a5202d5d5df1813c567fb344617250b42}\label{class_game_object_a5202d5d5df1813c567fb344617250b42}} 
 \index{Game\+Object@{Game\+Object}!m\+\_\+def\+Texture@{m\+\_\+def\+Texture}}
 \index{m\+\_\+def\+Texture@{m\+\_\+def\+Texture}!Game\+Object@{Game\+Object}}
 \subsubsection{\texorpdfstring{m\+\_\+def\+Texture}{m\_defTexture}}
 {\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture$\ast$ Game\+Object\+::m\+\_\+def\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_a23bb632b062159fd2038ad1ba90c3cba}\label{class_game_object_a23bb632b062159fd2038ad1ba90c3cba}} 
+\index{Game\+Object@{Game\+Object}!m\+\_\+has\+Shown\+Death\+Texture@{m\+\_\+has\+Shown\+Death\+Texture}}
+\index{m\+\_\+has\+Shown\+Death\+Texture@{m\+\_\+has\+Shown\+Death\+Texture}!Game\+Object@{Game\+Object}}
+\subsubsection{\texorpdfstring{m\+\_\+has\+Shown\+Death\+Texture}{m\_hasShownDeathTexture}}
+{\footnotesize\ttfamily bool Game\+Object\+::m\+\_\+has\+Shown\+Death\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
 
 \mbox{\Hypertarget{class_game_object_a26687f9a79576969707c47f5562b7037}\label{class_game_object_a26687f9a79576969707c47f5562b7037}} 
 \index{Game\+Object@{Game\+Object}!m\+\_\+hp@{m\+\_\+hp}}

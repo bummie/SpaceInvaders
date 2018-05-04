@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['setcolor',['setColor',['../class_text.html#abb8e725b17de08304a97119d39df5cc1',1,'Text']]],
-  ['sethp',['setHp',['../class_game_object.html#a7aa67e2bbfd37af89d86df0b030b5a81',1,'GameObject']]],
-  ['setposition',['setPosition',['../class_text.html#a55995c22d9a3166ccd856f3b632f2354',1,'Text']]],
-  ['settext',['setText',['../class_text.html#ab2d8c95b3d746ae3e8c0fba8318743c9',1,'Text']]],
-  ['setvisible',['setVisible',['../class_text.html#a654ac74524e48652f9aa789d2612052b',1,'Text']]],
-  ['snake',['Snake',['../class_snake.html#ae54c34f487c04c54bd7daadbe42d3a4b',1,'Snake']]],
-  ['stopmusic',['StopMusic',['../class_sound_manager.html#a8b26fc4974bebd09b4bd7e108e8394ae',1,'SoundManager']]]
+  ['remove',['Remove',['../class_game_objects_manager.html#a1aff7fa8c420de210baffadf2e2be703',1,'GameObjectsManager']]],
+  ['removetext',['removeText',['../class_text_renderer.html#a7bbce1218d00986c91ff15e5e6dfdc3a',1,'TextRenderer']]],
+  ['replenish',['Replenish',['../class_player.html#a7da8c52d956abfc5a31742545c5d50b8',1,'Player']]],
+  ['resetanim',['ResetAnim',['../class_game_object.html#a29708ce7009e5de901438b9a4f02e365',1,'GameObject']]],
+  ['resetbarricadeblocks',['ResetBarricadeBlocks',['../class_barricade.html#afae6747d40e49e937efaa1dd063a4461',1,'Barricade']]]
 ];

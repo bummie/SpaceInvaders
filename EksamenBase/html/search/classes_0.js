@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['collisionmanager',['CollisionManager',['../class_collision_manager.html',1,'']]]
+  ['barricade',['Barricade',['../class_barricade.html',1,'']]],
+  ['barricadeblock',['BarricadeBlock',['../class_barricade_block.html',1,'']]]
 ];

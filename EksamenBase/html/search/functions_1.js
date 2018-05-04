@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['checkposition',['CheckPosition',['../class_projectile.html#a6baf0fc9681b7c13b64a1c82671e296f',1,'Projectile']]]
+  ['barricade',['Barricade',['../class_barricade.html#a2dfad888aded7d69ae2649e545103110',1,'Barricade']]],
+  ['barricadeblock',['BarricadeBlock',['../class_barricade_block.html#a497dcd5806e7a26f3c4d5e55e5a9be61',1,'BarricadeBlock']]]
 ];

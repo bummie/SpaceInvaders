@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['player_2ecpp',['Player.cpp',['../_player_8cpp.html',1,'']]],
-  ['player_2eh',['Player.h',['../_player_8h.html',1,'']]],
-  ['projectile_2ecpp',['Projectile.cpp',['../_projectile_8cpp.html',1,'']]],
-  ['projectile_2eh',['Projectile.h',['../_projectile_8h.html',1,'']]]
+  ['laser_2ecpp',['Laser.cpp',['../_laser_8cpp.html',1,'']]],
+  ['laser_2eh',['Laser.h',['../_laser_8h.html',1,'']]]
 ];

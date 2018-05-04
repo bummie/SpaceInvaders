@@ -20,8 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Enemy_squid_up.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Space Invaders
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -77,15 +79,15 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abe5aece84355a01f2473b41217f28026"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_objects_manager.html#abe5aece84355a01f2473b41217f28026">~GameObjectsManager</a> ()</td></tr>
 <tr class="separator:abe5aece84355a01f2473b41217f28026"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfdcf84bfdb4705920585b2d04bb874e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_objects_manager.html#acfdcf84bfdb4705920585b2d04bb874e">Add</a> (<a class="el" href="class_game_object.html">GameObject</a> *gameObject)</td></tr>
-<tr class="memdesc:acfdcf84bfdb4705920585b2d04bb874e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the given gameobject to the list  <a href="#acfdcf84bfdb4705920585b2d04bb874e">More...</a><br /></td></tr>
-<tr class="separator:acfdcf84bfdb4705920585b2d04bb874e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c000e81eed9c5fd9dd374411271cbde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_objects_manager.html#a9c000e81eed9c5fd9dd374411271cbde">Remove</a> (<a class="el" href="class_game_object.html">GameObject</a> *gameObject)</td></tr>
-<tr class="memdesc:a9c000e81eed9c5fd9dd374411271cbde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the given gameobject  <a href="#a9c000e81eed9c5fd9dd374411271cbde">More...</a><br /></td></tr>
-<tr class="separator:a9c000e81eed9c5fd9dd374411271cbde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a242d9459669f0d2e13df6f98c1c04b8a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_objects_manager.html#a242d9459669f0d2e13df6f98c1c04b8a">Find</a> (std::string tag)</td></tr>
-<tr class="memdesc:a242d9459669f0d2e13df6f98c1c04b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retuns an array of gameobject with given tag TODO:: Test it out, not sure if it works yo  <a href="#a242d9459669f0d2e13df6f98c1c04b8a">More...</a><br /></td></tr>
-<tr class="separator:a242d9459669f0d2e13df6f98c1c04b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20480f2dbcb4607aa74c75e6f4ddccdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_objects_manager.html#a20480f2dbcb4607aa74c75e6f4ddccdb">Add</a> (std::shared_ptr&lt; <a class="el" href="class_game_object.html">GameObject</a> &gt; gameObject)</td></tr>
+<tr class="memdesc:a20480f2dbcb4607aa74c75e6f4ddccdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the given gameobject to the list  <a href="#a20480f2dbcb4607aa74c75e6f4ddccdb">More...</a><br /></td></tr>
+<tr class="separator:a20480f2dbcb4607aa74c75e6f4ddccdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aff7fa8c420de210baffadf2e2be703"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_objects_manager.html#a1aff7fa8c420de210baffadf2e2be703">Remove</a> (std::shared_ptr&lt; <a class="el" href="class_game_object.html">GameObject</a> &gt; gameObject)</td></tr>
+<tr class="memdesc:a1aff7fa8c420de210baffadf2e2be703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the given gameobject  <a href="#a1aff7fa8c420de210baffadf2e2be703">More...</a><br /></td></tr>
+<tr class="separator:a1aff7fa8c420de210baffadf2e2be703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f2728da34f1a966f2b7aa9a35f8e614"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_game_object.html">GameObject</a> &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_objects_manager.html#a0f2728da34f1a966f2b7aa9a35f8e614">Find</a> (std::string tag)</td></tr>
+<tr class="memdesc:a0f2728da34f1a966f2b7aa9a35f8e614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retuns an array of gameobject with given tag TODO:: Test it out, not sure if it works yo  <a href="#a0f2728da34f1a966f2b7aa9a35f8e614">More...</a><br /></td></tr>
+<tr class="separator:a0f2728da34f1a966f2b7aa9a35f8e614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60c1378f98fbef5dc98c8fdd094ef3c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_objects_manager.html#a60c1378f98fbef5dc98c8fdd094ef3c9">Draw</a> ()</td></tr>
 <tr class="memdesc:a60c1378f98fbef5dc98c8fdd094ef3c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws all of the gameobject  <a href="#a60c1378f98fbef5dc98c8fdd094ef3c9">More...</a><br /></td></tr>
 <tr class="separator:a60c1378f98fbef5dc98c8fdd094ef3c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,8 +105,8 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aafa6eaef65b0ecd6ce15d7ac3fcb2f0e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_objects_manager.html#aafa6eaef65b0ecd6ce15d7ac3fcb2f0e">gameObjectsList</a></td></tr>
-<tr class="separator:aafa6eaef65b0ecd6ce15d7ac3fcb2f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9abd27653014d01700f60391041b6bb8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_game_object.html">GameObject</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_objects_manager.html#a9abd27653014d01700f60391041b6bb8">gameObjectsList</a></td></tr>
+<tr class="separator:a9abd27653014d01700f60391041b6bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abe5aece84355a01f2473b41217f28026"></a>
@@ -125,8 +127,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="acfdcf84bfdb4705920585b2d04bb874e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfdcf84bfdb4705920585b2d04bb874e">&#9670;&nbsp;</a></span>Add()</h2>
+<a id="a20480f2dbcb4607aa74c75e6f4ddccdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20480f2dbcb4607aa74c75e6f4ddccdb">&#9670;&nbsp;</a></span>Add()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,7 +136,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void GameObjectsManager::Add </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_game_object.html">GameObject</a> *&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_game_object.html">GameObject</a> &gt;&#160;</td>
           <td class="paramname"><em>gameObject</em></td><td>)</td>
           <td></td>
         </tr>
@@ -170,14 +172,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a242d9459669f0d2e13df6f98c1c04b8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a242d9459669f0d2e13df6f98c1c04b8a">&#9670;&nbsp;</a></span>Find()</h2>
+<a id="a0f2728da34f1a966f2b7aa9a35f8e614"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f2728da34f1a966f2b7aa9a35f8e614">&#9670;&nbsp;</a></span>Find()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt; * GameObjectsManager::Find </td>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_game_object.html">GameObject</a> &gt; &gt; * GameObjectsManager::Find </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>tag</em></td><td>)</td>
@@ -260,8 +262,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9c000e81eed9c5fd9dd374411271cbde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c000e81eed9c5fd9dd374411271cbde">&#9670;&nbsp;</a></span>Remove()</h2>
+<a id="a1aff7fa8c420de210baffadf2e2be703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aff7fa8c420de210baffadf2e2be703">&#9670;&nbsp;</a></span>Remove()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -269,7 +271,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void GameObjectsManager::Remove </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_game_object.html">GameObject</a> *&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_game_object.html">GameObject</a> &gt;&#160;</td>
           <td class="paramname"><em>gameObject</em></td><td>)</td>
           <td></td>
         </tr>
@@ -287,14 +289,14 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aafa6eaef65b0ecd6ce15d7ac3fcb2f0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafa6eaef65b0ecd6ce15d7ac3fcb2f0e">&#9670;&nbsp;</a></span>gameObjectsList</h2>
+<a id="a9abd27653014d01700f60391041b6bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9abd27653014d01700f60391041b6bb8">&#9670;&nbsp;</a></span>gameObjectsList</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="class_game_object.html">GameObject</a>*&gt; GameObjectsManager::gameObjectsList</td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_game_object.html">GameObject</a>&gt; &gt; GameObjectsManager::gameObjectsList</td>
         </tr>
       </table>
 </div><div class="memdoc">

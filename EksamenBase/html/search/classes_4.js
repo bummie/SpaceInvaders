@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['laser',['Laser',['../class_laser.html',1,'']]]
+  ['inputmanager',['InputManager',['../class_input_manager.html',1,'']]]
 ];

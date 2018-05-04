@@ -1,5 +1,12 @@
 var searchData=
 [
-  ['init',['Init',['../class_game_handler.html#aba984ea50d3ce52070950c5aa24e0d7f',1,'GameHandler::Init()'],['../class_sound_manager.html#af1ee5e29fca894a8ac9aeeb56b81f21d',1,'SoundManager::Init()']]],
-  ['input',['Input',['../class_enemy.html#ad4958e67a70c706e37a80b285ac89854',1,'Enemy::Input()'],['../class_game_object.html#a430742cf91abb99337c556c88bef880a',1,'GameObject::Input()'],['../class_player.html#a65a76094cff6f149d5847d2110fe443d',1,'Player::Input()'],['../class_game_objects_manager.html#a9f5ca8d981a423e9c5ab56978a1cd99e',1,'GameObjectsManager::Input()']]]
+  ['gamehandler',['GameHandler',['../class_game_handler.html#ad016ced8da1d660009e014a9aeb833da',1,'GameHandler']]],
+  ['gameobject',['GameObject',['../class_game_object.html#a0b60783781874241ad26049ad968a78b',1,'GameObject']]],
+  ['getdeltatime',['getDeltaTime',['../class_game_handler.html#aebe798f7fee6c05c05bec6540f240238',1,'GameHandler']]],
+  ['getenemyattack',['GetEnemyAttack',['../class_objects_pool.html#a0cb6ec80efacce659b008ab8bc000aa9',1,'ObjectsPool']]],
+  ['gethp',['getHp',['../class_game_object.html#a13b96d5c268bca096f8e3a3e85d35732',1,'GameObject']]],
+  ['getinstance',['getInstance',['../class_collision_manager.html#af7ae5c9cd14ffea044059e17225d3d1c',1,'CollisionManager::getInstance()'],['../class_game_objects_manager.html#a905058214bee04ccfd466381261d4c0e',1,'GameObjectsManager::getInstance()'],['../class_input_manager.html#afd3f100b1aded300cb79682bfa75f001',1,'InputManager::getInstance()'],['../class_objects_pool.html#aca7dadcb65812523bc0f910cf8183884',1,'ObjectsPool::getInstance()'],['../class_sound_manager.html#a4f8f0b2d539d055f4c1de8c47d483cb3',1,'SoundManager::getInstance()'],['../class_text_renderer.html#a94a68e46e699ba95ae64ad7bf6f8a1be',1,'TextRenderer::getInstance()'],['../class_texture_manager.html#a0a6bc63e2f6fa7e1d0aee5b24cfa089a',1,'TextureManager::getInstance()']]],
+  ['getsnake',['GetSnake',['../class_objects_pool.html#a97601dd9984711e20f2f9984a51a1741',1,'ObjectsPool']]],
+  ['gettext',['getText',['../class_text_renderer.html#ac05aa714426b16276c45647e8c7c50bd',1,'TextRenderer']]],
+  ['gettexture',['GetTexture',['../class_texture_manager.html#ac472bb04e6b78569441d5088e5dafa33',1,'TextureManager']]]
 ];

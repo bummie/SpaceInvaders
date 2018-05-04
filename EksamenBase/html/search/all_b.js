@@ -1,12 +1,21 @@
 var searchData=
 [
-  ['player',['Player',['../class_player.html',1,'Player'],['../class_player.html#a753df4f66aa114c0789ba730199e4a01',1,'Player::Player()']]],
-  ['player_2ecpp',['Player.cpp',['../_player_8cpp.html',1,'']]],
-  ['player_2eh',['Player.h',['../_player_8h.html',1,'']]],
-  ['playmusic',['PlayMusic',['../class_sound_manager.html#ab4f6bc3b9c203232424b10da9912cf1b',1,'SoundManager']]],
-  ['playsound',['PlaySound',['../class_sound_manager.html#af84f2acbde4d8c0d8f5b47c2d917e486',1,'SoundManager']]],
-  ['position',['position',['../class_game_object.html#af6009d73be98a4bd54272d06b50f2eac',1,'GameObject']]],
-  ['projectile',['Projectile',['../class_projectile.html',1,'Projectile'],['../class_projectile.html#a0906140caebe54c0b087c7e6240f3084',1,'Projectile::Projectile()']]],
-  ['projectile_2ecpp',['Projectile.cpp',['../_projectile_8cpp.html',1,'']]],
-  ['projectile_2eh',['Projectile.h',['../_projectile_8h.html',1,'']]]
+  ['m_5facceleration',['m_acceleration',['../class_game_object.html#a934563079577e8f20b597e23ae40ec20',1,'GameObject']]],
+  ['m_5faccelerationvalue',['m_accelerationValue',['../class_game_object.html#a6a2eccbbf7974ae9d76e58f4f5b899ac',1,'GameObject']]],
+  ['m_5fdeacceleration',['m_deAcceleration',['../class_game_object.html#a82b60a9ea631d253434ba8683ee69370',1,'GameObject']]],
+  ['m_5fdeathtexture',['m_deathTexture',['../class_game_object.html#a585ecfe9ee67a81264e2e414dbba80dd',1,'GameObject']]],
+  ['m_5fdeathtextureduration',['m_deathTextureDuration',['../class_game_object.html#abf206053b21dce61fcb5d20b4273b7c6',1,'GameObject']]],
+  ['m_5fdeathtexturetimepassed',['m_deathTextureTimePassed',['../class_game_object.html#a425076c967951b2f01b9fa8fdfe6dc2c',1,'GameObject']]],
+  ['m_5fdeftexture',['m_defTexture',['../class_game_object.html#a5202d5d5df1813c567fb344617250b42',1,'GameObject']]],
+  ['m_5fhasshowndeathtexture',['m_hasShownDeathTexture',['../class_game_object.html#a23bb632b062159fd2038ad1ba90c3cba',1,'GameObject']]],
+  ['m_5fhp',['m_hp',['../class_game_object.html#a26687f9a79576969707c47f5562b7037',1,'GameObject']]],
+  ['m_5fmaxspeed',['m_maxSpeed',['../class_game_object.html#a13670cbe19b2daaedbd696a3495bf598',1,'GameObject']]],
+  ['m_5frenderer',['m_renderer',['../class_game_object.html#a2be93417ea72201ce5edc093167b2f68',1,'GameObject']]],
+  ['m_5fsecondarytexture',['m_secondaryTexture',['../class_game_object.html#aa89e916d62813d047b054c0c9cf97559',1,'GameObject']]],
+  ['m_5fvelocity',['m_velocity',['../class_game_object.html#ac27549efb645f7c924d6604e318877bf',1,'GameObject']]],
+  ['main',['main',['../_eksamen_base_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'EksamenBase.cpp']]],
+  ['musicplaying',['MusicPlaying',['../class_sound_manager.html#ae41fb3a3efb5b1fc9b39bd2764a032cc',1,'SoundManager']]],
+  ['mysteryship',['MysteryShip',['../class_mystery_ship.html',1,'MysteryShip'],['../class_mystery_ship.html#a0ba2e990784b0e4c1be1a4dc4a7c47c7',1,'MysteryShip::MysteryShip()']]],
+  ['mysteryship_2ecpp',['MysteryShip.cpp',['../_mystery_ship_8cpp.html',1,'']]],
+  ['mysteryship_2eh',['MysteryShip.h',['../_mystery_ship_8h.html',1,'']]]
 ];

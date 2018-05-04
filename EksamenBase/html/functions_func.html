@@ -20,8 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Enemy_squid_up.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Space Invaders
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -65,10 +67,20 @@ $(function() {
 
 <h3><a id="index_a"></a>- a -</h3><ul>
 <li>Add()
-: <a class="el" href="class_game_objects_manager.html#acfdcf84bfdb4705920585b2d04bb874e">GameObjectsManager</a>
+: <a class="el" href="class_game_objects_manager.html#a20480f2dbcb4607aa74c75e6f4ddccdb">GameObjectsManager</a>
 </li>
 <li>addText()
 : <a class="el" href="class_text_renderer.html#af174d80bebf4e0eb8a9039bc7466893e">TextRenderer</a>
+</li>
+</ul>
+
+
+<h3><a id="index_b"></a>- b -</h3><ul>
+<li>Barricade()
+: <a class="el" href="class_barricade.html#a2dfad888aded7d69ae2649e545103110">Barricade</a>
+</li>
+<li>BarricadeBlock()
+: <a class="el" href="class_barricade_block.html#a497dcd5806e7a26f3c4d5e55e5a9be61">BarricadeBlock</a>
 </li>
 </ul>
 
@@ -105,7 +117,7 @@ $(function() {
 
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>Find()
-: <a class="el" href="class_game_objects_manager.html#a242d9459669f0d2e13df6f98c1c04b8a">GameObjectsManager</a>
+: <a class="el" href="class_game_objects_manager.html#a0f2728da34f1a966f2b7aa9a35f8e614">GameObjectsManager</a>
 </li>
 </ul>
 
@@ -120,6 +132,9 @@ $(function() {
 <li>getDeltaTime()
 : <a class="el" href="class_game_handler.html#aebe798f7fee6c05c05bec6540f240238">GameHandler</a>
 </li>
+<li>GetEnemyAttack()
+: <a class="el" href="class_objects_pool.html#a0cb6ec80efacce659b008ab8bc000aa9">ObjectsPool</a>
+</li>
 <li>getHp()
 : <a class="el" href="class_game_object.html#a13b96d5c268bca096f8e3a3e85d35732">GameObject</a>
 </li>
@@ -127,9 +142,13 @@ $(function() {
 : <a class="el" href="class_collision_manager.html#af7ae5c9cd14ffea044059e17225d3d1c">CollisionManager</a>
 , <a class="el" href="class_game_objects_manager.html#a905058214bee04ccfd466381261d4c0e">GameObjectsManager</a>
 , <a class="el" href="class_input_manager.html#afd3f100b1aded300cb79682bfa75f001">InputManager</a>
+, <a class="el" href="class_objects_pool.html#aca7dadcb65812523bc0f910cf8183884">ObjectsPool</a>
 , <a class="el" href="class_sound_manager.html#a4f8f0b2d539d055f4c1de8c47d483cb3">SoundManager</a>
 , <a class="el" href="class_text_renderer.html#a94a68e46e699ba95ae64ad7bf6f8a1be">TextRenderer</a>
 , <a class="el" href="class_texture_manager.html#a0a6bc63e2f6fa7e1d0aee5b24cfa089a">TextureManager</a>
+</li>
+<li>GetSnake()
+: <a class="el" href="class_objects_pool.html#a97601dd9984711e20f2f9984a51a1741">ObjectsPool</a>
 </li>
 <li>getText()
 : <a class="el" href="class_text_renderer.html#ac05aa714426b16276c45647e8c7c50bd">TextRenderer</a>
@@ -146,9 +165,10 @@ $(function() {
 , <a class="el" href="class_sound_manager.html#af1ee5e29fca894a8ac9aeeb56b81f21d">SoundManager</a>
 </li>
 <li>Input()
-: <a class="el" href="class_enemy.html#ad4958e67a70c706e37a80b285ac89854">Enemy</a>
+: <a class="el" href="class_barricade_block.html#adc4d1d90b1d7ad2a6b043aef0a9886d2">BarricadeBlock</a>
 , <a class="el" href="class_game_object.html#a430742cf91abb99337c556c88bef880a">GameObject</a>
 , <a class="el" href="class_game_objects_manager.html#a9f5ca8d981a423e9c5ab56978a1cd99e">GameObjectsManager</a>
+, <a class="el" href="class_mystery_ship.html#ad79eee772a091f9ea2b194744450e5f2">MysteryShip</a>
 , <a class="el" href="class_player.html#a65a76094cff6f149d5847d2110fe443d">Player</a>
 </li>
 </ul>
@@ -172,11 +192,13 @@ $(function() {
 : <a class="el" href="class_laser.html#ac799230b67fc870ae9699efcf4ef27cb">Laser</a>
 </li>
 <li>Logic()
-: <a class="el" href="class_enemy.html#adcde768475970dae1e4c3e76fb59bc46">Enemy</a>
+: <a class="el" href="class_barricade_block.html#ac01d18a8afea6f0b15c7ec7b0167c7f1">BarricadeBlock</a>
+, <a class="el" href="class_enemy.html#adcde768475970dae1e4c3e76fb59bc46">Enemy</a>
 , <a class="el" href="class_enemy_attack.html#a2f735b2cbf13787217a5daed7ff8f7a4">EnemyAttack</a>
 , <a class="el" href="class_game_object.html#a79510ffc77339fe850491dce9f580fa9">GameObject</a>
 , <a class="el" href="class_game_objects_manager.html#ac77aa52afc2dfbb678c51a27022fc60a">GameObjectsManager</a>
 , <a class="el" href="class_laser.html#a1f2135281ecc1b318357633f4e7dd34c">Laser</a>
+, <a class="el" href="class_mystery_ship.html#ace0406106086ab58d8da318e902ade0a">MysteryShip</a>
 , <a class="el" href="class_player.html#ae30c8d49de94ee8c73ed6ab6315a2854">Player</a>
 , <a class="el" href="class_projectile.html#a871e265207d2bf2d5180152a7acf2d40">Projectile</a>
 , <a class="el" href="class_snake.html#a1f01e21a73734f9c0d701ec02a9d2e41">Snake</a>
@@ -184,9 +206,19 @@ $(function() {
 </ul>
 
 
+<h3><a id="index_m"></a>- m -</h3><ul>
+<li>MusicPlaying()
+: <a class="el" href="class_sound_manager.html#ae41fb3a3efb5b1fc9b39bd2764a032cc">SoundManager</a>
+</li>
+<li>MysteryShip()
+: <a class="el" href="class_mystery_ship.html#a0ba2e990784b0e4c1be1a4dc4a7c47c7">MysteryShip</a>
+</li>
+</ul>
+
+
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>OnCollision()
-: <a class="el" href="class_collision_manager.html#aa36e8b56d10fc36677a8a9bb76891c58">CollisionManager</a>
+: <a class="el" href="class_collision_manager.html#a216d5bbe08e18a3a2aaa46a566b61c94">CollisionManager</a>
 </li>
 </ul>
 
@@ -209,15 +241,27 @@ $(function() {
 
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>Remove()
-: <a class="el" href="class_game_objects_manager.html#a9c000e81eed9c5fd9dd374411271cbde">GameObjectsManager</a>
+: <a class="el" href="class_game_objects_manager.html#a1aff7fa8c420de210baffadf2e2be703">GameObjectsManager</a>
 </li>
 <li>removeText()
 : <a class="el" href="class_text_renderer.html#a7bbce1218d00986c91ff15e5e6dfdc3a">TextRenderer</a>
+</li>
+<li>Replenish()
+: <a class="el" href="class_player.html#a7da8c52d956abfc5a31742545c5d50b8">Player</a>
+</li>
+<li>ResetAnim()
+: <a class="el" href="class_game_object.html#a29708ce7009e5de901438b9a4f02e365">GameObject</a>
+</li>
+<li>ResetBarricadeBlocks()
+: <a class="el" href="class_barricade.html#afae6747d40e49e937efaa1dd063a4461">Barricade</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>setBlink()
+: <a class="el" href="class_text.html#aa3075bc13723baa1a72bdd2a2a1ba509">Text</a>
+</li>
 <li>setColor()
 : <a class="el" href="class_text.html#abb8e725b17de08304a97119d39df5cc1">Text</a>
 </li>
@@ -257,6 +301,12 @@ $(function() {
 
 
 <h3><a id="index_0x7e"></a>- ~ -</h3><ul>
+<li>~Barricade()
+: <a class="el" href="class_barricade.html#ac74ebf54383e25f526e721964d6e4863">Barricade</a>
+</li>
+<li>~BarricadeBlock()
+: <a class="el" href="class_barricade_block.html#ae4a2910fc259d532cb07179b8da76c4e">BarricadeBlock</a>
+</li>
 <li>~CollisionManager()
 : <a class="el" href="class_collision_manager.html#acdbb3c842f0ef1c7a028d3f080855766">CollisionManager</a>
 </li>
@@ -277,6 +327,12 @@ $(function() {
 </li>
 <li>~Laser()
 : <a class="el" href="class_laser.html#aa9baee5ed9775426e0b1d563c4687711">Laser</a>
+</li>
+<li>~MysteryShip()
+: <a class="el" href="class_mystery_ship.html#a4396e9190999aa5b2879b4886d11814c">MysteryShip</a>
+</li>
+<li>~ObjectsPool()
+: <a class="el" href="class_objects_pool.html#a0895698090f1d06cefc290b51bcd6197">ObjectsPool</a>
 </li>
 <li>~Player()
 : <a class="el" href="class_player.html#a749d2c00e1fe0f5c2746f7505a58c062">Player</a>

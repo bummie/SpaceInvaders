@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['enemy',['Enemy',['../class_enemy.html#ac14d80ce4f82c579e5fe1406e5bb25fa',1,'Enemy']]],
-  ['enemyattack',['EnemyAttack',['../class_enemy_attack.html#a169f1749ce1126148be5ec7d94554e45',1,'EnemyAttack']]],
-  ['exitgamerequested',['ExitGameRequested',['../class_input_manager.html#a1c2f91069dcc0cc7c47947cc56e5846b',1,'InputManager']]]
+  ['draw',['Draw',['../class_game_object.html#ad3ac1deac50048cf7a1a19eb0e61ad26',1,'GameObject::Draw()'],['../class_game_objects_manager.html#a60c1378f98fbef5dc98c8fdd094ef3c9',1,'GameObjectsManager::Draw()'],['../class_text.html#af4bb084ff0f66ad827ef6b006f9b0ebd',1,'Text::Draw()'],['../class_text_renderer.html#a58d44a6db6f6410a6ec292b811f774a2',1,'TextRenderer::Draw()']]]
 ];

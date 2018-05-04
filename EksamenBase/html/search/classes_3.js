@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['inputmanager',['InputManager',['../class_input_manager.html',1,'']]]
+  ['gamehandler',['GameHandler',['../class_game_handler.html',1,'']]],
+  ['gameobject',['GameObject',['../class_game_object.html',1,'']]],
+  ['gameobjectsmanager',['GameObjectsManager',['../class_game_objects_manager.html',1,'']]]
 ];

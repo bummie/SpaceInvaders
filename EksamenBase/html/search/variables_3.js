@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['id',['id',['../class_game_object.html#a98291c60da12d9036e1ad24cfebcf6b3',1,'GameObject']]]
+  ['highscore',['highScore',['../class_game_handler.html#a0076f4fe9cad55a986a899bd14b97061',1,'GameHandler']]]
 ];

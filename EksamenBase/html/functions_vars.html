@@ -20,8 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Enemy_squid_up.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Space Invaders
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -61,25 +63,61 @@ $(function() {
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a id="index_d"></a>- d -</h3><ul>
 <li>direction
 : <a class="el" href="class_projectile.html#a0e4b335bd16e41ec9f8b2f6b8006cac8">Projectile</a>
 </li>
+</ul>
+
+
+<h3><a id="index_e"></a>- e -</h3><ul>
 <li>event
 : <a class="el" href="class_input_manager.html#af4889753f2148b02fe0fba6300d283d2">InputManager</a>
 </li>
+</ul>
+
+
+<h3><a id="index_g"></a>- g -</h3><ul>
 <li>gameObjectsList
-: <a class="el" href="class_game_objects_manager.html#aafa6eaef65b0ecd6ce15d7ac3fcb2f0e">GameObjectsManager</a>
+: <a class="el" href="class_game_objects_manager.html#a9abd27653014d01700f60391041b6bb8">GameObjectsManager</a>
 </li>
+</ul>
+
+
+<h3><a id="index_h"></a>- h -</h3><ul>
+<li>highScore
+: <a class="el" href="class_game_handler.html#a0076f4fe9cad55a986a899bd14b97061">GameHandler</a>
+</li>
+</ul>
+
+
+<h3><a id="index_i"></a>- i -</h3><ul>
 <li>id
 : <a class="el" href="class_game_object.html#a98291c60da12d9036e1ad24cfebcf6b3">GameObject</a>
 </li>
+</ul>
+
+
+<h3><a id="index_k"></a>- k -</h3><ul>
 <li>keyState
 : <a class="el" href="class_input_manager.html#ac4a1f49b858f90ecdc487157f5e43f3a">InputManager</a>
+</li>
+</ul>
+
+
+<h3><a id="index_l"></a>- l -</h3><ul>
+<li>level
+: <a class="el" href="class_game_handler.html#a534070acd7b75bb0d08f73da3b0afb68">GameHandler</a>
 </li>
 <li>loadedTexturesMap
 : <a class="el" href="class_texture_manager.html#a2c91da057fc96141f7527dc7d2185417">TextureManager</a>
 </li>
+</ul>
+
+
+<h3><a id="index_m"></a>- m -</h3><ul>
 <li>m_acceleration
 : <a class="el" href="class_game_object.html#a934563079577e8f20b597e23ae40ec20">GameObject</a>
 </li>
@@ -89,8 +127,20 @@ $(function() {
 <li>m_deAcceleration
 : <a class="el" href="class_game_object.html#a82b60a9ea631d253434ba8683ee69370">GameObject</a>
 </li>
+<li>m_deathTexture
+: <a class="el" href="class_game_object.html#a585ecfe9ee67a81264e2e414dbba80dd">GameObject</a>
+</li>
+<li>m_deathTextureDuration
+: <a class="el" href="class_game_object.html#abf206053b21dce61fcb5d20b4273b7c6">GameObject</a>
+</li>
+<li>m_deathTextureTimePassed
+: <a class="el" href="class_game_object.html#a425076c967951b2f01b9fa8fdfe6dc2c">GameObject</a>
+</li>
 <li>m_defTexture
 : <a class="el" href="class_game_object.html#a5202d5d5df1813c567fb344617250b42">GameObject</a>
+</li>
+<li>m_hasShownDeathTexture
+: <a class="el" href="class_game_object.html#a23bb632b062159fd2038ad1ba90c3cba">GameObject</a>
 </li>
 <li>m_hp
 : <a class="el" href="class_game_object.html#a26687f9a79576969707c47f5562b7037">GameObject</a>
@@ -107,12 +157,24 @@ $(function() {
 <li>m_velocity
 : <a class="el" href="class_game_object.html#ac27549efb645f7c924d6604e318877bf">GameObject</a>
 </li>
+</ul>
+
+
+<h3><a id="index_o"></a>- o -</h3><ul>
 <li>owner
 : <a class="el" href="class_projectile.html#a1a76b3677c7be9a072e7097c34adc517">Projectile</a>
 </li>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
 <li>position
 : <a class="el" href="class_game_object.html#af6009d73be98a4bd54272d06b50f2eac">GameObject</a>
 </li>
+</ul>
+
+
+<h3><a id="index_s"></a>- s -</h3><ul>
 <li>score
 : <a class="el" href="class_game_handler.html#a985aa228815f283446ce0f354f513e80">GameHandler</a>
 </li>
@@ -122,6 +184,10 @@ $(function() {
 <li>SCREEN_WIDTH
 : <a class="el" href="class_game_handler.html#a9ae6b1b8478a4bc1928f07d5e52d0b95">GameHandler</a>
 </li>
+</ul>
+
+
+<h3><a id="index_t"></a>- t -</h3><ul>
 <li>tag
 : <a class="el" href="class_game_object.html#a66891b8bfd67373dde0155ae7808bbb4">GameObject</a>
 </li>
@@ -131,9 +197,17 @@ $(function() {
 <li>textTexture
 : <a class="el" href="class_text.html#a0db81807f575e9f4ff86bdae450ee246">Text</a>
 </li>
+</ul>
+
+
+<h3><a id="index_x"></a>- x -</h3><ul>
 <li>x
 : <a class="el" href="struct_game_object_1_1_vector2_d.html#a93df427a93ef879133dba16d5b1a263e">GameObject::Vector2D</a>
 </li>
+</ul>
+
+
+<h3><a id="index_y"></a>- y -</h3><ul>
 <li>y
 : <a class="el" href="struct_game_object_1_1_vector2_d.html#aab28c50090944680c16a79d404e2d485">GameObject::Vector2D</a>
 </li>

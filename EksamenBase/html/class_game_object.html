@@ -20,8 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Enemy_squid_up.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Space Invaders
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -79,12 +81,14 @@ Inheritance diagram for GameObject:</div>
  <div class="center">
   <img src="class_game_object.png" usemap="#GameObject_map" alt=""/>
   <map id="GameObject_map" name="GameObject_map">
-<area href="class_enemy.html" alt="Enemy" shape="rect" coords="0,56,85,80"/>
-<area href="class_player.html" alt="Player" shape="rect" coords="95,56,180,80"/>
-<area href="class_projectile.html" alt="Projectile" shape="rect" coords="190,56,275,80"/>
-<area href="class_enemy_attack.html" alt="EnemyAttack" shape="rect" coords="95,112,180,136"/>
-<area href="class_laser.html" alt="Laser" shape="rect" coords="190,112,275,136"/>
-<area href="class_snake.html" alt="Snake" shape="rect" coords="285,112,370,136"/>
+<area href="class_barricade_block.html" alt="BarricadeBlock" shape="rect" coords="0,56,99,80"/>
+<area href="class_enemy.html" alt="Enemy" shape="rect" coords="109,56,208,80"/>
+<area href="class_mystery_ship.html" alt="MysteryShip" shape="rect" coords="218,56,317,80"/>
+<area href="class_player.html" alt="Player" shape="rect" coords="327,56,426,80"/>
+<area href="class_projectile.html" alt="Projectile" shape="rect" coords="436,56,535,80"/>
+<area href="class_enemy_attack.html" alt="EnemyAttack" shape="rect" coords="327,112,426,136"/>
+<area href="class_laser.html" alt="Laser" shape="rect" coords="436,112,535,136"/>
+<area href="class_snake.html" alt="Snake" shape="rect" coords="545,112,644,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -111,6 +115,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7aa67e2bbfd37af89d86df0b030b5a81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a7aa67e2bbfd37af89d86df0b030b5a81">setHp</a> (int hp)</td></tr>
 <tr class="memdesc:a7aa67e2bbfd37af89d86df0b030b5a81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets HP  <a href="#a7aa67e2bbfd37af89d86df0b030b5a81">More...</a><br /></td></tr>
 <tr class="separator:a7aa67e2bbfd37af89d86df0b030b5a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29708ce7009e5de901438b9a4f02e365"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a29708ce7009e5de901438b9a4f02e365">ResetAnim</a> ()</td></tr>
+<tr class="separator:a29708ce7009e5de901438b9a4f02e365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -127,6 +133,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a5202d5d5df1813c567fb344617250b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa89e916d62813d047b054c0c9cf97559"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#aa89e916d62813d047b054c0c9cf97559">m_secondaryTexture</a></td></tr>
 <tr class="separator:aa89e916d62813d047b054c0c9cf97559"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a585ecfe9ee67a81264e2e414dbba80dd"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a585ecfe9ee67a81264e2e414dbba80dd">m_deathTexture</a></td></tr>
+<tr class="separator:a585ecfe9ee67a81264e2e414dbba80dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2be93417ea72201ce5edc093167b2f68"><td class="memItemLeft" align="right" valign="top">SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a2be93417ea72201ce5edc093167b2f68">m_renderer</a></td></tr>
 <tr class="separator:a2be93417ea72201ce5edc093167b2f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac27549efb645f7c924d6604e318877bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_game_object_1_1_vector2_d.html">Vector2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#ac27549efb645f7c924d6604e318877bf">m_velocity</a></td></tr>
@@ -139,6 +147,12 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a6a2eccbbf7974ae9d76e58f4f5b899ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13670cbe19b2daaedbd696a3495bf598"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a13670cbe19b2daaedbd696a3495bf598">m_maxSpeed</a> = .5f</td></tr>
 <tr class="separator:a13670cbe19b2daaedbd696a3495bf598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23bb632b062159fd2038ad1ba90c3cba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a23bb632b062159fd2038ad1ba90c3cba">m_hasShownDeathTexture</a></td></tr>
+<tr class="separator:a23bb632b062159fd2038ad1ba90c3cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf206053b21dce61fcb5d20b4273b7c6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#abf206053b21dce61fcb5d20b4273b7c6">m_deathTextureDuration</a></td></tr>
+<tr class="separator:abf206053b21dce61fcb5d20b4273b7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a425076c967951b2f01b9fa8fdfe6dc2c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a425076c967951b2f01b9fa8fdfe6dc2c">m_deathTextureTimePassed</a></td></tr>
+<tr class="separator:a425076c967951b2f01b9fa8fdfe6dc2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26687f9a79576969707c47f5562b7037"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a26687f9a79576969707c47f5562b7037">m_hp</a></td></tr>
 <tr class="separator:a26687f9a79576969707c47f5562b7037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -247,7 +261,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_enemy.html#ad4958e67a70c706e37a80b285ac89854">Enemy</a>, and <a class="el" href="class_player.html#a65a76094cff6f149d5847d2110fe443d">Player</a>.</p>
+<p>Reimplemented in <a class="el" href="class_barricade_block.html#adc4d1d90b1d7ad2a6b043aef0a9886d2">BarricadeBlock</a>, <a class="el" href="class_mystery_ship.html#ad79eee772a091f9ea2b194744450e5f2">MysteryShip</a>, and <a class="el" href="class_player.html#a65a76094cff6f149d5847d2110fe443d">Player</a>.</p>
 
 </div>
 </div>
@@ -274,7 +288,24 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_projectile.html#a871e265207d2bf2d5180152a7acf2d40">Projectile</a>, <a class="el" href="class_enemy.html#adcde768475970dae1e4c3e76fb59bc46">Enemy</a>, <a class="el" href="class_snake.html#a1f01e21a73734f9c0d701ec02a9d2e41">Snake</a>, <a class="el" href="class_enemy_attack.html#a2f735b2cbf13787217a5daed7ff8f7a4">EnemyAttack</a>, <a class="el" href="class_laser.html#a1f2135281ecc1b318357633f4e7dd34c">Laser</a>, and <a class="el" href="class_player.html#ae30c8d49de94ee8c73ed6ab6315a2854">Player</a>.</p>
+<p>Reimplemented in <a class="el" href="class_projectile.html#a871e265207d2bf2d5180152a7acf2d40">Projectile</a>, <a class="el" href="class_barricade_block.html#ac01d18a8afea6f0b15c7ec7b0167c7f1">BarricadeBlock</a>, <a class="el" href="class_enemy.html#adcde768475970dae1e4c3e76fb59bc46">Enemy</a>, <a class="el" href="class_mystery_ship.html#ace0406106086ab58d8da318e902ade0a">MysteryShip</a>, <a class="el" href="class_player.html#ae30c8d49de94ee8c73ed6ab6315a2854">Player</a>, <a class="el" href="class_snake.html#a1f01e21a73734f9c0d701ec02a9d2e41">Snake</a>, <a class="el" href="class_enemy_attack.html#a2f735b2cbf13787217a5daed7ff8f7a4">EnemyAttack</a>, and <a class="el" href="class_laser.html#a1f2135281ecc1b318357633f4e7dd34c">Laser</a>.</p>
+
+</div>
+</div>
+<a id="a29708ce7009e5de901438b9a4f02e365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29708ce7009e5de901438b9a4f02e365">&#9670;&nbsp;</a></span>ResetAnim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameObject::ResetAnim </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -385,6 +416,72 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a585ecfe9ee67a81264e2e414dbba80dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a585ecfe9ee67a81264e2e414dbba80dd">&#9670;&nbsp;</a></span>m_deathTexture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture* GameObject::m_deathTexture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf206053b21dce61fcb5d20b4273b7c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf206053b21dce61fcb5d20b4273b7c6">&#9670;&nbsp;</a></span>m_deathTextureDuration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameObject::m_deathTextureDuration</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a425076c967951b2f01b9fa8fdfe6dc2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a425076c967951b2f01b9fa8fdfe6dc2c">&#9670;&nbsp;</a></span>m_deathTextureTimePassed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameObject::m_deathTextureTimePassed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5202d5d5df1813c567fb344617250b42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5202d5d5df1813c567fb344617250b42">&#9670;&nbsp;</a></span>m_defTexture</h2>
 
@@ -396,6 +493,28 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">SDL_Texture* GameObject::m_defTexture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a23bb632b062159fd2038ad1ba90c3cba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23bb632b062159fd2038ad1ba90c3cba">&#9670;&nbsp;</a></span>m_hasShownDeathTexture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameObject::m_hasShownDeathTexture</td>
         </tr>
       </table>
   </td>

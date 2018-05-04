@@ -20,8 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Enemy_squid_up.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Space Invaders
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -109,6 +111,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7aa67e2bbfd37af89d86df0b030b5a81 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a7aa67e2bbfd37af89d86df0b030b5a81">setHp</a> (int hp)</td></tr>
 <tr class="memdesc:a7aa67e2bbfd37af89d86df0b030b5a81 inherit pub_methods_class_game_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets HP  <a href="class_game_object.html#a7aa67e2bbfd37af89d86df0b030b5a81">More...</a><br /></td></tr>
 <tr class="separator:a7aa67e2bbfd37af89d86df0b030b5a81 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29708ce7009e5de901438b9a4f02e365 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a29708ce7009e5de901438b9a4f02e365">ResetAnim</a> ()</td></tr>
+<tr class="separator:a29708ce7009e5de901438b9a4f02e365 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -121,6 +125,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a98291c60da12d9036e1ad24cfebcf6b3 inherit pub_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_projectile"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_projectile')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_projectile.html">Projectile</a></td></tr>
 <tr class="memitem:a6baf0fc9681b7c13b64a1c82671e296f inherit pro_methods_class_projectile"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projectile.html#a6baf0fc9681b7c13b64a1c82671e296f">CheckPosition</a> ()</td></tr>
+<tr class="memdesc:a6baf0fc9681b7c13b64a1c82671e296f inherit pro_methods_class_projectile"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the projectil is out of bounds or not  <a href="class_projectile.html#a6baf0fc9681b7c13b64a1c82671e296f">More...</a><br /></td></tr>
 <tr class="separator:a6baf0fc9681b7c13b64a1c82671e296f inherit pro_methods_class_projectile"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_projectile"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_projectile')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_projectile.html">Projectile</a></td></tr>
 <tr class="memitem:a1a76b3677c7be9a072e7097c34adc517 inherit pro_attribs_class_projectile"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_object.html">GameObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projectile.html#a1a76b3677c7be9a072e7097c34adc517">owner</a></td></tr>
@@ -132,6 +137,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a5202d5d5df1813c567fb344617250b42 inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa89e916d62813d047b054c0c9cf97559 inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#aa89e916d62813d047b054c0c9cf97559">m_secondaryTexture</a></td></tr>
 <tr class="separator:aa89e916d62813d047b054c0c9cf97559 inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a585ecfe9ee67a81264e2e414dbba80dd inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a585ecfe9ee67a81264e2e414dbba80dd">m_deathTexture</a></td></tr>
+<tr class="separator:a585ecfe9ee67a81264e2e414dbba80dd inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2be93417ea72201ce5edc093167b2f68 inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a2be93417ea72201ce5edc093167b2f68">m_renderer</a></td></tr>
 <tr class="separator:a2be93417ea72201ce5edc093167b2f68 inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac27549efb645f7c924d6604e318877bf inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_game_object_1_1_vector2_d.html">Vector2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#ac27549efb645f7c924d6604e318877bf">m_velocity</a></td></tr>
@@ -144,6 +151,12 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a6a2eccbbf7974ae9d76e58f4f5b899ac inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13670cbe19b2daaedbd696a3495bf598 inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a13670cbe19b2daaedbd696a3495bf598">m_maxSpeed</a> = .5f</td></tr>
 <tr class="separator:a13670cbe19b2daaedbd696a3495bf598 inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23bb632b062159fd2038ad1ba90c3cba inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a23bb632b062159fd2038ad1ba90c3cba">m_hasShownDeathTexture</a></td></tr>
+<tr class="separator:a23bb632b062159fd2038ad1ba90c3cba inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf206053b21dce61fcb5d20b4273b7c6 inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#abf206053b21dce61fcb5d20b4273b7c6">m_deathTextureDuration</a></td></tr>
+<tr class="separator:abf206053b21dce61fcb5d20b4273b7c6 inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a425076c967951b2f01b9fa8fdfe6dc2c inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a425076c967951b2f01b9fa8fdfe6dc2c">m_deathTextureTimePassed</a></td></tr>
+<tr class="separator:a425076c967951b2f01b9fa8fdfe6dc2c inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26687f9a79576969707c47f5562b7037 inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a26687f9a79576969707c47f5562b7037">m_hp</a></td></tr>
 <tr class="separator:a26687f9a79576969707c47f5562b7037 inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

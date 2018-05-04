@@ -9,11 +9,11 @@
 \item 
 \mbox{\hyperlink{class_game_objects_manager_abe5aece84355a01f2473b41217f28026}{$\sim$\+Game\+Objects\+Manager}} ()
 \item 
-void \mbox{\hyperlink{class_game_objects_manager_acfdcf84bfdb4705920585b2d04bb874e}{Add}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$game\+Object)
+void \mbox{\hyperlink{class_game_objects_manager_a20480f2dbcb4607aa74c75e6f4ddccdb}{Add}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ game\+Object)
 \begin{DoxyCompactList}\small\item\em Adds the given gameobject to the list \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_game_objects_manager_a9c000e81eed9c5fd9dd374411271cbde}{Remove}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$game\+Object)
+void \mbox{\hyperlink{class_game_objects_manager_a1aff7fa8c420de210baffadf2e2be703}{Remove}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ game\+Object)
 \begin{DoxyCompactList}\small\item\em Removes the given gameobject \end{DoxyCompactList}\item 
-std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_game_objects_manager_a242d9459669f0d2e13df6f98c1c04b8a}{Find}} (std\+::string tag)
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ $\ast$ \mbox{\hyperlink{class_game_objects_manager_a0f2728da34f1a966f2b7aa9a35f8e614}{Find}} (std\+::string tag)
 \begin{DoxyCompactList}\small\item\em Retuns an array of gameobject with given tag T\+O\+DO\+:\+: Test it out, not sure if it works yo \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_game_objects_manager_a60c1378f98fbef5dc98c8fdd094ef3c9}{Draw}} ()
 \begin{DoxyCompactList}\small\item\em Draws all of the gameobject \end{DoxyCompactList}\item 
@@ -29,7 +29,7 @@ static \mbox{\hyperlink{class_game_objects_manager}{Game\+Objects\+Manager}} \& 
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \mbox{\hyperlink{class_game_objects_manager_aafa6eaef65b0ecd6ce15d7ac3fcb2f0e}{game\+Objects\+List}}
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{class_game_objects_manager_a9abd27653014d01700f60391041b6bb8}{game\+Objects\+List}}
 \end{DoxyCompactItemize}
 
 
@@ -43,11 +43,11 @@ std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_game_objects_manager_acfdcf84bfdb4705920585b2d04bb874e}\label{class_game_objects_manager_acfdcf84bfdb4705920585b2d04bb874e}} 
+\mbox{\Hypertarget{class_game_objects_manager_a20480f2dbcb4607aa74c75e6f4ddccdb}\label{class_game_objects_manager_a20480f2dbcb4607aa74c75e6f4ddccdb}} 
 \index{Game\+Objects\+Manager@{Game\+Objects\+Manager}!Add@{Add}}
 \index{Add@{Add}!Game\+Objects\+Manager@{Game\+Objects\+Manager}}
 \subsubsection{\texorpdfstring{Add()}{Add()}}
-{\footnotesize\ttfamily void Game\+Objects\+Manager\+::\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$}]{game\+Object }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Game\+Objects\+Manager\+::\+Add (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$}]{game\+Object }\end{DoxyParamCaption})}
 
 
 
@@ -68,11 +68,11 @@ Adds the given gameobject to the list
 
 Draws all of the gameobject 
 
-\mbox{\Hypertarget{class_game_objects_manager_a242d9459669f0d2e13df6f98c1c04b8a}\label{class_game_objects_manager_a242d9459669f0d2e13df6f98c1c04b8a}} 
+\mbox{\Hypertarget{class_game_objects_manager_a0f2728da34f1a966f2b7aa9a35f8e614}\label{class_game_objects_manager_a0f2728da34f1a966f2b7aa9a35f8e614}} 
 \index{Game\+Objects\+Manager@{Game\+Objects\+Manager}!Find@{Find}}
 \index{Find@{Find}!Game\+Objects\+Manager@{Game\+Objects\+Manager}}
 \subsubsection{\texorpdfstring{Find()}{Find()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ $\ast$ Game\+Objects\+Manager\+::\+Find (\begin{DoxyParamCaption}\item[{std\+::string}]{tag }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ $\ast$ Game\+Objects\+Manager\+::\+Find (\begin{DoxyParamCaption}\item[{std\+::string}]{tag }\end{DoxyParamCaption})}
 
 
 
@@ -112,11 +112,11 @@ Handles the input for all the gameobjects
 
 Handles all the logic 
 
-\mbox{\Hypertarget{class_game_objects_manager_a9c000e81eed9c5fd9dd374411271cbde}\label{class_game_objects_manager_a9c000e81eed9c5fd9dd374411271cbde}} 
+\mbox{\Hypertarget{class_game_objects_manager_a1aff7fa8c420de210baffadf2e2be703}\label{class_game_objects_manager_a1aff7fa8c420de210baffadf2e2be703}} 
 \index{Game\+Objects\+Manager@{Game\+Objects\+Manager}!Remove@{Remove}}
 \index{Remove@{Remove}!Game\+Objects\+Manager@{Game\+Objects\+Manager}}
 \subsubsection{\texorpdfstring{Remove()}{Remove()}}
-{\footnotesize\ttfamily void Game\+Objects\+Manager\+::\+Remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$}]{game\+Object }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Game\+Objects\+Manager\+::\+Remove (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$}]{game\+Object }\end{DoxyParamCaption})}
 
 
 
@@ -130,11 +130,11 @@ Removes the given gameobject
 
 
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{class_game_objects_manager_aafa6eaef65b0ecd6ce15d7ac3fcb2f0e}\label{class_game_objects_manager_aafa6eaef65b0ecd6ce15d7ac3fcb2f0e}} 
+\mbox{\Hypertarget{class_game_objects_manager_a9abd27653014d01700f60391041b6bb8}\label{class_game_objects_manager_a9abd27653014d01700f60391041b6bb8}} 
 \index{Game\+Objects\+Manager@{Game\+Objects\+Manager}!game\+Objects\+List@{game\+Objects\+List}}
 \index{game\+Objects\+List@{game\+Objects\+List}!Game\+Objects\+Manager@{Game\+Objects\+Manager}}
 \subsubsection{\texorpdfstring{game\+Objects\+List}{gameObjectsList}}
-{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}$\ast$$>$ Game\+Objects\+Manager\+::game\+Objects\+List}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}$>$ $>$ Game\+Objects\+Manager\+::game\+Objects\+List}
 
 
 
