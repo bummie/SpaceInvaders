@@ -44,6 +44,9 @@ private:
 	int m_enemyMoveDirection;
 	bool m_enemyTurnAround;
 	bool m_enemyMoveDown;
+	int m_enemyRowCount;
+	int m_enemyColumnCount;
+	int m_enemySpacing;
 	Barricade* m_barricade[4];
 
 	void Update();

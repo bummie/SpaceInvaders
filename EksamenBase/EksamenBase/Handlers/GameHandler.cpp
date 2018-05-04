@@ -32,6 +32,9 @@ GameHandler::GameHandler()
 	m_enemyMoveDirection = -1;
 	m_enemyTurnAround = false;
 	m_enemyMoveDown = false;
+	m_enemyColumnCount = 11;
+	m_enemyRowCount = 5;
+	m_enemySpacing = 32;
 }
 
 /// <summary>
@@ -319,7 +322,7 @@ void GameHandler::SpawnEnemies()
 {
 	Enemy::ENEMY_TYPE type = Enemy::ENEMY_TYPE::SQUID;
 
-	for (int y = 0; y < 5; y++)
+	for (int y = 0; y < m_enemyRowCount; y++)
 	{
 		if (y == 1 || y == 2)
 		{
@@ -330,9 +333,9 @@ void GameHandler::SpawnEnemies()
 			type = Enemy::ENEMY_TYPE::GHOST;
 		}
 
-		for (int x = 0; x < 11; x++)
+		for (int x = 0; x < m_enemyColumnCount; x++)
 		{
-			GameObjectsManager::getInstance().Add(std::shared_ptr<Enemy>(new Enemy(m_renderer, (x * 30) + 50, (y * 32) + 100, type)));
+			GameObjectsManager::getInstance().Add(std::shared_ptr<Enemy>(new Enemy(m_renderer, (x * m_enemySpacing) + 50, (y * m_enemySpacing) + 100, type)));
 		}
 	}
 
@@ -346,13 +349,13 @@ void GameHandler::ResetEnemies()
 {
 	m_enemyMoveDirection = -1;
 
-	for (int y = 0; y < 5; y++)
+	for (int y = 0; y < m_enemyRowCount; y++)
 	{
-		for (int x = 0; x < 11; x++)
+		for (int x = 0; x < m_enemyColumnCount; x++)
 		{
-			int pos = (11 * y) + x;
-			m_enemies->at(pos)->position.x = (x * 30) + 50;
-			m_enemies->at(pos)->position.y = (y * 32) + 100;
+			int pos = (m_enemyRowCount * y) + x;
+			m_enemies->at(pos)->position.x = (x * m_enemySpacing) + 50;
+			m_enemies->at(pos)->position.y = (y * m_enemySpacing) + 100;
 			m_enemies->at(pos)->setHp(100);
 			m_enemies->at(pos)->ResetAnim();
 		}
