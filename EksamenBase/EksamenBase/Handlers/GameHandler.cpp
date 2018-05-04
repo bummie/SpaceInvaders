@@ -70,7 +70,7 @@ void GameHandler::Init()
 	// Create player
 	GameObjectsManager::getInstance().Add(std::shared_ptr<Player>(new Player(renderer, SCREEN_HEIGHT / 2, SCREEN_HEIGHT - 64)));
 	SpawnEnemies();
-	m_barricade = new Barricade(renderer, 1, 250);
+	SpawnBarricades();
 	
 	// Init text to screen
 	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", { 255, 255, 255 }, 24, 0, 0, 164, 32));
@@ -115,19 +115,17 @@ void GameHandler::Logic()
 {
 	switch (gameState)
 	{
-	case GAME_STATE::RUNNING:
-	{
-		GameObjectsManager::getInstance().Logic();
-		MoveEnemies();
+		case GAME_STATE::RUNNING:
+		{
+			GameObjectsManager::getInstance().Logic();
+			MoveEnemies();
 
-		//TODO: Own method make pretty
-		m_scorestream.clear();
-		m_scorestream.str(std::string());
-		m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
-		TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
-
-	}
-
+			//TODO: Own method make pretty
+			m_scorestream.clear();
+			m_scorestream.str(std::string());
+			m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
+			TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
+		}
 		break;
 	case GAME_STATE::STARTSCREEN:
 
@@ -136,7 +134,6 @@ void GameHandler::Logic()
 		break;
 	}
 }
-
 
 /// <summary>
 /// Draws to the window
@@ -192,7 +189,6 @@ void GameHandler::Input()
 			}
 		}
 
-
 		if (gameState == GAME_STATE::GAMEOVER)
 		{
 			if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
@@ -209,12 +205,6 @@ void GameHandler::Input()
 		if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
 		{
 			ChangeGameState(GAME_STATE::GAMEOVER);
-		}
-
-		// Add score to player
-		if (InputManager::getInstance().KeyDown(SDLK_c))
-		{
-			GameHandler::score++;
 		}
 
 		// Handle input on gameobjects
@@ -359,6 +349,17 @@ void GameHandler::MoveEnemies()
 	}
 
 	m_enemyMoveTimer += getDeltaTime();
+}
+
+/// <summary>
+/// Spawns barricades into the game
+/// </summary>
+void GameHandler::SpawnBarricades()
+{
+	for(int i = 0; i < 4; i++)
+	{
+		m_barricade[i] = new Barricade(renderer, (i * 120) + 100, 350);
+	}
 }
 
 /// <summary>

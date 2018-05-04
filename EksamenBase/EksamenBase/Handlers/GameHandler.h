@@ -43,7 +43,7 @@ private:
 	int m_enemyMoveDirection;
 	bool m_enemyTurnAround;
 	bool m_enemyMoveDown;
-	Barricade* m_barricade;
+	Barricade* m_barricade[4];
 
 	void Update();
 	void Draw();
@@ -53,6 +53,7 @@ private:
 	void ChangeGameState(GameHandler::GAME_STATE state);
 	void SpawnEnemies();
 	void MoveEnemies();
+	void SpawnBarricades();
 	void NextLevel();
 
 	void DisplayStartScreenText(bool shouldDisplay);

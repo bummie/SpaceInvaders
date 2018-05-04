@@ -32,6 +32,8 @@ Projectile::~Projectile()
 void Projectile::Logic()
 {
 	GameObject::Logic();
+	if (getHp() <= 0) { return; }
+
 	CheckPosition();
 	m_acceleration.y = (m_maxSpeed * direction.y);
 
@@ -58,6 +60,7 @@ void Projectile::Logic()
 			}
 			else if (go->tag == "BarricadeBlock")
 			{
+				std::cout << id << " Barricade Health: " << go->getHp() << std::endl;
 				go->setHp(go->getHp() - 20);
 				setHp(0);
 				SoundManager::getInstance().PlaySound("Explosion");

@@ -49,7 +49,10 @@ void Player::Logic()
 	{
 		for (auto go : *collision)
 		{
-			std::cout << "I AM COLLIDING with " << go->id << std::endl;
+			if(go->tag == "Enemy")
+			{
+				//TODO: GAME OVER
+			}
 		}
 	}
 	delete(collision);
@@ -100,7 +103,6 @@ void Player::Input()
 /// </summary>
 void Player::Shoot()
 {
-	std::cout << "SPACE" << std::endl;
 	SoundManager::getInstance().PlaySound("Laser");
 	m_laser->position.x = position.x + M_XOFFSET;
 	m_laser->position.y = position.y + M_YOFFSET;
