@@ -50,9 +50,8 @@ std::shared_ptr<GameObject> ObjectsPool::GetEnemyAttack(SDL_Renderer* renderer, 
 				{
 					projectile->setHp(100);
 					projectile->position = {
-						x, y
+						x, y, 8, 16
 					};
-					std::cout << "Enemy Attack funnet... Returnerer!" << std::endl;
 					return projectile;
 				}
 			}
@@ -62,7 +61,6 @@ std::shared_ptr<GameObject> ObjectsPool::GetEnemyAttack(SDL_Renderer* renderer, 
 	auto poolAttack = std::shared_ptr<EnemyAttack>(new EnemyAttack(renderer, x, y));
 	GameObjectsManager::getInstance().Add(poolAttack);
 	m_objectsList.push_back(poolAttack);
-	std::cout << "Enemy Attack ikke funnet... Lager ny!" << std::endl;
 	return poolAttack;
 }
 
@@ -78,11 +76,8 @@ std::shared_ptr<GameObject> ObjectsPool::GetSnake(SDL_Renderer* renderer, int x,
 				{
 					projectile->setHp(100);
 					projectile->position = {
-						x, y
+						x, y, 8, 16
 					};
-					std::cout << "Snake funnet... Returnerer!" << std::endl;
-					std::cout << "Hp: " << projectile->getHp() << std::endl; 
-					std::cout << "Position x: " << projectile->position.x << std::endl << " Position y: " << projectile->position.y << std::endl;
 					return projectile;
 				}
 			}
@@ -92,7 +87,6 @@ std::shared_ptr<GameObject> ObjectsPool::GetSnake(SDL_Renderer* renderer, int x,
 	auto poolSnake = std::shared_ptr<Snake>(new Snake(renderer, x, y));
 	GameObjectsManager::getInstance().Add(poolSnake);
 	m_objectsList.push_back(poolSnake);
-	std::cout << "Snake ikke funnet... Lager ny!" << std::endl;
 	return poolSnake;
 }
 
