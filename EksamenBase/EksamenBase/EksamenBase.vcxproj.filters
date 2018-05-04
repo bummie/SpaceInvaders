@@ -72,6 +72,9 @@
     <ClCompile Include="GameObjects\Barricade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjects\MysteryShip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Handlers\TextureManager.h">
@@ -126,6 +129,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameObjects\Barricade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\MysteryShip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
