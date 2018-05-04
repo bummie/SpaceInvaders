@@ -16,12 +16,16 @@ protected:
 
 	SDL_Texture* m_defTexture;
 	SDL_Texture* m_secondaryTexture;
+	SDL_Texture* m_deathTexture;
 	SDL_Renderer* m_renderer;
 	Vector2D m_velocity;
 	Vector2D m_acceleration;
 	float m_deAcceleration;
 	float m_accelerationValue;
 	float m_maxSpeed = .5f;
+	bool m_hasShownDeathTexture;
+	int m_deathTextureDuration;
+	int m_deathTextureTimePassed;
 	int m_hp;
 
 public:

@@ -22,8 +22,7 @@ Projectile::Projectile(SDL_Renderer* renderer, int x, int y) : GameObject(render
 	tag = "Projectile";
 	m_renderer = renderer;
 	m_maxSpeed = .3f;
-	position = { x, y };
-	
+	position = { x, y };	
 }
 
 Projectile::~Projectile()
@@ -35,5 +34,31 @@ void Projectile::Logic()
 	GameObject::Logic();
 	CheckPosition();
 	m_acceleration.y = (m_maxSpeed * direction.y);
+
+	std::vector<std::shared_ptr<GameObject>>* collision = CollisionManager::getInstance().OnCollision(this);
+
+	if (collision != nullptr)
+	{
+		std::cout << "Collision: " << tag << std::endl;
+		for (auto go : *collision)
+		{
+			if (go->tag == "Enemy" && tag == "Laser")
+			{
+				GameHandler::score += 40;
+				go->setHp(0);
+				setHp(0);
+				SoundManager::getInstance().PlaySound("Explosion");
+				return;
+			}
+			else if(go->tag == "Player" && (tag == "EnemyAttack" || tag == "Snake"))
+			{
+				go->setHp(0);
+				setHp(0);
+				SoundManager::getInstance().PlaySound("Explosion");
+				return;
+			}
+		}
+	}
+	delete(collision);
 }
 

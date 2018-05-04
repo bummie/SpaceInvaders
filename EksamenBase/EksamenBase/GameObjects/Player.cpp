@@ -7,6 +7,7 @@
 #include "../Handlers/GameObjectsManager.h"
 #include "Laser.h"
 #include "Enemy.h"
+#include "../Handlers/ObjectsPool.h"
 
 #include <memory>
 #include <iostream>
@@ -17,9 +18,12 @@ Player::Player(SDL_Renderer* renderer, int x, int y) : GameObject(renderer)
 	position.x = x;
 	position.y = y;
 	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/realplayer.bmp");
+	m_deathTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Explode/Explode_enemy_beam.bmp");
 	tag = "Player";
 	position.h = 25;
 	position.w = 50;
+	m_laser = std::shared_ptr<GameObject>(new Laser(renderer, (position.x + M_XOFFSET), (position.y + M_YOFFSET)));
+	GameObjectsManager::getInstance().Add(m_laser);
 }
 
 Player::~Player()
@@ -33,9 +37,9 @@ void Player::Logic()
 
 	auto collision = CollisionManager::getInstance().OnCollision(this);
 
-	if (currentLaser != nullptr)
+	if (m_laser != nullptr)
 	{
-		if (currentLaser->getHp() <= 0)
+		if (m_laser->getHp() <= 0)
 		{
 			Replenish();
 		}
@@ -59,6 +63,8 @@ void Player::Logic()
 
 void Player::Input()
 {
+	if (getHp() <= 0) { return; }
+
 	if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 	{
 		if (m_replenished)
@@ -93,8 +99,9 @@ void Player::Shoot()
 {
 	std::cout << "SPACE" << std::endl;
 	SoundManager::getInstance().PlaySound("Laser");
-	currentLaser = new Laser(m_renderer, position.x + 21, position.y - 12);
-	GameObjectsManager::getInstance().Add(std::shared_ptr<GameObject>(currentLaser));
+	m_laser->position.x = position.x + M_XOFFSET;
+	m_laser->position.y = position.y + M_YOFFSET;
+	m_laser->setHp(100);
 	m_replenished = false;
 }
 

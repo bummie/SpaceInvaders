@@ -2,6 +2,7 @@
 #define PLAYER_H_INCLUDED
 
 #include "GameObject.h"
+#include <memory>
 
 class Player : public GameObject
 {
@@ -14,7 +15,10 @@ public:
 private:
 	bool m_replenished = true;
 	void Shoot();
-	GameObject* currentLaser;
+	std::shared_ptr<GameObject> m_laser;
+	const int M_XOFFSET = 21;
+	const int M_YOFFSET = -12;
+
 };
 
 #endif

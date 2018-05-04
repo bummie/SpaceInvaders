@@ -15,6 +15,7 @@ EnemyAttack::EnemyAttack(SDL_Renderer* renderer, int x, int y) : Projectile(rend
 	position.h = 16;
 	position.w = 8;
 	direction = { 0, 1 };
+	tag = "EnemyAttack";
 
 }
 
