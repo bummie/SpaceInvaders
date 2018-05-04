@@ -39,6 +39,7 @@ public:
 	virtual void Input();
 	int getHp() const;
 	void setHp(int hp);
+	void ResetAnim();
 private:
 	bool m_firstTexture = true;
 	float m_currentTime = 0;

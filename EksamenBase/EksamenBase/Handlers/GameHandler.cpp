@@ -103,7 +103,7 @@ void GameHandler::Update()
 		Input();
 		Logic();
 		Draw();
-		NextLevel();
+		CheckWin();
 		SDL_Delay(GAME_DELAY);
 	}
 }
@@ -412,29 +412,34 @@ double GameHandler::getDeltaTime()
 	return deltaTime;
 }
 
-void GameHandler::NextLevel()
+void GameHandler::CheckWin()
 {
-	bool nextLevel;
+	bool allEnemiesDead;
 	for (auto enemy : *m_enemies)
 	{
 		if (enemy->getHp() <= 0)
 		{
-			nextLevel = true;
+			allEnemiesDead = true;
 		}
 
 		if (enemy->getHp() > 0)
 		{
-			nextLevel = false;
+			allEnemiesDead = false;
 			break;
 		}
 	}
 
-	if (nextLevel)
+	if (allEnemiesDead)
 	{
-		for (auto enemy : *m_enemies)
-		{
-			//respawn
-		}
+		Reset();
+	}
+}
+
+void GameHandler::Reset()
+{
+	for (auto enemy : *m_enemies)
+	{
+
 	}
 }
 

@@ -53,7 +53,8 @@ private:
 	void ChangeGameState(GameHandler::GAME_STATE state);
 	void SpawnEnemies();
 	void MoveEnemies();
-	void NextLevel();
+	void CheckWin();
+	void Reset();
 
 	void DisplayStartScreenText(bool shouldDisplay);
 	void DisplayGameScreenText(bool shouldDisplay);
@@ -65,7 +66,7 @@ public:
 	GameHandler();
 	~GameHandler();
 	void Init();
-
+	
 	static double getDeltaTime();
 };
 
