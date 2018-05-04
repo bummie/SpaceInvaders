@@ -7,6 +7,7 @@
 #include "../Handlers/GameObjectsManager.h"
 #include "Laser.h"
 #include "Enemy.h"
+#include "../Handlers/ObjectsPool.h"
 
 #include <memory>
 #include <iostream>
@@ -93,8 +94,7 @@ void Player::Shoot()
 {
 	std::cout << "SPACE" << std::endl;
 	SoundManager::getInstance().PlaySound("Laser");
-	currentLaser = new Laser(m_renderer, position.x + 21, position.y - 12);
-	GameObjectsManager::getInstance().Add(std::shared_ptr<GameObject>(currentLaser));
+	ObjectsPool::getInstance().GetLaser(m_renderer, (position.x + 21), (position.y - 12));
 	m_replenished = false;
 }
 

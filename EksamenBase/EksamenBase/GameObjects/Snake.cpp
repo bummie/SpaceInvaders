@@ -15,6 +15,7 @@ Snake::Snake(SDL_Renderer * renderer, int x, int y) : Projectile(renderer, x, y)
 	position.h = 16;
 	position.w = 8;
 	m_renderer = renderer;
+	tag = "Snake";
 }
 
 Snake::~Snake()

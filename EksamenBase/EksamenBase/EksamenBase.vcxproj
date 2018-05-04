@@ -163,6 +163,7 @@
     <ClCompile Include="GameObjects\Projectile.cpp" />
     <ClCompile Include="GameObjects\Laser.cpp" />
     <ClCompile Include="GameObjects\Snake.cpp" />
+    <ClCompile Include="Handlers\ObjectsPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjects\EnemyAttack.h" />
@@ -180,6 +181,7 @@
     <ClInclude Include="GameObjects\Projectile.h" />
     <ClInclude Include="GameObjects\Laser.h" />
     <ClInclude Include="GameObjects\Snake.h" />
+    <ClInclude Include="Handlers\ObjectsPool.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
