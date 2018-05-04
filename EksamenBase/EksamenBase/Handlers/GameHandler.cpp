@@ -222,12 +222,6 @@ void GameHandler::Input()
 			ChangeGameState(GAME_STATE::GAMEOVER);
 		}
 
-		// Add score to player
-		if (InputManager::getInstance().KeyDown(SDLK_c))
-		{
-			GameHandler::score++;
-		}
-
 		// Handle input on gameobjects
 		switch (gameState)
 		{
@@ -273,10 +267,10 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 	{
 	case GAME_STATE::RUNNING:
 		std::cout << "GameState: Running" << std::endl;
-		TextRenderer::getInstance().getText("paused_text")->setVisible(false);
+		TextRenderer::getInstance().getText("paused_text")->setBlink(false);
 
 		TextRenderer::getInstance().getText("startscreen_title")->setVisible(false);
-		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(false);
+		TextRenderer::getInstance().getText("startscreen_enter")->setBlink(false);
 
 		TextRenderer::getInstance().getText("gameover_text")->setVisible(false);
 
@@ -287,16 +281,14 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		break;
 	case GAME_STATE::STARTSCREEN:
 		std::cout << "GameState: Startscreen" << std::endl;
-		TextRenderer::getInstance().getText("paused_text")->setVisible(false);
+		TextRenderer::getInstance().getText("paused_text")->setBlink(false);
 
 		TextRenderer::getInstance().getText("gameover_text")->setVisible(false);
 		TextRenderer::getInstance().getText("gameover_yes")->setVisible(false);
 		TextRenderer::getInstance().getText("gameover_no")->setVisible(false);
 
-
-
 		TextRenderer::getInstance().getText("startscreen_title")->setVisible(true);
-		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(true);
+		TextRenderer::getInstance().getText("startscreen_enter")->setBlink(true);
 
 		TextRenderer::getInstance().getText("score")->setVisible(false);
 		TextRenderer::getInstance().getText("score_value")->setVisible(false);
@@ -305,7 +297,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		break;
 	case GAME_STATE::PAUSED:
 		std::cout << "GameState: Paused" << std::endl;
-		TextRenderer::getInstance().getText("paused_text")->setVisible(true);
+		TextRenderer::getInstance().getText("paused_text")->setBlink(true);
 		break;
 
 	case GAME_STATE::GAMEOVER:
