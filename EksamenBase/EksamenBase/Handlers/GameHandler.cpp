@@ -268,56 +268,38 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 	{
 	case GAME_STATE::RUNNING:
 		std::cout << "GameState: Running" << std::endl;
-		TextRenderer::getInstance().getText("paused_text")->setBlink(false);
-
-		TextRenderer::getInstance().getText("startscreen_title")->setVisible(false);
-		TextRenderer::getInstance().getText("startscreen_enter")->setBlink(false);
-
-		TextRenderer::getInstance().getText("gameover_text")->setVisible(false);
-
-		TextRenderer::getInstance().getText("score")->setVisible(true);
-		TextRenderer::getInstance().getText("score_value")->setVisible(true);
-		TextRenderer::getInstance().getText("highscore")->setVisible(true);
-		TextRenderer::getInstance().getText("highscore_value")->setVisible(true);
+		DisplayPausedText(false);
+		DisplayStartScreenText(false);
+		DisplayGameOverScreenText(false);
+		DisplayGameScreenText(true);
 		break;
 	case GAME_STATE::STARTSCREEN:
 		std::cout << "GameState: Startscreen" << std::endl;
-		TextRenderer::getInstance().getText("paused_text")->setBlink(false);
-
-		TextRenderer::getInstance().getText("gameover_text")->setVisible(false);
-		TextRenderer::getInstance().getText("gameover_yes")->setVisible(false);
-		TextRenderer::getInstance().getText("gameover_no")->setVisible(false);
-
-		TextRenderer::getInstance().getText("startscreen_title")->setVisible(true);
-		TextRenderer::getInstance().getText("startscreen_enter")->setBlink(true);
-
-		TextRenderer::getInstance().getText("score")->setVisible(false);
-		TextRenderer::getInstance().getText("score_value")->setVisible(false);
-		TextRenderer::getInstance().getText("highscore")->setVisible(false);
-		TextRenderer::getInstance().getText("highscore_value")->setVisible(false);
+		DisplayPausedText(false);
+		DisplayStartScreenText(true);
+		DisplayGameOverScreenText(false);
+		DisplayGameScreenText(false);
 		break;
 	case GAME_STATE::PAUSED:
 		std::cout << "GameState: Paused" << std::endl;
-		TextRenderer::getInstance().getText("paused_text")->setBlink(true);
+		DisplayPausedText(true);
+		DisplayStartScreenText(false);
+		DisplayGameOverScreenText(false);
+		DisplayGameScreenText(true);
 		break;
 
 	case GAME_STATE::GAMEOVER:
 		std::cout << "GameState: GameOver" << std::endl;
-		TextRenderer::getInstance().getText("gameover_text")->setVisible(true);
-		TextRenderer::getInstance().getText("gameover_yes")->setVisible(true);
-		TextRenderer::getInstance().getText("gameover_no")->setVisible(true);
-
-
-
+		DisplayPausedText(false);
+		DisplayStartScreenText(false);
+		DisplayGameOverScreenText(true);
+		DisplayGameScreenText(false);
 		break;
 
 	case GAME_STATE::EXIT:
 		std::cout << "GameState: EXIT" << std::endl;
 		break;
-
 	}
-
-
 }
 
 void GameHandler::RemoveDeadObjects()
@@ -396,6 +378,48 @@ void GameHandler::MoveEnemies()
 	}
 
 	m_enemyMoveTimer += getDeltaTime();
+}
+
+/// <summary>
+/// Hides or displays given text
+/// </summary>
+/// <param name="shouldDisplay"></param>
+void GameHandler::DisplayStartScreenText(bool shouldDisplay)
+{
+	TextRenderer::getInstance().getText("startscreen_title")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("startscreen_enter")->setBlink(shouldDisplay);
+}
+
+/// <summary>
+/// Hides or displays given text
+/// </summary>
+/// <param name="shouldDisplay"></param>
+void GameHandler::DisplayGameScreenText(bool shouldDisplay)
+{
+	TextRenderer::getInstance().getText("score")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("score_value")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("highscore")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("highscore_value")->setVisible(shouldDisplay);
+}
+
+/// <summary>
+/// Hides or displays given text
+/// </summary>
+/// <param name="shouldDisplay"></param>
+void GameHandler::DisplayGameOverScreenText(bool shouldDisplay)
+{
+	TextRenderer::getInstance().getText("gameover_text")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("gameover_yes")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("gameover_no")->setVisible(shouldDisplay);
+}
+
+/// <summary>
+/// Hides or displays given text
+/// </summary>
+/// <param name="shouldDisplay"></param>
+void GameHandler::DisplayPausedText(bool shouldDisplay)
+{
+	TextRenderer::getInstance().getText("paused_text")->setBlink(shouldDisplay);
 }
 
 /// <summary>
