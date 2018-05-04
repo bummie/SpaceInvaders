@@ -105,7 +105,7 @@ void GameHandler::Update()
 		Logic();
 		Draw();
 		CheckWin();
-		//CheckDeath();
+		CheckDeath();
 		SDL_Delay(GAME_DELAY);
 	}
 }
@@ -183,7 +183,6 @@ void GameHandler::Input()
 		{
 			if (gameState != GAME_STATE::PAUSED)
 			{
-				std::cout << GameObjectsManager::getInstance().gameObjectsList.front()->getHp() << std::endl;
 				ChangeGameState(GAME_STATE::PAUSED);
 			}
 			else
@@ -500,9 +499,13 @@ void GameHandler::CheckDeath()
 {
 	if (gameState != GAME_STATE::STARTSCREEN || gameState != GAME_STATE::EXIT)
 	{
-		if (GameObjectsManager::getInstance().gameObjectsList.front()->getHp() > 0)
+		auto player = GameObjectsManager::getInstance().Find("Player");
+		for (auto players : *player)
 		{
-			ChangeGameState(GAME_STATE::GAMEOVER);
+			if (players->getHp() <= 0)
+			{
+				ChangeGameState(GAME_STATE::GAMEOVER);
+			}
 		}
 	}
 }
