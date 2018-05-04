@@ -29,24 +29,5 @@ void Laser::Logic()
 	if (getHp() <= 0) { return; }
 
 	Projectile::Logic();
-
-	std::vector<std::shared_ptr<GameObject>>* collision = CollisionManager::getInstance().OnCollision(this);
-
-	if (collision != nullptr)
-	{
-		for (auto go : *collision)
-		{
-			std::cout << "LASER: " << go->id << std::endl;
-			if(go->tag == "Enemy")
-			{
-				GameHandler::score += 40;
-				go->setHp(0);
-				setHp(0);
-				return;
-			}
-		}
-	}
-	delete(collision);
-
 }
 
