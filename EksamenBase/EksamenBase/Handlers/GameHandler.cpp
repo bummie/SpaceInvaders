@@ -446,10 +446,14 @@ void GameHandler::SpawnBarricades()
 	}
 }
 
+
+/// <summary>
+/// Reads the highscore from file
+/// </summary>
 void GameHandler::GetScoreFile()
 {
 	std::string scoreString;
-	std::ifstream highScoreFile("Resources/Text/HighScore.txt");
+	std::ifstream highScoreFile("Resources/Text/HighScore.score");
 	if (highScoreFile.is_open())
 	{
 		std::getline(highScoreFile, scoreString);
@@ -459,16 +463,20 @@ void GameHandler::GetScoreFile()
 	else
 	{
 		highScore = 0;
-		std::cout << "Couldn't open highscore.txt" << std::endl;
+		std::cout << "Couldn't open highscore.score" << std::endl;
 	}
 	
 }
 
+
+/// <summary>
+/// Writes the highscore to a file
+/// </summary>
 void GameHandler::SetScoreFile()
 {
 	std::string scoreString = std::to_string(highScore);
 	std::ofstream highScoreFile;
-	highScoreFile.open("Resources/Text/HighScore.txt");
+	highScoreFile.open("Resources/Text/HighScore.score", std::ofstream::out | std::ofstream::trunc);
 	if (highScoreFile.is_open())
 	{
 		highScoreFile << scoreString;
@@ -476,7 +484,7 @@ void GameHandler::SetScoreFile()
 	}
 	else
 	{
-		std::cout << "Couldn't open HighScore.txt";
+		std::cout << "Couldn't open HighScore.score";
 	}
 }
 
@@ -534,7 +542,7 @@ double GameHandler::getDeltaTime()
 }
 
 /// <summary>
-/// 
+/// Checks if all enemies are dead and resets board if so
 /// </summary>
 void GameHandler::CheckWin()
 {
@@ -561,21 +569,18 @@ void GameHandler::CheckWin()
 }
 
 /// <summary>
-/// 
+/// Checks if the player dies
 /// </summary>
 void GameHandler::CheckDeath()
 {
 	if (m_gameState != GAME_STATE::STARTSCREEN || m_gameState != GAME_STATE::EXIT)
 	{
-		if (GameObjectsManager::getInstance().gameObjectsList.front()->getHp() > 0)
+		if (GameObjectsManager::getInstance().gameObjectsList.front()->getHp() < 0)
 		{
-			if (m_player->getHp() <= 0)
+			ChangeGameState(GAME_STATE::GAMEOVER);
+			if (score > highScore)
 			{
-				ChangeGameState(GAME_STATE::GAMEOVER);
-				if (score > highScore)
-				{
-					highScore = score;
-				}
+				highScore = score;
 			}
 		}
 	}
