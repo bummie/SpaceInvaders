@@ -125,12 +125,7 @@ void GameHandler::Logic()
 		{
 			GameObjectsManager::getInstance().Logic();
 			MoveEnemies();
-
-			//TODO: Own method make pretty
-			m_scorestream.clear();
-			m_scorestream.str(std::string());
-			m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
-			TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
+			UpdateScoreText();
 		}
 		break;
 	case GAME_STATE::STARTSCREEN:
@@ -486,6 +481,22 @@ void GameHandler::SetScoreFile()
 	{
 		std::cout << "Couldn't open HighScore.score";
 	}
+}
+
+/// <summary>
+/// Updates the score text
+/// </summary>
+void GameHandler::UpdateScoreText()
+{
+	m_scorestream.clear();
+	m_scorestream.str(std::string());
+	m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
+	TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
+
+	m_scorestream.clear();
+	m_scorestream.str(std::string());
+	m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::highScore;
+	TextRenderer::getInstance().getText("highscore_value")->setText(m_scorestream.str());
 }
 
 
