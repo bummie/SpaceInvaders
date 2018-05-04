@@ -11,7 +11,6 @@
 #include "../GameObjects/Player.h"
 #include "Text.h"
 
-
 class GameHandler
 {
 public:
@@ -66,7 +65,6 @@ public:
 	void Init();
 
 	static double getDeltaTime();
-	
 };
 
 #endif

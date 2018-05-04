@@ -26,7 +26,7 @@ void GameObjectsManager::Add(std::shared_ptr<GameObject> gameObject)
 	}
 	gameObject->id = gameObjectCounter++;
 	gameObjectsList.push_back(std::move(gameObject));
-	std::cout << gameObjectsList.size() << "/" << gameObjectsList.capacity() << std::endl;
+	//std::cout << gameObjectsList.size() << "/" << gameObjectsList.capacity() << std::endl;
 }
 
 /// <summary>

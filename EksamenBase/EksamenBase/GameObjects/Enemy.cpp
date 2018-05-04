@@ -17,8 +17,8 @@ Enemy::Enemy(SDL_Renderer * renderer, int x, int y, ENEMY_TYPE type) : GameObjec
 	switch (type)
 	{
 	case Enemy::SQUID:
-			m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Enemies/Enemy_squid_down.bmp");
-			m_secondaryTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Enemies/Enemy_squid_up.bmp");
+			m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Pink_enemies/Pink_squid_down.bmp");
+			m_secondaryTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Pink_enemies/Pink_squid_up.bmp");
 		break;
 	case Enemy::GHOST:
 			m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Enemies/Enemy_ghost_down.bmp");
@@ -34,6 +34,7 @@ Enemy::Enemy(SDL_Renderer * renderer, int x, int y, ENEMY_TYPE type) : GameObjec
 		break;
 	}
 
+	m_deathTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Explode/Explode_enemy.bmp");
 	tag = "Enemy";
 	m_type = type;
 

@@ -9,6 +9,11 @@
 
 GameObject::GameObject(SDL_Renderer* renderer)
 {
+	m_deathTexture = nullptr;
+	m_hasShownDeathTexture = false;
+	m_deathTextureDuration = 100;
+	m_deathTextureTimePassed = 0;
+
 	position = SDL_Rect();
 	position.h = 64;
 	position.w = 64;
@@ -29,7 +34,21 @@ GameObject::~GameObject()
 
 void GameObject::Draw()
 {
-	if (getHp() <= 0) { return; }
+	if (getHp() <= 0) 
+	{ 
+		if (m_deathTexture == nullptr || m_hasShownDeathTexture) { return; }
+		
+		SDL_RenderCopy(m_renderer, m_deathTexture, NULL, &position);
+
+		if(m_deathTextureTimePassed >= m_deathTextureDuration)
+		{
+			m_hasShownDeathTexture = true;
+			m_deathTextureTimePassed = 0;
+		}
+		
+		m_deathTextureTimePassed += GameHandler::getDeltaTime();
+		return;
+	}
 
 	if(m_defTexture == nullptr)
 	{
