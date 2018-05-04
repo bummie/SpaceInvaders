@@ -117,5 +117,6 @@ void Player::Shoot()
 /// </summary>
 void Player::Replenish()
 {
+	ResetAnim();
 	m_replenished = true;
 }

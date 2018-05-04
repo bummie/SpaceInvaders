@@ -23,6 +23,7 @@ Projectile::Projectile(SDL_Renderer* renderer, int x, int y) : GameObject(render
 	m_renderer = renderer;
 	m_maxSpeed = .3f;
 	position = { x, y };	
+	m_deathTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Explode/Explode_enemy.bmp");
 }
 
 Projectile::~Projectile()

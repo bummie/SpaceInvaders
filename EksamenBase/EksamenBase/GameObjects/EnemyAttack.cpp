@@ -6,7 +6,6 @@
 #include "../Handlers/CollisionManager.h"
 #include "../Handlers/GameHandler.h"
 
-
 EnemyAttack::EnemyAttack(SDL_Renderer* renderer, int x, int y) : Projectile(renderer, x, y)
 {	
 	Projectile::Projectile(renderer, x , y);
@@ -16,9 +15,7 @@ EnemyAttack::EnemyAttack(SDL_Renderer* renderer, int x, int y) : Projectile(rend
 	position.w = 8;
 	direction = { 0, 1 };
 	tag = "EnemyAttack";
-
 }
-
 
 EnemyAttack::~EnemyAttack()
 {

@@ -27,6 +27,7 @@ std::shared_ptr<GameObject> ObjectsPool::GetEnemyAttack(SDL_Renderer* renderer, 
 					projectile->position = {
 						x, y, 8, 16
 					};
+					projectile->ResetAnim();
 					return projectile;
 				}
 			}
@@ -53,6 +54,7 @@ std::shared_ptr<GameObject> ObjectsPool::GetSnake(SDL_Renderer* renderer, int x,
 					projectile->position = {
 						x, y, 8, 16
 					};
+					projectile->ResetAnim();
 					return projectile;
 				}
 			}
