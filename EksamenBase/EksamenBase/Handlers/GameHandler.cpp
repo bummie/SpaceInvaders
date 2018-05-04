@@ -441,7 +441,6 @@ void GameHandler::SpawnBarricades()
 	}
 }
 
-
 /// <summary>
 /// Reads the highscore from file
 /// </summary>
@@ -460,9 +459,7 @@ void GameHandler::GetScoreFile()
 		highScore = 0;
 		std::cout << "Couldn't open highscore.score" << std::endl;
 	}
-	
 }
-
 
 /// <summary>
 /// Writes the highscore to a file
