@@ -582,20 +582,27 @@ void GameHandler::CheckWin()
 /// <summary>
 /// Checks if the player dies
 /// </summary>
-void GameHandler::CheckDeath()
-{
-	if (m_gameState != GAME_STATE::STARTSCREEN || m_gameState != GAME_STATE::EXIT)
+
+	void GameHandler::CheckDeath()
 	{
-		if (GameObjectsManager::getInstance().gameObjectsList.front()->getHp() < 0)
+
+		if (m_gameState != GAME_STATE::STARTSCREEN && m_gameState != GAME_STATE::EXIT)
 		{
-			ChangeGameState(GAME_STATE::GAMEOVER);
-			if (score > highScore)
+
+			auto player = GameObjectsManager::getInstance().Find("Player");
+			for (auto players : *player)
 			{
-				highScore = score;
-			}
+				if (players->getHp() <= 0)
+				{
+					ChangeGameState(GAME_STATE::GAMEOVER);
+					if (score > highScore)
+					{
+						highScore = score;
+					}
+				}
+			}		
 		}
 	}
-}
 
 /// <summary>
 /// GameHandler destructor
