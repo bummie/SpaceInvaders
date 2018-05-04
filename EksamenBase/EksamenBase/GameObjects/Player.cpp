@@ -18,6 +18,7 @@ Player::Player(SDL_Renderer* renderer, int x, int y) : GameObject(renderer)
 	position.x = x;
 	position.y = y;
 	m_defTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/realplayer.bmp");
+	m_deathTexture = TextureManager::getInstance().GetTexture(renderer, "Resources/Images/Explode/Explode_enemy_beam.bmp");
 	tag = "Player";
 	position.h = 25;
 	position.w = 50;
