@@ -55,7 +55,6 @@ private:
 	void ResetEnemies();
 	void MoveEnemies();
 	void CheckWin();
-	void Reset();
 	void SpawnBarricades();
 
 	void DisplayStartScreenText(bool shouldDisplay);

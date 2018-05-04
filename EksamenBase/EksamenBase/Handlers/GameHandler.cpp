@@ -329,6 +329,7 @@ void GameHandler::ResetEnemies()
 			m_enemies->at(pos)->position.x = (x * 30) + 50;
 			m_enemies->at(pos)->position.y = (y * 32) + 100;
 			m_enemies->at(pos)->setHp(100);
+			m_enemies->at(pos)->ResetAnim();
 		}
 	}
 }
@@ -446,21 +447,14 @@ void GameHandler::CheckWin()
 		if (enemy->getHp() > 0)
 		{
 			allEnemiesDead = false;
-			break;
+			return;
 		}
 	}
 
 	if (allEnemiesDead)
 	{
-		Reset();
-	}
-}
-
-void GameHandler::Reset()
-{
-	for (auto enemy : *m_enemies)
-	{
-
+		ResetEnemies();
+		m_enemyMoveDelay *= .7;
 	}
 }
 

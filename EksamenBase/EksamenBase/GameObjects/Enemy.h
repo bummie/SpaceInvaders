@@ -11,7 +11,6 @@ public:
 	Enemy(SDL_Renderer * renderer, int x, int y, ENEMY_TYPE type);
 	~Enemy();
 	void Logic();
-	void ResetAnim();
 private:
 	ENEMY_TYPE m_type;
 };
