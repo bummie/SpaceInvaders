@@ -82,7 +82,12 @@ void GameHandler::Init()
 	
 	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 172, SCREEN_HEIGHT / 2, 164, 32));
 
-	TextRenderer::getInstance().addText("gameover_text", new Text(renderer, "Gameover. Try again?", { 0, 255, 0 }, 24, 172, SCREEN_HEIGHT / 2, 164, 32));
+	TextRenderer::getInstance().addText("gameover_text", new Text(renderer, "Gameover. Try again?", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
+	TextRenderer::getInstance().addText("gameover_yes", new Text(renderer, "Space for yes", { 0, 255, 0 }, 16, 140, (SCREEN_HEIGHT / 2)+ 40, 140, 32));
+	TextRenderer::getInstance().addText("gameover_no", new Text(renderer, "Escape for Exit", { 0, 255, 0 }, 16, 380, (SCREEN_HEIGHT / 2) + 40, 140, 32));
+
+
+
 
 	ChangeGameState(GAME_STATE::STARTSCREEN);
 	Update();
@@ -198,6 +203,19 @@ void GameHandler::Input()
 			}
 		}
 
+
+		if (gameState == GAME_STATE::GAMEOVER)
+		{
+			if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
+			{
+				ChangeGameState(GAME_STATE::EXIT);
+			}
+			if (InputManager::getInstance().KeyDown(SDLK_SPACE))
+			{
+				//restart();
+			}
+		}
+
 		// Gamover
 		if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
 		{
@@ -272,6 +290,10 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		TextRenderer::getInstance().getText("paused_text")->setVisible(false);
 
 		TextRenderer::getInstance().getText("gameover_text")->setVisible(false);
+		TextRenderer::getInstance().getText("gameover_yes")->setVisible(false);
+		TextRenderer::getInstance().getText("gameover_no")->setVisible(false);
+
+
 
 		TextRenderer::getInstance().getText("startscreen_title")->setVisible(true);
 		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(true);
@@ -289,6 +311,11 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 	case GAME_STATE::GAMEOVER:
 		std::cout << "GameState: GameOver" << std::endl;
 		TextRenderer::getInstance().getText("gameover_text")->setVisible(true);
+		TextRenderer::getInstance().getText("gameover_yes")->setVisible(true);
+		TextRenderer::getInstance().getText("gameover_no")->setVisible(true);
+
+
+		
 		break;
 
 	case GAME_STATE::EXIT:
