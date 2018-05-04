@@ -105,6 +105,7 @@ void GameHandler::Update()
 		Input();
 		Logic();
 		Draw();
+		NextLevel();
 		SDL_Delay(GAME_DELAY);
 	}
 }
@@ -429,6 +430,32 @@ void GameHandler::DisplayPausedText(bool shouldDisplay)
 double GameHandler::getDeltaTime()
 {
 	return deltaTime;
+}
+
+void GameHandler::NextLevel()
+{
+	bool nextLevel;
+	for (auto enemy : *m_enemies)
+	{
+		if (enemy->getHp() <= 0)
+		{
+			nextLevel = true;
+		}
+
+		if (enemy->getHp() > 0)
+		{
+			nextLevel = false;
+			break;
+		}
+	}
+
+	if (nextLevel)
+	{
+		for (auto enemy : *m_enemies)
+		{
+			//respawn
+		}
+	}
 }
 
 /// <summary>
