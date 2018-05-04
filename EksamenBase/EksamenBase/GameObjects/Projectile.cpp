@@ -39,7 +39,6 @@ void Projectile::Logic()
 
 	if (collision != nullptr)
 	{
-		std::cout << "Collision: " << tag << std::endl;
 		for (auto go : *collision)
 		{
 			if (go->tag == "Enemy" && tag == "Laser")
@@ -47,12 +46,15 @@ void Projectile::Logic()
 				GameHandler::score += 40;
 				go->setHp(0);
 				setHp(0);
+				SoundManager::getInstance().PlaySound("Explosion");
 				return;
 			}
 			else if(go->tag == "Player" && (tag == "EnemyAttack" || tag == "Snake"))
 			{
 				go->setHp(0);
 				setHp(0);
+				SoundManager::getInstance().PlaySound("Explosion");
+				return;
 			}
 		}
 	}
