@@ -22,8 +22,7 @@ Projectile::Projectile(SDL_Renderer* renderer, int x, int y) : GameObject(render
 	tag = "Projectile";
 	m_renderer = renderer;
 	m_maxSpeed = .3f;
-	position = { x, y };
-	
+	position = { x, y };	
 }
 
 Projectile::~Projectile()
@@ -49,7 +48,8 @@ void Projectile::Logic()
 				go->setHp(0);
 				setHp(0);
 				return;
-			}else if(go->tag == "Player" && (tag == "EnemyAttack" || tag == "Snake"))
+			}
+			else if(go->tag == "Player" && (tag == "EnemyAttack" || tag == "Snake"))
 			{
 				go->setHp(0);
 				setHp(0);
