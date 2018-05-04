@@ -78,7 +78,7 @@ void Player::Input()
 		}
 	}
 
-	if (InputManager::getInstance().KeyHeld(SDLK_a))
+	if (InputManager::getInstance().KeyHeld(SDLK_a) || InputManager::getInstance().KeyHeld(SDLK_LEFT))
 	{
 		if (position.x > 0)
 		{
@@ -86,7 +86,7 @@ void Player::Input()
 		}
 	}
 
-	if (InputManager::getInstance().KeyHeld(SDLK_d))
+	if (InputManager::getInstance().KeyHeld(SDLK_d) || InputManager::getInstance().KeyHeld(SDLK_RIGHT))
 	{
 		if (position.x < (GameHandler::SCREEN_WIDTH - position.w))
 		{
@@ -94,7 +94,7 @@ void Player::Input()
 		}
 	}
 
-	if (InputManager::getInstance().KeyHeld(SDLK_a) == InputManager::getInstance().KeyHeld(SDLK_d))
+	if (InputManager::getInstance().KeyHeld(SDLK_a) == InputManager::getInstance().KeyHeld(SDLK_d) && InputManager::getInstance().KeyHeld(SDLK_LEFT) == InputManager::getInstance().KeyHeld(SDLK_RIGHT))
 	{
 		m_acceleration.x = 0;
 	}
