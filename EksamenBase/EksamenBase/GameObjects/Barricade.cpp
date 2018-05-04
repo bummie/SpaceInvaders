@@ -8,6 +8,21 @@ Barricade::Barricade(SDL_Renderer* renderer,  int x, int y)
 	{
 		int blockX = (i * 16) + x;
 		int blockY = y;
+
+		if(i == 4 || i == 5)
+		{
+			blockY = y + 16;
+			
+			if(i == 4)
+			{
+				blockX = x;
+			}
+			else
+			{
+				blockX = (3 * 16) + x;
+			}
+		}
+
 		m_barricadeBlocks[i] = std::shared_ptr<BarricadeBlock>(new BarricadeBlock(renderer, blockX, blockY ));
 		GameObjectsManager::getInstance().Add(m_barricadeBlocks[i]);
 	}
