@@ -112,6 +112,7 @@ void GameObject::ResetAnim()
 {
 	m_currentTime = 0;
 	m_firstTexture = true;
+	m_hasShownDeathTexture = false;
 }
 
 void GameObject::Logic()
