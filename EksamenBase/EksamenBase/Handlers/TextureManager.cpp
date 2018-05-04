@@ -20,7 +20,7 @@ SDL_Texture* TextureManager::GetTexture(SDL_Renderer* renderer, std::string loca
 		if (tempSurface == NULL) { return nullptr; }
 		
 		// Makes white pixels transparent
-		SDL_SetColorKey(tempSurface, SDL_TRUE, SDL_MapRGB(tempSurface->format, 0xFF, 0x69, 0xB4));
+		SDL_SetColorKey(tempSurface, SDL_TRUE, SDL_MapRGB(tempSurface->format, 0, 0, 0));
 	
 		SDL_Texture* tempTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
 		if (tempTexture == NULL) { return nullptr; }
