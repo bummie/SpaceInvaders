@@ -26,7 +26,12 @@ void BarricadeBlock::Logic()
 
 	if (GameObject::getHp() == m_oldHp) { return; }
 
-	if(GameObject::getHp() <= 80 && GameObject::getHp() > 60)
+	if(GameObject::getHp() >= 100)
+	{
+		m_defTexture = TextureManager::getInstance().GetTexture(m_renderer, "Resources/Images/Barricade/barricade_0.bmp");
+		m_oldHp = GameObject::getHp();
+	}
+	else if(GameObject::getHp() <= 80 && GameObject::getHp() > 60)
 	{
 		m_defTexture = TextureManager::getInstance().GetTexture(m_renderer, "Resources/Images/Barricade/barricade_1.bmp");
 		m_oldHp = GameObject::getHp();

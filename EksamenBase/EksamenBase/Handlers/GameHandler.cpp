@@ -198,15 +198,16 @@ void GameHandler::Input()
 			}
 			if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 			{
-				//restart();
+				ChangeGameState(GAME_STATE::RUNNING);
+				ResetGame();
 			}
 		}
 
 		// Gamover
 		if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
 		{
-			//ChangeGameState(GAME_STATE::GAMEOVER);
-			ResetEnemies();
+			ChangeGameState(GAME_STATE::GAMEOVER);
+			
 		}
 
 		// Handle input on gameobjects
@@ -333,6 +334,40 @@ void GameHandler::ResetEnemies()
 			m_enemies->at(pos)->ResetAnim();
 		}
 	}
+}
+
+/// <summary>
+/// Resets the player
+/// </summary>
+void GameHandler::ResetPlayer()
+{
+	auto player = GameObjectsManager::getInstance().Find("Player");
+	for (auto ply : *player) 
+	{
+		ply->setHp(100);
+	}
+}
+
+/// <summary>
+/// Resets all the barricades
+/// </summary>
+void GameHandler::ResetBarricades()
+{
+	for(auto barricade : m_barricade)
+	{
+		barricade->ResetBarricadeBlocks();
+	}
+}
+
+/// <summary>
+/// Resets the game
+/// </summary>
+void GameHandler::ResetGame()
+{
+	ResetEnemies();
+	ResetPlayer();
+	ResetBarricades();
+	GameHandler::score = 0;
 }
 
 /// <summary>
