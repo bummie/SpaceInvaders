@@ -16,6 +16,9 @@ private:
 	SDL_Rect position;
 	SDL_Renderer* renderer;
 	bool m_visible;
+	bool m_blink;
+	int m_blinkDelay;
+	int m_blinkTimePassed;
 
 	void FreeSurface();
 	void FreeTexture();
@@ -30,6 +33,7 @@ public:
 	void setColor(SDL_Color color);
 	void setPosition(int x, int y);
 	void setVisible(bool visible);
+	void setBlink(bool shouldBlink);
 
 	void Draw();
 };

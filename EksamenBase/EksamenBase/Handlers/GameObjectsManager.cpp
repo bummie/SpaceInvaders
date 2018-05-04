@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <iostream>
 
-
 GameObjectsManager::~GameObjectsManager()
 {
 	for(auto gameObject : gameObjectsList)
@@ -77,7 +76,10 @@ std::vector<std::shared_ptr<GameObject>>* GameObjectsManager::Find(std::string t
 /// </summary>
 void GameObjectsManager::Draw()
 {
-	for (auto gameObject : gameObjectsList)
+	std::vector<std::shared_ptr<GameObject>> copyGameObjectsList;
+	copyGameObjectsList.assign(gameObjectsList.begin(), gameObjectsList.end());
+
+	for (auto gameObject : copyGameObjectsList)
 	{
 		gameObject->Draw();
 	}

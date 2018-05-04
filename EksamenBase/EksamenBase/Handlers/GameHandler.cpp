@@ -68,22 +68,22 @@ void GameHandler::Init()
 	renderer = SDL_CreateRenderer(window, -1, 0);
 
 	// Create player
-	GameObjectsManager::getInstance().Add(std::shared_ptr<Player>(new Player(renderer, SCREEN_HEIGHT/2, SCREEN_HEIGHT-64)));
+	GameObjectsManager::getInstance().Add(std::shared_ptr<Player>(new Player(renderer, SCREEN_HEIGHT / 2, SCREEN_HEIGHT - 64)));
 	SpawnEnemies();
 
 	// Init text to screen
-	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", {255, 255, 255}, 24, 0, 0, 164, 32));
+	TextRenderer::getInstance().addText("score", new Text(renderer, "Score <1>", { 255, 255, 255 }, 24, 0, 0, 164, 32));
 	TextRenderer::getInstance().addText("highscore", new Text(renderer, "HI-SCORE SCORE <2>", { 255, 255, 255 }, 24, 172, 0, 164, 32));
 	TextRenderer::getInstance().addText("score_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 0, 40, 82, 24));
 	TextRenderer::getInstance().addText("highscore_value", new Text(renderer, "0000", { 255, 255, 255 }, 16, 172, 40, 82, 24));
 
-	TextRenderer::getInstance().addText("startscreen_title", new Text(renderer, "SPACE INVADERS", { 130, 200, 255 }, 36, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT/5));
-	TextRenderer::getInstance().addText("startscreen_enter", new Text(renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT/2, 250, 48));
-	
-	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 172, SCREEN_HEIGHT / 2, 164, 32));
+	TextRenderer::getInstance().addText("startscreen_title", new Text(renderer, "SPACE INVADERS", { 130, 200, 255 }, 36, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 5));
+	TextRenderer::getInstance().addText("startscreen_enter", new Text(renderer, "Press <SPACE> to start!", { 255, 255, 255 }, 24, 172, SCREEN_HEIGHT / 2, 250, 48));
+
+	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
 
 	TextRenderer::getInstance().addText("gameover_text", new Text(renderer, "Gameover. Try again?", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
-	TextRenderer::getInstance().addText("gameover_yes", new Text(renderer, "Space for yes", { 0, 255, 0 }, 16, 140, (SCREEN_HEIGHT / 2)+ 40, 140, 32));
+	TextRenderer::getInstance().addText("gameover_yes", new Text(renderer, "Space for yes", { 0, 255, 0 }, 16, 140, (SCREEN_HEIGHT / 2) + 40, 140, 32));
 	TextRenderer::getInstance().addText("gameover_no", new Text(renderer, "Escape for Exit", { 0, 255, 0 }, 16, 380, (SCREEN_HEIGHT / 2) + 40, 140, 32));
 
 
@@ -127,18 +127,8 @@ void GameHandler::Logic()
 		m_scorestream << std::setw(4) << std::setfill('0') << GameHandler::score;
 		TextRenderer::getInstance().getText("score_value")->setText(m_scorestream.str());
 
-		/* DEMO: GRABBING GAMEOBJECTS BY TAG
-		auto player = GameObjectsManager::getInstance().Find("Player");
-		if (player != nullptr)
-		{
-			for (auto ply : *player)
-			{
-				std::cout << ply->tag << " : " <<  ply->id << std::endl;
-			}
-		}
-		delete(player);
-		*/
 	}
+
 		break;
 	case GAME_STATE::STARTSCREEN:
 
@@ -156,7 +146,6 @@ void GameHandler::Draw()
 {
 	SDL_RenderClear(renderer);
 	// Draw stuff start
-	
 	switch (gameState)
 	{
 	case GAME_STATE::RUNNING:
@@ -186,7 +175,7 @@ void GameHandler::Input()
 
 		// Exit game
 		if (InputManager::getInstance().ExitGameRequested())
-		{ 
+		{
 			std::cout << "Pressed Exit" << std::endl;
 			ChangeGameState(GAME_STATE::EXIT);
 		}
@@ -194,10 +183,11 @@ void GameHandler::Input()
 		// Pause game
 		if (InputManager::getInstance().KeyDown(SDLK_p) && gameState != GAME_STATE::STARTSCREEN)
 		{
-			if(gameState != GAME_STATE::PAUSED)
+			if (gameState != GAME_STATE::PAUSED)
 			{
 				ChangeGameState(GAME_STATE::PAUSED);
-			}else
+			}
+			else
 			{
 				ChangeGameState(GAME_STATE::RUNNING);
 			}
@@ -232,16 +222,16 @@ void GameHandler::Input()
 		switch (gameState)
 		{
 		case GAME_STATE::RUNNING:
-				GameObjectsManager::getInstance().Input();
+			GameObjectsManager::getInstance().Input();
 			break;
 		case GAME_STATE::STARTSCREEN:
+		{
+			if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 			{
-				if (InputManager::getInstance().KeyDown(SDLK_SPACE))
-				{
-					ChangeGameState(GAME_STATE::RUNNING);
-				}
+				ChangeGameState(GAME_STATE::RUNNING);
 			}
-			break;
+		}
+		break;
 		case GAME_STATE::PAUSED:
 			break;
 		}
@@ -266,56 +256,39 @@ void GameHandler::UpdateDeltaTime()
 void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 {
 	if (gameState == state) { return; }
-	
 	gameState = state;
 
 	switch (gameState)
 	{
 	case GAME_STATE::RUNNING:
 		std::cout << "GameState: Running" << std::endl;
-		TextRenderer::getInstance().getText("paused_text")->setVisible(false);
-
-		TextRenderer::getInstance().getText("startscreen_title")->setVisible(false);
-		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(false);
-
-		TextRenderer::getInstance().getText("gameover_text")->setVisible(false);
-
-		TextRenderer::getInstance().getText("score")->setVisible(true);
-		TextRenderer::getInstance().getText("score_value")->setVisible(true);
-		TextRenderer::getInstance().getText("highscore")->setVisible(true);
-		TextRenderer::getInstance().getText("highscore_value")->setVisible(true);
+		DisplayPausedText(false);
+		DisplayStartScreenText(false);
+		DisplayGameOverScreenText(false);
+		DisplayGameScreenText(true);
 		break;
 	case GAME_STATE::STARTSCREEN:
 		std::cout << "GameState: Startscreen" << std::endl;
-		TextRenderer::getInstance().getText("paused_text")->setVisible(false);
-
-		TextRenderer::getInstance().getText("gameover_text")->setVisible(false);
-		TextRenderer::getInstance().getText("gameover_yes")->setVisible(false);
-		TextRenderer::getInstance().getText("gameover_no")->setVisible(false);
-
-
-
-		TextRenderer::getInstance().getText("startscreen_title")->setVisible(true);
-		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(true);
-
-		TextRenderer::getInstance().getText("score")->setVisible(false);
-		TextRenderer::getInstance().getText("score_value")->setVisible(false);
-		TextRenderer::getInstance().getText("highscore")->setVisible(false);
-		TextRenderer::getInstance().getText("highscore_value")->setVisible(false);
+		DisplayPausedText(false);
+		DisplayStartScreenText(true);
+		DisplayGameOverScreenText(false);
+		DisplayGameScreenText(false);
 		break;
 	case GAME_STATE::PAUSED:
 		std::cout << "GameState: Paused" << std::endl;
-		TextRenderer::getInstance().getText("paused_text")->setVisible(true);
+		DisplayPausedText(true);
+		DisplayStartScreenText(false);
+		DisplayGameOverScreenText(false);
+		DisplayGameScreenText(true);
 		break;
 
 	case GAME_STATE::GAMEOVER:
 		std::cout << "GameState: GameOver" << std::endl;
-		TextRenderer::getInstance().getText("gameover_text")->setVisible(true);
-		TextRenderer::getInstance().getText("gameover_yes")->setVisible(true);
-		TextRenderer::getInstance().getText("gameover_no")->setVisible(true);
 
-
-		
+		DisplayPausedText(false);
+		DisplayStartScreenText(false);
+		DisplayGameOverScreenText(true);
+		DisplayGameScreenText(false);
 		break;
 
 	case GAME_STATE::EXIT:
@@ -323,7 +296,6 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		break;
 
 	}
-
 
 }
 
@@ -346,12 +318,13 @@ void GameHandler::SpawnEnemies()
 {
 	Enemy::ENEMY_TYPE type = Enemy::ENEMY_TYPE::SQUID;
 
-	for(int y = 0; y < 5; y++)
+	for (int y = 0; y < 5; y++)
 	{
-		if(y == 1 || y == 2)
+		if (y == 1 || y == 2)
 		{
 			type = Enemy::ENEMY_TYPE::ALIEN;
-		}else if(y == 3 || y == 4)
+		}
+		else if (y == 3 || y == 4)
 		{
 			type = Enemy::ENEMY_TYPE::GHOST;
 		}
@@ -370,9 +343,9 @@ void GameHandler::SpawnEnemies()
 /// </summary>
 void GameHandler::MoveEnemies()
 {
-	if(m_enemies == nullptr) { return; }
+	if (m_enemies == nullptr) { return; }
 
-	if(m_enemyMoveTimer >= m_enemyMoveDelay)
+	if (m_enemyMoveTimer >= m_enemyMoveDelay)
 	{
 		if (m_enemyTurnAround)
 		{
@@ -390,18 +363,59 @@ void GameHandler::MoveEnemies()
 				enemy->position.y += m_enemyMoveDistance;
 			}
 
-			if(enemy->position.x <= 0 || enemy->position.x >= (SCREEN_WIDTH - enemy->position.w))
+			if (enemy->position.x <= 0 || enemy->position.x >= (SCREEN_WIDTH - enemy->position.w))
 			{
 				m_enemyTurnAround = true;
 				m_enemyMoveDown = true;
 			}
 		}
 		if (!m_enemyTurnAround) { m_enemyMoveDown = false; }
-		
 		m_enemyMoveTimer = 0;
 	}
 
 	m_enemyMoveTimer += getDeltaTime();
+}
+
+/// <summary>
+/// Hides or displays given text
+/// </summary>
+/// <param name="shouldDisplay"></param>
+void GameHandler::DisplayStartScreenText(bool shouldDisplay)
+{
+	TextRenderer::getInstance().getText("startscreen_title")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("startscreen_enter")->setBlink(shouldDisplay);
+}
+
+/// <summary>
+/// Hides or displays given text
+/// </summary>
+/// <param name="shouldDisplay"></param>
+void GameHandler::DisplayGameScreenText(bool shouldDisplay)
+{
+	TextRenderer::getInstance().getText("score")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("score_value")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("highscore")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("highscore_value")->setVisible(shouldDisplay);
+}
+
+/// <summary>
+/// Hides or displays given text
+/// </summary>
+/// <param name="shouldDisplay"></param>
+void GameHandler::DisplayGameOverScreenText(bool shouldDisplay)
+{
+	TextRenderer::getInstance().getText("gameover_text")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("gameover_yes")->setVisible(shouldDisplay);
+	TextRenderer::getInstance().getText("gameover_no")->setVisible(shouldDisplay);
+}
+
+/// <summary>
+/// Hides or displays given text
+/// </summary>
+/// <param name="shouldDisplay"></param>
+void GameHandler::DisplayPausedText(bool shouldDisplay)
+{
+	TextRenderer::getInstance().getText("paused_text")->setBlink(shouldDisplay);
 }
 
 /// <summary>
