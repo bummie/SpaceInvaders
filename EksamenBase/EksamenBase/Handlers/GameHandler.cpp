@@ -10,6 +10,8 @@
 #include "../GameObjects/Snake.h"
 #include "../GameObjects/EnemyAttack.h"
 #include "../GameObjects/MysteryShip.h"
+#include <iostream>
+#include <fstream>
 #include <string>
 #include <iomanip>
 #include <memory>
@@ -89,6 +91,7 @@ void GameHandler::Init()
 	TextRenderer::getInstance().addText("gameover_no", new Text(m_renderer, "Escape for Exit", { 0, 255, 0 }, 16, 380, (SCREEN_HEIGHT / 2) + 40, 140, 32));
 
 	ChangeGameState(GAME_STATE::STARTSCREEN);
+	GetScoreFile();
 	Update();
 }
 
@@ -285,6 +288,7 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		break;
 
 	case GAME_STATE::EXIT:
+		SetScoreFile();
 		std::cout << "GameState: EXIT" << std::endl;
 		break;
 	}
@@ -421,6 +425,42 @@ void GameHandler::SpawnBarricades()
 	}
 }
 
+void GameHandler::GetScoreFile()
+{
+	std::string scoreString;
+	std::ifstream highScoreFile("Resources/Text/HighScore.txt");
+	if (highScoreFile.is_open())
+	{
+		std::getline(highScoreFile, scoreString);
+		highScoreFile.close();
+		highScore = std::stoi(scoreString);
+	}
+	else
+	{
+		highScore = 0;
+		std::cout << "Couldn't open highscore.txt" << std::endl;
+	}
+	
+}
+
+void GameHandler::SetScoreFile()
+{
+	std::string scoreString = std::to_string(highScore);
+	std::ofstream highScoreFile;
+	highScoreFile.open("Resources/Text/HighScore.txt");
+	if (highScoreFile.is_open())
+	{
+		highScoreFile << scoreString;
+		highScoreFile.close();
+	}
+	else
+	{
+		std::cout << "Couldn't open HighScore.txt";
+	}
+}
+
+
+
 /// <summary>
 /// Hides or displays given text
 /// </summary>
@@ -506,6 +546,10 @@ void GameHandler::CheckDeath()
 			if (players->getHp() <= 0)
 			{
 				ChangeGameState(GAME_STATE::GAMEOVER);
+				if (score > highScore)
+				{
+					highScore = score;
+				}
 			}
 		}
 	}
