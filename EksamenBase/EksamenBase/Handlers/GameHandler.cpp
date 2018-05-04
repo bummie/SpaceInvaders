@@ -513,6 +513,7 @@ void GameHandler::CheckDeath()
 			ChangeGameState(GAME_STATE::GAMEOVER);
 		}
 	}
+	//legger den her bare for luls hahahah	
 }
 
 /// <summary>
