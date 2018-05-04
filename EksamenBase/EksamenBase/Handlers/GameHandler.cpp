@@ -20,7 +20,7 @@ GameHandler::GameHandler()
 {
 	window = nullptr;
 	screenSurface = nullptr;
-	gameState = GAME_STATE::GAMEOVER;
+	gameState = GAME_STATE::EXIT;
 	dtNow = dtLast = 0;
 	m_enemyMoveDelay = 400;
 	m_enemyMoveTimer = 0;
@@ -82,6 +82,13 @@ void GameHandler::Init()
 	
 	TextRenderer::getInstance().addText("paused_text", new Text(renderer, "Game has been paused", { 0, 255, 0 }, 24, 172, SCREEN_HEIGHT / 2, 164, 32));
 
+	TextRenderer::getInstance().addText("gameover_text", new Text(renderer, "Gameover. Try again?", { 0, 255, 0 }, 24, 220, SCREEN_HEIGHT / 2, 220, 32));
+	TextRenderer::getInstance().addText("gameover_yes", new Text(renderer, "Space for yes", { 0, 255, 0 }, 16, 140, (SCREEN_HEIGHT / 2)+ 40, 140, 32));
+	TextRenderer::getInstance().addText("gameover_no", new Text(renderer, "Escape for Exit", { 0, 255, 0 }, 16, 380, (SCREEN_HEIGHT / 2) + 40, 140, 32));
+
+
+
+
 	ChangeGameState(GAME_STATE::STARTSCREEN);
 	Update();
 }
@@ -92,7 +99,7 @@ void GameHandler::Init()
 void GameHandler::Update()
 {
 	// Game loop
-	while (gameState != GAME_STATE::GAMEOVER)
+	while (gameState != GAME_STATE::EXIT)
 	{
 		UpdateDeltaTime();
 		Input();
@@ -179,9 +186,9 @@ void GameHandler::Input()
 
 		// Exit game
 		if (InputManager::getInstance().ExitGameRequested())
-		{
+		{ 
 			std::cout << "Pressed Exit" << std::endl;
-			ChangeGameState(GAME_STATE::GAMEOVER);
+			ChangeGameState(GAME_STATE::EXIT);
 		}
 
 		// Pause game
@@ -194,6 +201,25 @@ void GameHandler::Input()
 			{
 				ChangeGameState(GAME_STATE::RUNNING);
 			}
+		}
+
+
+		if (gameState == GAME_STATE::GAMEOVER)
+		{
+			if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
+			{
+				ChangeGameState(GAME_STATE::EXIT);
+			}
+			if (InputManager::getInstance().KeyDown(SDLK_SPACE))
+			{
+				//restart();
+			}
+		}
+
+		// Gamover
+		if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
+		{
+			ChangeGameState(GAME_STATE::GAMEOVER);
 		}
 
 		// Add score to player
@@ -252,6 +278,8 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 		TextRenderer::getInstance().getText("startscreen_title")->setVisible(false);
 		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(false);
 
+		TextRenderer::getInstance().getText("gameover_text")->setVisible(false);
+
 		TextRenderer::getInstance().getText("score")->setVisible(true);
 		TextRenderer::getInstance().getText("score_value")->setVisible(true);
 		TextRenderer::getInstance().getText("highscore")->setVisible(true);
@@ -260,6 +288,12 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 	case GAME_STATE::STARTSCREEN:
 		std::cout << "GameState: Startscreen" << std::endl;
 		TextRenderer::getInstance().getText("paused_text")->setVisible(false);
+
+		TextRenderer::getInstance().getText("gameover_text")->setVisible(false);
+		TextRenderer::getInstance().getText("gameover_yes")->setVisible(false);
+		TextRenderer::getInstance().getText("gameover_no")->setVisible(false);
+
+
 
 		TextRenderer::getInstance().getText("startscreen_title")->setVisible(true);
 		TextRenderer::getInstance().getText("startscreen_enter")->setVisible(true);
@@ -276,8 +310,18 @@ void GameHandler::ChangeGameState(GameHandler::GAME_STATE state)
 
 	case GAME_STATE::GAMEOVER:
 		std::cout << "GameState: GameOver" << std::endl;
+		TextRenderer::getInstance().getText("gameover_text")->setVisible(true);
+		TextRenderer::getInstance().getText("gameover_yes")->setVisible(true);
+		TextRenderer::getInstance().getText("gameover_no")->setVisible(true);
 
+
+		
 		break;
+
+	case GAME_STATE::EXIT:
+		std::cout << "GameState: EXIT" << std::endl;
+		break;
+
 	}
 
 
