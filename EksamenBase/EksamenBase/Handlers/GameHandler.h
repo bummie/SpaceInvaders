@@ -19,6 +19,7 @@ public:
 	static const int SCREEN_HEIGHT = 480;
 	static int score;
 	static int highScore;
+	static int level;
 private:
 	const enum GAME_STATE { RUNNING, STARTSCREEN, GAMEOVER, PAUSED, EXIT };
 

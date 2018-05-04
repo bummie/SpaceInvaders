@@ -19,6 +19,7 @@
 double GameHandler::deltaTime = 0;
 int GameHandler::score = 0;
 int GameHandler::highScore = 0;
+int GameHandler::level = 1;
 
 GameHandler::GameHandler()
 {
@@ -581,34 +582,34 @@ void GameHandler::CheckWin()
 	{
 		ResetEnemies();
 		m_enemyMoveDelay *= .7;
+		GameHandler::level++;
 	}
 }
 
 /// <summary>
 /// Checks if the player dies
 /// </summary>
+void GameHandler::CheckDeath()
+{
 
-	void GameHandler::CheckDeath()
+	if (m_gameState != GAME_STATE::STARTSCREEN && m_gameState != GAME_STATE::EXIT)
 	{
 
-		if (m_gameState != GAME_STATE::STARTSCREEN && m_gameState != GAME_STATE::EXIT)
+		auto player = GameObjectsManager::getInstance().Find("Player");
+		for (auto players : *player)
 		{
-
-			auto player = GameObjectsManager::getInstance().Find("Player");
-			for (auto players : *player)
+			if (players->getHp() <= 0)
 			{
-				if (players->getHp() <= 0)
+				ChangeGameState(GAME_STATE::GAMEOVER);
+				if (score > highScore)
 				{
-					ChangeGameState(GAME_STATE::GAMEOVER);
-					if (score > highScore)
-					{
-						highScore = score;
-					}
+					highScore = score;
 				}
-			}		
-			delete(player);
-		}
+			}
+		}		
+		delete(player);
 	}
+}
 
 /// <summary>
 /// GameHandler destructor

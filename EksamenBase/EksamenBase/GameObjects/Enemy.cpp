@@ -4,6 +4,7 @@
 #include "../Handlers/SoundManager.h"
 #include "../Handlers/GameObjectsManager.h"
 #include "../Handlers/CollisionManager.h"
+#include "../Handlers/GameHandler.h"
 
 #include "Snake.h"
 #include "EnemyAttack.h"
@@ -55,7 +56,7 @@ void Enemy::Logic()
 	GameObject::Logic();
 	if (getHp() <= 0) { return; }
 
-	if ((rand() % 7000) == 50)
+	if ((rand() % 7000/GameHandler::level) == 1)
 	{
 		if ((rand() % 10) > 5)
 		{
