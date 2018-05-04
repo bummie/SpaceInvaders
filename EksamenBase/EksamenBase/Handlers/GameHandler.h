@@ -53,10 +53,14 @@ private:
 	void ChangeGameState(GameHandler::GAME_STATE state);
 	void SpawnEnemies();
 	void ResetEnemies();
+	void ResetPlayer();
+	void ResetBarricades();
+	void ResetGame();
 	void MoveEnemies();
 	void CheckWin();
 	void CheckDeath();
 	void SpawnBarricades();
+
 
 	void DisplayStartScreenText(bool shouldDisplay);
 	void DisplayGameScreenText(bool shouldDisplay);

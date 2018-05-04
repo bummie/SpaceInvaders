@@ -3,6 +3,7 @@
 #include "../Handlers/TextureManager.h"
 #include "../Handlers/SoundManager.h"
 #include "../Handlers/GameObjectsManager.h"
+#include "../Handlers/CollisionManager.h"
 
 #include "Snake.h"
 #include "EnemyAttack.h"
@@ -64,5 +65,21 @@ void Enemy::Logic()
 			ObjectsPool::getInstance().GetEnemyAttack(m_renderer, position.x, position.y);
 		}
 	}
+
+	std::vector<std::shared_ptr<GameObject>>* collision = CollisionManager::getInstance().OnCollision(this);
+
+	if (collision != nullptr)
+	{
+		for (auto go : *collision)
+		{
+			if (go->tag == "BarricadeBlock")
+			{
+				go->setHp(0);
+				SoundManager::getInstance().PlaySound("Explosion");
+				return;
+			}
+		}
+	}
+	delete(collision);
 }
 

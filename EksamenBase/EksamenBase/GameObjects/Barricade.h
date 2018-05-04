@@ -11,6 +11,8 @@ private:
 public:
 	Barricade(SDL_Renderer * renderer, int x, int y);
 	~Barricade();
+
+	void ResetBarricadeBlocks();
 };
 
 #endif

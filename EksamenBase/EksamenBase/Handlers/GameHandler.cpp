@@ -9,6 +9,7 @@
 #include "../GameObjects/Laser.h"
 #include "../GameObjects/Snake.h"
 #include "../GameObjects/EnemyAttack.h"
+#include "../GameObjects/MysteryShip.h"
 #include <string>
 #include <iomanip>
 #include <memory>
@@ -28,7 +29,6 @@ GameHandler::GameHandler()
 	m_enemyMoveDirection = -1;
 	m_enemyTurnAround = false;
 	m_enemyMoveDown = false;
-
 }
 
 /// <summary>
@@ -69,6 +69,7 @@ void GameHandler::Init()
 
 	// Create player
 	GameObjectsManager::getInstance().Add(std::shared_ptr<Player>(new Player(renderer, SCREEN_HEIGHT / 2, SCREEN_HEIGHT - 64)));
+	GameObjectsManager::getInstance().Add(std::shared_ptr<MysteryShip>(new MysteryShip(renderer)));
 	SpawnEnemies();
 	SpawnBarricades();
 	
@@ -199,15 +200,16 @@ void GameHandler::Input()
 			}
 			if (InputManager::getInstance().KeyDown(SDLK_SPACE))
 			{
-				//restart();
+				ChangeGameState(GAME_STATE::RUNNING);
+				ResetGame();
 			}
 		}
 
 		// Gamover
 		if (InputManager::getInstance().KeyDown(SDLK_ESCAPE))
 		{
-			//ChangeGameState(GAME_STATE::GAMEOVER);
-			ResetEnemies();
+			ChangeGameState(GAME_STATE::GAMEOVER);
+			
 		}
 
 		// Handle input on gameobjects
@@ -334,6 +336,40 @@ void GameHandler::ResetEnemies()
 			m_enemies->at(pos)->ResetAnim();
 		}
 	}
+}
+
+/// <summary>
+/// Resets the player
+/// </summary>
+void GameHandler::ResetPlayer()
+{
+	auto player = GameObjectsManager::getInstance().Find("Player");
+	for (auto ply : *player) 
+	{
+		ply->setHp(100);
+	}
+}
+
+/// <summary>
+/// Resets all the barricades
+/// </summary>
+void GameHandler::ResetBarricades()
+{
+	for(auto barricade : m_barricade)
+	{
+		barricade->ResetBarricadeBlocks();
+	}
+}
+
+/// <summary>
+/// Resets the game
+/// </summary>
+void GameHandler::ResetGame()
+{
+	ResetEnemies();
+	ResetPlayer();
+	ResetBarricades();
+	GameHandler::score = 0;
 }
 
 /// <summary>
