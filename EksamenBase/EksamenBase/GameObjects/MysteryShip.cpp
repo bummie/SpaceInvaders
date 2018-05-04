@@ -48,7 +48,7 @@ void MysteryShip::Logic()
 				position.x = -48;
 			}
 
-			m_hasShownDeathTexture = false;
+			ResetAnim();
 			GameObject::setHp(100);
 			m_canRespawn = false;
 		}
