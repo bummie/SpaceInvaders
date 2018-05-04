@@ -61,9 +61,10 @@ private:
 	void CheckWin();
 	void CheckDeath();
 	void SpawnBarricades();
+
 	void GetScoreFile();
 	void SetScoreFile();
-	
+	void UpdateScoreText();
 
 	void DisplayStartScreenText(bool shouldDisplay);
 	void DisplayGameScreenText(bool shouldDisplay);
